@@ -1,0 +1,8 @@
+{
+	"SourceFiles": [
+		"C:\\Users\\jauma\\Documents\\GitHub\\TurnBasedPrototypeUE5\\TurnBasedPrototype\\Source\\TurnBasedPrototype\\TurnBasedPrototype.Build.cs",
+		"C:\\Users\\jauma\\Documents\\GitHub\\TurnBasedPrototypeUE5\\TurnBasedPrototype\\Source\\TurnBasedPrototype.Target.cs",
+		"C:\\Users\\jauma\\Documents\\GitHub\\TurnBasedPrototypeUE5\\TurnBasedPrototype\\Source\\TurnBasedPrototypeEditor.Target.cs"
+	],
+	"EngineVersion": "5.5.4"
+}

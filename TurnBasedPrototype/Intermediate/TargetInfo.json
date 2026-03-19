@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "TurnBasedPrototype",
+			"Path": "..\\Source\\TurnBasedPrototype.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "TurnBasedPrototypeEditor",
+			"Path": "..\\Source\\TurnBasedPrototypeEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}
