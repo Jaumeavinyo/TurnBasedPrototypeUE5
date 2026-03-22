@@ -11,6 +11,7 @@
     <None Include="..\..\Source\TurnBasedPrototypeEditor.Target.cs">
       <Filter>Source</Filter>
     </None>
+    <None Include="..\..\.vsconfig" />
     <Filter Include="Config">
       <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
     </Filter>
@@ -58,6 +59,30 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\TurnBasedPrototype\TurnBasedPrototypePlayerController.h">
       <Filter>Source\TurnBasedPrototype</Filter>
+    </ClCompile>
+    <Filter Include="Source\TurnBasedPrototype\Private">
+      <UniqueIdentifier>{DCFB8461-2241-32E2-B616-DEC3254A2122}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\TurnBasedPrototype\Private\BaseCharacter.cpp">
+      <Filter>Source\TurnBasedPrototype\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TurnBasedPrototype\Private\BaseWeapon.cpp">
+      <Filter>Source\TurnBasedPrototype\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TurnBasedPrototype\Private\PlayerCharacter.cpp">
+      <Filter>Source\TurnBasedPrototype\Private</Filter>
+    </ClCompile>
+    <Filter Include="Source\TurnBasedPrototype\Public">
+      <UniqueIdentifier>{8660F87A-E485-320D-B7E4-0122CE589DCB}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\TurnBasedPrototype\Public\BaseCharacter.h">
+      <Filter>Source\TurnBasedPrototype\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TurnBasedPrototype\Public\BaseWeapon.h">
+      <Filter>Source\TurnBasedPrototype\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TurnBasedPrototype\Public\PlayerCharacter.h">
+      <Filter>Source\TurnBasedPrototype\Public</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

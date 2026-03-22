@@ -1,0 +1,15 @@
+{
+	"version": 1,
+	"changelists": [
+		{
+			"guid": "00000000000000000000000000000000",
+			"description": "Default Uncontrolled Changelist",
+			"files": [
+				"C:/Users/jauma/Documents/GitHub/TurnBasedPrototypeUE5/TurnBasedPrototype/Content/BG3_Game/Player/MyPlayerCharacter.uasset",
+				"C:/Users/jauma/Documents/GitHub/TurnBasedPrototypeUE5/TurnBasedPrototype/Content/BG3_Game/Player/ABP_Knight.uasset",
+				"C:/Users/jauma/Documents/GitHub/TurnBasedPrototypeUE5/TurnBasedPrototype/Content/__ExternalActors__/TopDown/Maps/TopDownMap/A/QE/NA0CUO15C458YFGJRP54OJ.uasset",
+				"C:/Users/jauma/Documents/GitHub/TurnBasedPrototypeUE5/TurnBasedPrototype/Content/BG3_Game/Player/BP_MyPlayerCharacter.uasset"
+			]
+		}
+	]
+}

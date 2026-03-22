@@ -11,7 +11,7 @@ ATurnBasedPrototypeGameMode::ATurnBasedPrototypeGameMode()
 	PlayerControllerClass = ATurnBasedPrototypePlayerController::StaticClass();
 
 	// set default pawn class to our Blueprinted character
-	static ConstructorHelpers::FClassFinder<APawn> PlayerPawnBPClass(TEXT("/Game/TopDown/Blueprints/BP_TopDownCharacter"));
+	static ConstructorHelpers::FClassFinder<APawn> PlayerPawnBPClass(TEXT("/Game/BG3_Game/Player/BP_MyPlayerCharacter.BP_MyPlayerCharacter"));
 	if (PlayerPawnBPClass.Class != nullptr)
 	{
 		DefaultPawnClass = PlayerPawnBPClass.Class;
