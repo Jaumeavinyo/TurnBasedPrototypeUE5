@@ -72,6 +72,12 @@
     <ClCompile Include="..\..\Source\TurnBasedPrototype\Private\PlayerCharacter.cpp">
       <Filter>Source\TurnBasedPrototype\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\TurnBasedPrototype\Private\WeaponComponent.cpp">
+      <Filter>Source\TurnBasedPrototype\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TurnBasedPrototype\Private\WeaponDataAsset.cpp">
+      <Filter>Source\TurnBasedPrototype\Private</Filter>
+    </ClCompile>
     <Filter Include="Source\TurnBasedPrototype\Public">
       <UniqueIdentifier>{8660F87A-E485-320D-B7E4-0122CE589DCB}</UniqueIdentifier>
     </Filter>
@@ -82,6 +88,12 @@
       <Filter>Source\TurnBasedPrototype\Public</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\TurnBasedPrototype\Public\PlayerCharacter.h">
+      <Filter>Source\TurnBasedPrototype\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TurnBasedPrototype\Public\WeaponComponent.h">
+      <Filter>Source\TurnBasedPrototype\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TurnBasedPrototype\Public\WeaponDataAsset.h">
       <Filter>Source\TurnBasedPrototype\Public</Filter>
     </ClCompile>
   </ItemGroup>

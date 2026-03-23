@@ -6,7 +6,7 @@
 #include "GameFramework/Character.h"
 #include "BaseCharacter.generated.h"
 
-UCLASS()
+UCLASS(Blueprintable)
 class TURNBASEDPROTOTYPE_API ABaseCharacter : public ACharacter
 {
 	GENERATED_BODY()
@@ -25,5 +25,9 @@ public:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+protected:
 
+
+	UPROPERTY(EditAnywhere)
+	UChildActorComponent* Weapon;
 };
