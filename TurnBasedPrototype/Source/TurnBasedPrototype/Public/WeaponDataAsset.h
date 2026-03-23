@@ -29,7 +29,8 @@ UENUM(BlueprintType)
 enum class AttackType : uint8
 {
 	Light UMETA(DisplayName = "Light"),
-	Heavy UMETA(DisplayName = "Heavy")
+	Heavy UMETA(DisplayName = "Heavy"),
+	Special UMETA(DisplayName = "Special")
 };
 
 USTRUCT(BlueprintType)
@@ -73,8 +74,11 @@ public:
 	UAnimMontage* SheathingWeaponAnim;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Socket")
-	FName AttachSocket;
+	FName CombatAttachSocket;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Socket")
+	FName CarryAttachSocket;
+		
 	//COMBAT STATS
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Combat")
 	int32 damageDice;

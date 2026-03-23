@@ -9,7 +9,7 @@ ABaseCharacter::ABaseCharacter()
 {
  	
 	//Create Weapon
-	Weapon = CreateDefaultSubobject<UChildActorComponent>(TEXT("Weapon Component"));
+	Weapon = CreateDefaultSubobject<UWeaponComponent>(TEXT("Weapon Component"));
 
 	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;

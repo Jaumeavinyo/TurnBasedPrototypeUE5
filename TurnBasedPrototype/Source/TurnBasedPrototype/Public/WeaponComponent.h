@@ -8,7 +8,7 @@
 #include "WeaponComponent.generated.h"
 
 
-UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
+UCLASS(Blueprintable)
 class TURNBASEDPROTOTYPE_API UWeaponComponent : public UActorComponent
 {
 	GENERATED_BODY()
@@ -18,18 +18,24 @@ public:
 	UWeaponComponent();
 
 	UFUNCTION(BlueprintCallable, Category = "weapon")//saves curr weapon to the inventory and takes a weapon from the inventory as current
-	void EquipWeapon(UWeaponDataAsset* NewWeapon);
-
+	void SetCurrentWeapon(UWeaponDataAsset* NewWeapon);
+	
+	UFUNCTION(BlueprintCallable, Category = "weapon")//play anim to equip weapon (when combat state)
+	void EquipWeapon(FText socket);
+	
+	UFUNCTION(BlueprintCallable, Category = "weapon")//play anim to unequip weapon (when combat state)
+	void UnEquipWeapon(FText socket);
+	
 	UFUNCTION(BlueprintCallable, Category = "Weapon")
 	UWeaponDataAsset* GetCurrentWeapon() const { return CurrentWeapon; }
 
 
 	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Weapon")
-	UStaticMeshComponent* WeaponMesh;
+	UStaticMeshComponent* WeaponMesh;//called from abp
 	
-	UPROPERTY(Replicated, BlueprintReadOnly, Category = "Weapon")
-	UWeaponDataAsset* CurrentWeapon;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Weapon")
+	UWeaponDataAsset* CurrentWeapon;//called from abp
 
 	UFUNCTION(BlueprintCallable, Category = "Combat")
 	void performAttack(AttackType attackType);
@@ -41,6 +47,6 @@ protected:
 public:	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
-
+	
 		
 };

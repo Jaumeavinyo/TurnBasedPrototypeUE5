@@ -14,14 +14,14 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define TURNBASEDPROTOTYPE_WeaponDataAsset_generated_h
 
-#define FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_WeaponDataAsset_h_38_GENERATED_BODY \
+#define FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_WeaponDataAsset_h_39_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FWeaponAnim_Statics; \
 	TURNBASEDPROTOTYPE_API static class UScriptStruct* StaticStruct();
 
 
 template<> TURNBASEDPROTOTYPE_API UScriptStruct* StaticStruct<struct FWeaponAnim>();
 
-#define FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_WeaponDataAsset_h_52_INCLASS_NO_PURE_DECLS \
+#define FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_WeaponDataAsset_h_53_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUWeaponDataAsset(); \
 	friend struct Z_Construct_UClass_UWeaponDataAsset_Statics; \
@@ -30,7 +30,7 @@ public: \
 	DECLARE_SERIALIZER(UWeaponDataAsset)
 
 
-#define FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_WeaponDataAsset_h_52_ENHANCED_CONSTRUCTORS \
+#define FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_WeaponDataAsset_h_53_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UWeaponDataAsset(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 private: \
@@ -44,12 +44,12 @@ public: \
 	NO_API virtual ~UWeaponDataAsset();
 
 
-#define FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_WeaponDataAsset_h_49_PROLOG
-#define FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_WeaponDataAsset_h_52_GENERATED_BODY \
+#define FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_WeaponDataAsset_h_50_PROLOG
+#define FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_WeaponDataAsset_h_53_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_WeaponDataAsset_h_52_INCLASS_NO_PURE_DECLS \
-	FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_WeaponDataAsset_h_52_ENHANCED_CONSTRUCTORS \
+	FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_WeaponDataAsset_h_53_INCLASS_NO_PURE_DECLS \
+	FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_WeaponDataAsset_h_53_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -78,7 +78,8 @@ template<> TURNBASEDPROTOTYPE_API UEnum* StaticEnum<WeaponDamageType>();
 
 #define FOREACH_ENUM_ATTACKTYPE(op) \
 	op(AttackType::Light) \
-	op(AttackType::Heavy) 
+	op(AttackType::Heavy) \
+	op(AttackType::Special) 
 
 enum class AttackType : uint8;
 template<> struct TIsUEnumClass<AttackType> { enum { Value = true }; };

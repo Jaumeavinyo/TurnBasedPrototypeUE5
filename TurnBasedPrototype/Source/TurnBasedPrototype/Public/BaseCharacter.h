@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "WeaponComponent.h"
 #include "BaseCharacter.generated.h"
 
 UCLASS(Blueprintable)
@@ -28,6 +29,6 @@ public:
 protected:
 
 
-	UPROPERTY(EditAnywhere)
-	UChildActorComponent* Weapon;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Combat")
+	UWeaponComponent* Weapon;
 };
