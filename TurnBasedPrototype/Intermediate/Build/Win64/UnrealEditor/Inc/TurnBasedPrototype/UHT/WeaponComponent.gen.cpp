@@ -10,8 +10,9 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeWeaponComponent() {}
 
 // Begin Cross Module References
+COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 ENGINE_API UClass* Z_Construct_UClass_UActorComponent();
-ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
+TURNBASEDPROTOTYPE_API UClass* Z_Construct_UClass_ABaseWeapon_NoRegister();
 TURNBASEDPROTOTYPE_API UClass* Z_Construct_UClass_UWeaponComponent();
 TURNBASEDPROTOTYPE_API UClass* Z_Construct_UClass_UWeaponComponent_NoRegister();
 TURNBASEDPROTOTYPE_API UClass* Z_Construct_UClass_UWeaponDataAsset_NoRegister();
@@ -24,26 +25,30 @@ struct Z_Construct_UFunction_UWeaponComponent_EquipWeapon_Statics
 {
 	struct WeaponComponent_eventEquipWeapon_Parms
 	{
-		FText socket;
+		TSubclassOf<ABaseWeapon> newWeapon;
+		FName socket;
 	};
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "Category", "weapon" },
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "//play anim to equip weapon (when combat state)\n" },
+		{ "Comment", "//makes currentWeapon nullptr, then takes a weapon from inventory, spawns it, calls SetCurrentSocket(FName name) and makes it current\n" },
 #endif
 		{ "ModuleRelativePath", "Public/WeaponComponent.h" },
 #if !UE_BUILD_SHIPPING
-		{ "ToolTip", "play anim to equip weapon (when combat state)" },
+		{ "ToolTip", "makes currentWeapon nullptr, then takes a weapon from inventory, spawns it, calls SetCurrentSocket(FName name) and makes it current" },
 #endif
 	};
 #endif // WITH_METADATA
-	static const UECodeGen_Private::FTextPropertyParams NewProp_socket;
+	static const UECodeGen_Private::FClassPropertyParams NewProp_newWeapon;
+	static const UECodeGen_Private::FNamePropertyParams NewProp_socket;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static const UECodeGen_Private::FFunctionParams FuncParams;
 };
-const UECodeGen_Private::FTextPropertyParams Z_Construct_UFunction_UWeaponComponent_EquipWeapon_Statics::NewProp_socket = { "socket", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Text, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(WeaponComponent_eventEquipWeapon_Parms, socket), METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FClassPropertyParams Z_Construct_UFunction_UWeaponComponent_EquipWeapon_Statics::NewProp_newWeapon = { "newWeapon", nullptr, (EPropertyFlags)0x0014000000000080, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(WeaponComponent_eventEquipWeapon_Parms, newWeapon), Z_Construct_UClass_UClass, Z_Construct_UClass_ABaseWeapon_NoRegister, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FNamePropertyParams Z_Construct_UFunction_UWeaponComponent_EquipWeapon_Statics::NewProp_socket = { "socket", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(WeaponComponent_eventEquipWeapon_Parms, socket), METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UWeaponComponent_EquipWeapon_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UWeaponComponent_EquipWeapon_Statics::NewProp_newWeapon,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UWeaponComponent_EquipWeapon_Statics::NewProp_socket,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UWeaponComponent_EquipWeapon_Statics::PropPointers) < 2048);
@@ -60,10 +65,11 @@ UFunction* Z_Construct_UFunction_UWeaponComponent_EquipWeapon()
 }
 DEFINE_FUNCTION(UWeaponComponent::execEquipWeapon)
 {
-	P_GET_PROPERTY(FTextProperty,Z_Param_socket);
+	P_GET_OBJECT(UClass,Z_Param_newWeapon);
+	P_GET_PROPERTY(FNameProperty,Z_Param_socket);
 	P_FINISH;
 	P_NATIVE_BEGIN;
-	P_THIS->EquipWeapon(Z_Param_socket);
+	P_THIS->EquipWeapon(Z_Param_newWeapon,Z_Param_socket);
 	P_NATIVE_END;
 }
 // End Class UWeaponComponent Function EquipWeapon
@@ -73,19 +79,25 @@ struct Z_Construct_UFunction_UWeaponComponent_GetCurrentWeapon_Statics
 {
 	struct WeaponComponent_eventGetCurrentWeapon_Parms
 	{
-		UWeaponDataAsset* ReturnValue;
+		ABaseWeapon* ReturnValue;
 	};
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "Category", "Weapon" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "//returns the current weapon that the character is using\n" },
+#endif
 		{ "ModuleRelativePath", "Public/WeaponComponent.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "returns the current weapon that the character is using" },
+#endif
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_ReturnValue;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static const UECodeGen_Private::FFunctionParams FuncParams;
 };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UWeaponComponent_GetCurrentWeapon_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(WeaponComponent_eventGetCurrentWeapon_Parms, ReturnValue), Z_Construct_UClass_UWeaponDataAsset_NoRegister, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UWeaponComponent_GetCurrentWeapon_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(WeaponComponent_eventGetCurrentWeapon_Parms, ReturnValue), Z_Construct_UClass_ABaseWeapon_NoRegister, METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UWeaponComponent_GetCurrentWeapon_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UWeaponComponent_GetCurrentWeapon_Statics::NewProp_ReturnValue,
 };
@@ -105,10 +117,52 @@ DEFINE_FUNCTION(UWeaponComponent::execGetCurrentWeapon)
 {
 	P_FINISH;
 	P_NATIVE_BEGIN;
-	*(UWeaponDataAsset**)Z_Param__Result=P_THIS->GetCurrentWeapon();
+	*(ABaseWeapon**)Z_Param__Result=P_THIS->GetCurrentWeapon();
 	P_NATIVE_END;
 }
 // End Class UWeaponComponent Function GetCurrentWeapon
+
+// Begin Class UWeaponComponent Function GetCurrentWeaponData
+struct Z_Construct_UFunction_UWeaponComponent_GetCurrentWeaponData_Statics
+{
+	struct WeaponComponent_eventGetCurrentWeaponData_Parms
+	{
+		UWeaponDataAsset* ReturnValue;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "Weapon" },
+		{ "ModuleRelativePath", "Public/WeaponComponent.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_ReturnValue;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UWeaponComponent_GetCurrentWeaponData_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(WeaponComponent_eventGetCurrentWeaponData_Parms, ReturnValue), Z_Construct_UClass_UWeaponDataAsset_NoRegister, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UWeaponComponent_GetCurrentWeaponData_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UWeaponComponent_GetCurrentWeaponData_Statics::NewProp_ReturnValue,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UWeaponComponent_GetCurrentWeaponData_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UWeaponComponent_GetCurrentWeaponData_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UWeaponComponent, nullptr, "GetCurrentWeaponData", nullptr, nullptr, Z_Construct_UFunction_UWeaponComponent_GetCurrentWeaponData_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UWeaponComponent_GetCurrentWeaponData_Statics::PropPointers), sizeof(Z_Construct_UFunction_UWeaponComponent_GetCurrentWeaponData_Statics::WeaponComponent_eventGetCurrentWeaponData_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x54020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UWeaponComponent_GetCurrentWeaponData_Statics::Function_MetaDataParams), Z_Construct_UFunction_UWeaponComponent_GetCurrentWeaponData_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_UWeaponComponent_GetCurrentWeaponData_Statics::WeaponComponent_eventGetCurrentWeaponData_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_UWeaponComponent_GetCurrentWeaponData()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UWeaponComponent_GetCurrentWeaponData_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UWeaponComponent::execGetCurrentWeaponData)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	*(UWeaponDataAsset**)Z_Param__Result=P_THIS->GetCurrentWeaponData();
+	P_NATIVE_END;
+}
+// End Class UWeaponComponent Function GetCurrentWeaponData
 
 // Begin Class UWeaponComponent Function performAttack
 struct Z_Construct_UFunction_UWeaponComponent_performAttack_Statics
@@ -120,13 +174,7 @@ struct Z_Construct_UFunction_UWeaponComponent_performAttack_Statics
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "Category", "Combat" },
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "//called from abp\n" },
-#endif
 		{ "ModuleRelativePath", "Public/WeaponComponent.h" },
-#if !UE_BUILD_SHIPPING
-		{ "ToolTip", "called from abp" },
-#endif
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FBytePropertyParams NewProp_attackType_Underlying;
@@ -162,103 +210,54 @@ DEFINE_FUNCTION(UWeaponComponent::execperformAttack)
 }
 // End Class UWeaponComponent Function performAttack
 
-// Begin Class UWeaponComponent Function SetCurrentWeapon
-struct Z_Construct_UFunction_UWeaponComponent_SetCurrentWeapon_Statics
+// Begin Class UWeaponComponent Function SetCurrentSocket
+struct Z_Construct_UFunction_UWeaponComponent_SetCurrentSocket_Statics
 {
-	struct WeaponComponent_eventSetCurrentWeapon_Parms
+	struct WeaponComponent_eventSetCurrentSocket_Parms
 	{
-		UWeaponDataAsset* NewWeapon;
+		FName name;
 	};
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "Category", "weapon" },
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "//saves curr weapon to the inventory and takes a weapon from the inventory as current\n" },
+		{ "Comment", "//should be called from from abp animNotify. changes weapon position between body sockets\n" },
 #endif
 		{ "ModuleRelativePath", "Public/WeaponComponent.h" },
 #if !UE_BUILD_SHIPPING
-		{ "ToolTip", "saves curr weapon to the inventory and takes a weapon from the inventory as current" },
+		{ "ToolTip", "should be called from from abp animNotify. changes weapon position between body sockets" },
 #endif
 	};
 #endif // WITH_METADATA
-	static const UECodeGen_Private::FObjectPropertyParams NewProp_NewWeapon;
+	static const UECodeGen_Private::FNamePropertyParams NewProp_name;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static const UECodeGen_Private::FFunctionParams FuncParams;
 };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UWeaponComponent_SetCurrentWeapon_Statics::NewProp_NewWeapon = { "NewWeapon", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(WeaponComponent_eventSetCurrentWeapon_Parms, NewWeapon), Z_Construct_UClass_UWeaponDataAsset_NoRegister, METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UWeaponComponent_SetCurrentWeapon_Statics::PropPointers[] = {
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UWeaponComponent_SetCurrentWeapon_Statics::NewProp_NewWeapon,
+const UECodeGen_Private::FNamePropertyParams Z_Construct_UFunction_UWeaponComponent_SetCurrentSocket_Statics::NewProp_name = { "name", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(WeaponComponent_eventSetCurrentSocket_Parms, name), METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UWeaponComponent_SetCurrentSocket_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UWeaponComponent_SetCurrentSocket_Statics::NewProp_name,
 };
-static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UWeaponComponent_SetCurrentWeapon_Statics::PropPointers) < 2048);
-const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UWeaponComponent_SetCurrentWeapon_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UWeaponComponent, nullptr, "SetCurrentWeapon", nullptr, nullptr, Z_Construct_UFunction_UWeaponComponent_SetCurrentWeapon_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UWeaponComponent_SetCurrentWeapon_Statics::PropPointers), sizeof(Z_Construct_UFunction_UWeaponComponent_SetCurrentWeapon_Statics::WeaponComponent_eventSetCurrentWeapon_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UWeaponComponent_SetCurrentWeapon_Statics::Function_MetaDataParams), Z_Construct_UFunction_UWeaponComponent_SetCurrentWeapon_Statics::Function_MetaDataParams) };
-static_assert(sizeof(Z_Construct_UFunction_UWeaponComponent_SetCurrentWeapon_Statics::WeaponComponent_eventSetCurrentWeapon_Parms) < MAX_uint16);
-UFunction* Z_Construct_UFunction_UWeaponComponent_SetCurrentWeapon()
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UWeaponComponent_SetCurrentSocket_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UWeaponComponent_SetCurrentSocket_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UWeaponComponent, nullptr, "SetCurrentSocket", nullptr, nullptr, Z_Construct_UFunction_UWeaponComponent_SetCurrentSocket_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UWeaponComponent_SetCurrentSocket_Statics::PropPointers), sizeof(Z_Construct_UFunction_UWeaponComponent_SetCurrentSocket_Statics::WeaponComponent_eventSetCurrentSocket_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UWeaponComponent_SetCurrentSocket_Statics::Function_MetaDataParams), Z_Construct_UFunction_UWeaponComponent_SetCurrentSocket_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_UWeaponComponent_SetCurrentSocket_Statics::WeaponComponent_eventSetCurrentSocket_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_UWeaponComponent_SetCurrentSocket()
 {
 	static UFunction* ReturnFunction = nullptr;
 	if (!ReturnFunction)
 	{
-		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UWeaponComponent_SetCurrentWeapon_Statics::FuncParams);
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UWeaponComponent_SetCurrentSocket_Statics::FuncParams);
 	}
 	return ReturnFunction;
 }
-DEFINE_FUNCTION(UWeaponComponent::execSetCurrentWeapon)
+DEFINE_FUNCTION(UWeaponComponent::execSetCurrentSocket)
 {
-	P_GET_OBJECT(UWeaponDataAsset,Z_Param_NewWeapon);
+	P_GET_PROPERTY(FNameProperty,Z_Param_name);
 	P_FINISH;
 	P_NATIVE_BEGIN;
-	P_THIS->SetCurrentWeapon(Z_Param_NewWeapon);
+	P_THIS->SetCurrentSocket(Z_Param_name);
 	P_NATIVE_END;
 }
-// End Class UWeaponComponent Function SetCurrentWeapon
-
-// Begin Class UWeaponComponent Function UnEquipWeapon
-struct Z_Construct_UFunction_UWeaponComponent_UnEquipWeapon_Statics
-{
-	struct WeaponComponent_eventUnEquipWeapon_Parms
-	{
-		FText socket;
-	};
-#if WITH_METADATA
-	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "Category", "weapon" },
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "//play anim to unequip weapon (when combat state)\n" },
-#endif
-		{ "ModuleRelativePath", "Public/WeaponComponent.h" },
-#if !UE_BUILD_SHIPPING
-		{ "ToolTip", "play anim to unequip weapon (when combat state)" },
-#endif
-	};
-#endif // WITH_METADATA
-	static const UECodeGen_Private::FTextPropertyParams NewProp_socket;
-	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
-	static const UECodeGen_Private::FFunctionParams FuncParams;
-};
-const UECodeGen_Private::FTextPropertyParams Z_Construct_UFunction_UWeaponComponent_UnEquipWeapon_Statics::NewProp_socket = { "socket", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Text, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(WeaponComponent_eventUnEquipWeapon_Parms, socket), METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UWeaponComponent_UnEquipWeapon_Statics::PropPointers[] = {
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UWeaponComponent_UnEquipWeapon_Statics::NewProp_socket,
-};
-static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UWeaponComponent_UnEquipWeapon_Statics::PropPointers) < 2048);
-const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UWeaponComponent_UnEquipWeapon_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UWeaponComponent, nullptr, "UnEquipWeapon", nullptr, nullptr, Z_Construct_UFunction_UWeaponComponent_UnEquipWeapon_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UWeaponComponent_UnEquipWeapon_Statics::PropPointers), sizeof(Z_Construct_UFunction_UWeaponComponent_UnEquipWeapon_Statics::WeaponComponent_eventUnEquipWeapon_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UWeaponComponent_UnEquipWeapon_Statics::Function_MetaDataParams), Z_Construct_UFunction_UWeaponComponent_UnEquipWeapon_Statics::Function_MetaDataParams) };
-static_assert(sizeof(Z_Construct_UFunction_UWeaponComponent_UnEquipWeapon_Statics::WeaponComponent_eventUnEquipWeapon_Parms) < MAX_uint16);
-UFunction* Z_Construct_UFunction_UWeaponComponent_UnEquipWeapon()
-{
-	static UFunction* ReturnFunction = nullptr;
-	if (!ReturnFunction)
-	{
-		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UWeaponComponent_UnEquipWeapon_Statics::FuncParams);
-	}
-	return ReturnFunction;
-}
-DEFINE_FUNCTION(UWeaponComponent::execUnEquipWeapon)
-{
-	P_GET_PROPERTY(FTextProperty,Z_Param_socket);
-	P_FINISH;
-	P_NATIVE_BEGIN;
-	P_THIS->UnEquipWeapon(Z_Param_socket);
-	P_NATIVE_END;
-}
-// End Class UWeaponComponent Function UnEquipWeapon
+// End Class UWeaponComponent Function SetCurrentSocket
 
 // Begin Class UWeaponComponent
 void UWeaponComponent::StaticRegisterNativesUWeaponComponent()
@@ -267,9 +266,9 @@ void UWeaponComponent::StaticRegisterNativesUWeaponComponent()
 	static const FNameNativePtrPair Funcs[] = {
 		{ "EquipWeapon", &UWeaponComponent::execEquipWeapon },
 		{ "GetCurrentWeapon", &UWeaponComponent::execGetCurrentWeapon },
+		{ "GetCurrentWeaponData", &UWeaponComponent::execGetCurrentWeaponData },
 		{ "performAttack", &UWeaponComponent::execperformAttack },
-		{ "SetCurrentWeapon", &UWeaponComponent::execSetCurrentWeapon },
-		{ "UnEquipWeapon", &UWeaponComponent::execUnEquipWeapon },
+		{ "SetCurrentSocket", &UWeaponComponent::execSetCurrentSocket },
 	};
 	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 }
@@ -287,32 +286,25 @@ struct Z_Construct_UClass_UWeaponComponent_Statics
 		{ "IsBlueprintBase", "true" },
 		{ "ModuleRelativePath", "Public/WeaponComponent.h" },
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_WeaponMesh_MetaData[] = {
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_DefaultWeaponClass_MetaData[] = {
 		{ "Category", "Weapon" },
-		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/WeaponComponent.h" },
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CurrentWeapon_MetaData[] = {
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_currentWeapon_MetaData[] = {
 		{ "Category", "Weapon" },
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "//called from abp\n" },
-#endif
 		{ "ModuleRelativePath", "Public/WeaponComponent.h" },
-#if !UE_BUILD_SHIPPING
-		{ "ToolTip", "called from abp" },
-#endif
 	};
 #endif // WITH_METADATA
-	static const UECodeGen_Private::FObjectPropertyParams NewProp_WeaponMesh;
-	static const UECodeGen_Private::FObjectPropertyParams NewProp_CurrentWeapon;
+	static const UECodeGen_Private::FClassPropertyParams NewProp_DefaultWeaponClass;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_currentWeapon;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
-		{ &Z_Construct_UFunction_UWeaponComponent_EquipWeapon, "EquipWeapon" }, // 3221003102
-		{ &Z_Construct_UFunction_UWeaponComponent_GetCurrentWeapon, "GetCurrentWeapon" }, // 3356276345
-		{ &Z_Construct_UFunction_UWeaponComponent_performAttack, "performAttack" }, // 3329912420
-		{ &Z_Construct_UFunction_UWeaponComponent_SetCurrentWeapon, "SetCurrentWeapon" }, // 1451453588
-		{ &Z_Construct_UFunction_UWeaponComponent_UnEquipWeapon, "UnEquipWeapon" }, // 133864006
+		{ &Z_Construct_UFunction_UWeaponComponent_EquipWeapon, "EquipWeapon" }, // 527390298
+		{ &Z_Construct_UFunction_UWeaponComponent_GetCurrentWeapon, "GetCurrentWeapon" }, // 1523892033
+		{ &Z_Construct_UFunction_UWeaponComponent_GetCurrentWeaponData, "GetCurrentWeaponData" }, // 415896152
+		{ &Z_Construct_UFunction_UWeaponComponent_performAttack, "performAttack" }, // 1103851661
+		{ &Z_Construct_UFunction_UWeaponComponent_SetCurrentSocket, "SetCurrentSocket" }, // 2234705983
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -320,11 +312,11 @@ struct Z_Construct_UClass_UWeaponComponent_Statics
 	};
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UWeaponComponent_Statics::NewProp_WeaponMesh = { "WeaponMesh", nullptr, (EPropertyFlags)0x00100000000a001d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UWeaponComponent, WeaponMesh), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_WeaponMesh_MetaData), NewProp_WeaponMesh_MetaData) };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UWeaponComponent_Statics::NewProp_CurrentWeapon = { "CurrentWeapon", nullptr, (EPropertyFlags)0x0010000000020015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UWeaponComponent, CurrentWeapon), Z_Construct_UClass_UWeaponDataAsset_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CurrentWeapon_MetaData), NewProp_CurrentWeapon_MetaData) };
+const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_UWeaponComponent_Statics::NewProp_DefaultWeaponClass = { "DefaultWeaponClass", nullptr, (EPropertyFlags)0x0014000000000001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UWeaponComponent, DefaultWeaponClass), Z_Construct_UClass_UClass, Z_Construct_UClass_ABaseWeapon_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_DefaultWeaponClass_MetaData), NewProp_DefaultWeaponClass_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UWeaponComponent_Statics::NewProp_currentWeapon = { "currentWeapon", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UWeaponComponent, currentWeapon), Z_Construct_UClass_ABaseWeapon_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_currentWeapon_MetaData), NewProp_currentWeapon_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UWeaponComponent_Statics::PropPointers[] = {
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponComponent_Statics::NewProp_WeaponMesh,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponComponent_Statics::NewProp_CurrentWeapon,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponComponent_Statics::NewProp_DefaultWeaponClass,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponComponent_Statics::NewProp_currentWeapon,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UWeaponComponent_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_UWeaponComponent_Statics::DependentSingletons[])() = {
@@ -367,10 +359,10 @@ UWeaponComponent::~UWeaponComponent() {}
 struct Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_WeaponComponent_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UWeaponComponent, UWeaponComponent::StaticClass, TEXT("UWeaponComponent"), &Z_Registration_Info_UClass_UWeaponComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UWeaponComponent), 323874099U) },
+		{ Z_Construct_UClass_UWeaponComponent, UWeaponComponent::StaticClass, TEXT("UWeaponComponent"), &Z_Registration_Info_UClass_UWeaponComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UWeaponComponent), 2903444247U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_WeaponComponent_h_488443676(TEXT("/Script/TurnBasedPrototype"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_WeaponComponent_h_2548918418(TEXT("/Script/TurnBasedPrototype"),
 	Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_WeaponComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_WeaponComponent_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

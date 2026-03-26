@@ -68,7 +68,7 @@ public:
 	TArray<FWeaponAnim> weaponAnims;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Animations")
-	UAnimMontage* equipWeaponAnim;
+	UAnimMontage* DrawWeaponAnim;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Animations")
 	UAnimMontage* SheathingWeaponAnim;

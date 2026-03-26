@@ -34,6 +34,7 @@ private:
 protected:
 	
 
+	
 public:
 
 	/** Camera distance from the player */

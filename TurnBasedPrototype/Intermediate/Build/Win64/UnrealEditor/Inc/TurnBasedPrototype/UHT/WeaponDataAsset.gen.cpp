@@ -330,7 +330,7 @@ struct Z_Construct_UClass_UWeaponDataAsset_Statics
 		{ "ToolTip", "WEAPON DATA" },
 #endif
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_equipWeaponAnim_MetaData[] = {
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_DrawWeaponAnim_MetaData[] = {
 		{ "Category", "Animations" },
 		{ "ModuleRelativePath", "Public/WeaponDataAsset.h" },
 	};
@@ -396,7 +396,7 @@ struct Z_Construct_UClass_UWeaponDataAsset_Statics
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_WeaponIcon;
 	static const UECodeGen_Private::FStructPropertyParams NewProp_weaponAnims_Inner;
 	static const UECodeGen_Private::FArrayPropertyParams NewProp_weaponAnims;
-	static const UECodeGen_Private::FObjectPropertyParams NewProp_equipWeaponAnim;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_DrawWeaponAnim;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_SheathingWeaponAnim;
 	static const UECodeGen_Private::FNamePropertyParams NewProp_CombatAttachSocket;
 	static const UECodeGen_Private::FNamePropertyParams NewProp_CarryAttachSocket;
@@ -422,7 +422,7 @@ const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UWeaponDataAss
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_WeaponIcon = { "WeaponIcon", nullptr, (EPropertyFlags)0x0010000000010015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UWeaponDataAsset, WeaponIcon), Z_Construct_UClass_UTexture2D_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_WeaponIcon_MetaData), NewProp_WeaponIcon_MetaData) };
 const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_weaponAnims_Inner = { "weaponAnims", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FWeaponAnim, METADATA_PARAMS(0, nullptr) }; // 4110656983
 const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_weaponAnims = { "weaponAnims", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UWeaponDataAsset, weaponAnims), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_weaponAnims_MetaData), NewProp_weaponAnims_MetaData) }; // 4110656983
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_equipWeaponAnim = { "equipWeaponAnim", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UWeaponDataAsset, equipWeaponAnim), Z_Construct_UClass_UAnimMontage_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_equipWeaponAnim_MetaData), NewProp_equipWeaponAnim_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_DrawWeaponAnim = { "DrawWeaponAnim", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UWeaponDataAsset, DrawWeaponAnim), Z_Construct_UClass_UAnimMontage_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_DrawWeaponAnim_MetaData), NewProp_DrawWeaponAnim_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_SheathingWeaponAnim = { "SheathingWeaponAnim", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UWeaponDataAsset, SheathingWeaponAnim), Z_Construct_UClass_UAnimMontage_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SheathingWeaponAnim_MetaData), NewProp_SheathingWeaponAnim_MetaData) };
 const UECodeGen_Private::FNamePropertyParams Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_CombatAttachSocket = { "CombatAttachSocket", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UWeaponDataAsset, CombatAttachSocket), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CombatAttachSocket_MetaData), NewProp_CombatAttachSocket_MetaData) };
 const UECodeGen_Private::FNamePropertyParams Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_CarryAttachSocket = { "CarryAttachSocket", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UWeaponDataAsset, CarryAttachSocket), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CarryAttachSocket_MetaData), NewProp_CarryAttachSocket_MetaData) };
@@ -442,7 +442,7 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UWeaponDa
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_WeaponIcon,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_weaponAnims_Inner,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_weaponAnims,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_equipWeaponAnim,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_DrawWeaponAnim,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_SheathingWeaponAnim,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_CombatAttachSocket,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_CarryAttachSocket,
@@ -507,10 +507,10 @@ struct Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototype
 		{ FWeaponAnim::StaticStruct, Z_Construct_UScriptStruct_FWeaponAnim_Statics::NewStructOps, TEXT("WeaponAnim"), &Z_Registration_Info_UScriptStruct_WeaponAnim, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FWeaponAnim), 4110656983U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UWeaponDataAsset, UWeaponDataAsset::StaticClass, TEXT("UWeaponDataAsset"), &Z_Registration_Info_UClass_UWeaponDataAsset, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UWeaponDataAsset), 1313662850U) },
+		{ Z_Construct_UClass_UWeaponDataAsset, UWeaponDataAsset::StaticClass, TEXT("UWeaponDataAsset"), &Z_Registration_Info_UClass_UWeaponDataAsset, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UWeaponDataAsset), 4112250993U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_WeaponDataAsset_h_3573149941(TEXT("/Script/TurnBasedPrototype"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_WeaponDataAsset_h_3030181278(TEXT("/Script/TurnBasedPrototype"),
 	Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_WeaponDataAsset_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_WeaponDataAsset_h_Statics::ClassInfo),
 	Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_WeaponDataAsset_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_WeaponDataAsset_h_Statics::ScriptStructInfo),
 	Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_WeaponDataAsset_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_WeaponDataAsset_h_Statics::EnumInfo));

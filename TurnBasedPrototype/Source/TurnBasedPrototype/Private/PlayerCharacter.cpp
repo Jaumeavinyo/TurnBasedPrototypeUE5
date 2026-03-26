@@ -9,7 +9,7 @@
 #include "Camera/CameraComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 
-APlayerCharacter::APlayerCharacter(const FObjectInitializer& ObjectInitializer)
+APlayerCharacter::APlayerCharacter(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)  
 	
 {
 	// Set size for player capsule

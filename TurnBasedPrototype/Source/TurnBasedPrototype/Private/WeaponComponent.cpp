@@ -2,6 +2,8 @@
 
 
 #include "WeaponComponent.h"
+#include "PlayerCharacter.h"
+#include "BaseWeapon.h"
 
 // Sets default values for this component's properties
 UWeaponComponent::UWeaponComponent()
@@ -13,37 +15,57 @@ UWeaponComponent::UWeaponComponent()
 
 }
 
-void UWeaponComponent::SetCurrentWeapon(UWeaponDataAsset* NewWeapon)
+void UWeaponComponent::SetCurrentSocket(FName socket)
 {
-	if (!NewWeapon)
+	if (USkeletalMeshComponent* CharacterMesh = GetOwner()->FindComponentByClass<USkeletalMeshComponent>())
+	{
+		currentWeapon->AttachToComponent(CharacterMesh,FAttachmentTransformRules::SnapToTargetIncludingScale,socket );
+	}
+}
+
+void UWeaponComponent::EquipWeapon(TSubclassOf<ABaseWeapon> newWeapon, FName socket)
+{
+	if (currentWeapon)
+	{
+		currentWeapon->Destroy();
+		currentWeapon = nullptr;
+	}
+	if (!newWeapon || !GetOwner())
+	{
+		return;
+		
+	}
+	
+	FActorSpawnParameters SpawnParams;
+	SpawnParams.Owner = GetOwner();
+	SpawnParams.Instigator = Cast<APawn>(GetOwner());
+    
+	currentWeapon = GetOwner()->GetWorld()->SpawnActor<ABaseWeapon>(newWeapon,GetOwner()->GetActorLocation(),GetOwner()->GetActorRotation(),SpawnParams
+	);
+	if (!currentWeapon)
 	{
 		return;
 	}
-	CurrentWeapon = NewWeapon;
+	//Attach new weapon to socket
+	if (USkeletalMeshComponent* CharacterMesh = GetOwner()->FindComponentByClass<USkeletalMeshComponent>())
+	{
+		currentWeapon->AttachToComponent(CharacterMesh,FAttachmentTransformRules::SnapToTargetIncludingScale,socket );
+	}
 }
 
-//This triggers equip weapon anim: start anim equip, wait for animnotify->change mesh socket to hand
-void UWeaponComponent::EquipWeapon(FText socket)
-{
-	
-}
-
-void UWeaponComponent::UnEquipWeapon(FText socket)
-{
-}
 
 //Dice should be already rolled by combat director, combat director asks this component which dices has to throw for the specific weapon, compares them to the minimun to success
 // and then moves the character if necessary and only when position of the character is in range (weapon) to attack we call this function giving it the anim to perform.
 //then the combat director waits a specific animNotify to take the enemy life and tell him to hit react
 void UWeaponComponent::performAttack(AttackType attackType)
 {
-	if (!CurrentWeapon)
+	if (!currentWeapon)
 	{
 		UE_LOG(LogTemp, Warning, TEXT("No weapon equipped!"));
 		return;
 	}
 	
-	for (FWeaponAnim anim : CurrentWeapon->weaponAnims)
+	/*for (FWeaponAnim anim : currentWeapon->GetWeaponData()->weaponAnims)
 	{
 		if (anim.attackType == AttackType::Light)
 		{
@@ -57,7 +79,7 @@ void UWeaponComponent::performAttack(AttackType attackType)
 		{
 			//attack(anim, damage) function 
 		}
-	}
+	}*/
 }
 
 // Called when the game starts
@@ -77,62 +99,3 @@ void UWeaponComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActo
 
 	// ...
 }
-
-/*
- *
-*void UWeaponComponent::UpdateVisualMesh()
-{
-if (!WeaponMesh || !CurrentWeapon || !CurrentWeapon->Mesh)
-{
-return;
-}
-	
-// Asignar la malla
-WeaponMesh->SetStaticMesh(CurrentWeapon->Mesh);
-	
-// Aplicar material si existe
-if (CurrentWeapon->MaterialOverride)
-{
-WeaponMesh->SetMaterial(0, CurrentWeapon->MaterialOverride);
-}
-	
-// Adjuntar al personaje en el socket correcto
-if (AActor* Owner = GetOwner())
-{
-if (ACharacter* Character = Cast<ACharacter>(Owner))
-{
-if (USkeletalMeshComponent* SkeletalMesh = Character->GetMesh())
-{
-WeaponMesh->AttachToComponent(SkeletalMesh, 
-FAttachmentTransformRules::SnapToTargetNotIncludingScale,
-CurrentWeapon->AttachSocket);
-}
-}
-}
-}
-
-void UWeaponComponent::EquipWeapon(UWeaponDataAsset* NewWeapon)
-{
-	if (!NewWeapon)
-	{
-		return;
-	}
-	
-	CurrentWeapon = NewWeapon;
-	UpdateVisualMesh();
-	
-	// Reproducir animación de equipar si existe
-	if (ACharacter* Owner = Cast<ACharacter>(GetOwner()))
-	{
-		if (UAnimInstance* AnimInstance = Owner->GetMesh()->GetAnimInstance())
-		{
-			if (CurrentWeapon->EquipMontage)
-			{
-				AnimInstance->Montage_Play(CurrentWeapon->EquipMontage);
-			}
-		}
-	}
-	
-	UE_LOG(LogTemp, Log, TEXT("Equipped weapon: %s"), *CurrentWeapon->WeaponName.ToString());
-}
-*/

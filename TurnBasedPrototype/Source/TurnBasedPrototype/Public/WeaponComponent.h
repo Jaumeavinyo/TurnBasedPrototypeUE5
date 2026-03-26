@@ -3,10 +3,13 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "BaseWeapon.h"
 #include "WeaponDataAsset.h"
 #include "Components/ActorComponent.h"
 #include "WeaponComponent.generated.h"
 
+
+class ABaseWeapon;
 
 UCLASS(Blueprintable)
 class TURNBASEDPROTOTYPE_API UWeaponComponent : public UActorComponent
@@ -17,26 +20,33 @@ public:
 	// Sets default values for this component's properties
 	UWeaponComponent();
 
-	UFUNCTION(BlueprintCallable, Category = "weapon")//saves curr weapon to the inventory and takes a weapon from the inventory as current
-	void SetCurrentWeapon(UWeaponDataAsset* NewWeapon);
 	
-	UFUNCTION(BlueprintCallable, Category = "weapon")//play anim to equip weapon (when combat state)
-	void EquipWeapon(FText socket);
 	
-	UFUNCTION(BlueprintCallable, Category = "weapon")//play anim to unequip weapon (when combat state)
-	void UnEquipWeapon(FText socket);
 	
+	//should be called from from abp animNotify. changes weapon position between body sockets
+	UFUNCTION(BlueprintCallable, Category = "weapon")
+	void SetCurrentSocket(FName name);
+	
+	//makes currentWeapon nullptr, then takes a weapon from inventory, spawns it, calls SetCurrentSocket(FName name) and makes it current
+	UFUNCTION(BlueprintCallable, Category = "weapon")
+	void EquipWeapon(TSubclassOf<ABaseWeapon> newWeapon, FName socket);
+	
+	//returns the current weapon that the character is using
 	UFUNCTION(BlueprintCallable, Category = "Weapon")
-	UWeaponDataAsset* GetCurrentWeapon() const { return CurrentWeapon; }
+	ABaseWeapon* GetCurrentWeapon() const { return currentWeapon; }
+
+	UFUNCTION(BlueprintCallable, Category = "Weapon")
+	UWeaponDataAsset* GetCurrentWeaponData() const { return currentWeapon ? currentWeapon->GetWeaponData() : nullptr; }
 
 
 	
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Weapon")
-	UStaticMeshComponent* WeaponMesh;//called from abp
-	
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Weapon")
-	UWeaponDataAsset* CurrentWeapon;//called from abp
+	UPROPERTY(EditAnywhere, Category = "Weapon")
+	TSubclassOf<ABaseWeapon> DefaultWeaponClass;
 
+	UPROPERTY(EditAnywhere, Category = "Weapon")
+	ABaseWeapon* currentWeapon;
+
+	
 	UFUNCTION(BlueprintCallable, Category = "Combat")
 	void performAttack(AttackType attackType);
 	

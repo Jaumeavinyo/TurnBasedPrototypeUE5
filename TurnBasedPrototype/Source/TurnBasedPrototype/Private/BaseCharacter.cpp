@@ -5,7 +5,7 @@
 
 // Sets default values
 
-ABaseCharacter::ABaseCharacter()
+ABaseCharacter::ABaseCharacter(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
 {
  	
 	//Create Weapon
@@ -34,5 +34,29 @@ void ABaseCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
+}
+
+void ABaseCharacter::DrawWeapon(FName socket)
+{
+	if (!Weapon || !Weapon->currentWeapon)
+	{
+		UE_LOG(LogTemp, Warning,TEXT("ABaseCharacter::DrawWeapon(FName socket) --- WeaponComponent or Current weapon are NULPTR!!!"));
+	}else
+	{
+		PlayAnimMontage(Weapon->GetCurrentWeaponData()->DrawWeaponAnim);//this anim has a animnotify to change sockets
+	}
+	
+}
+
+void ABaseCharacter::SheatheWeapon(FName socket)
+{
+	if (!Weapon || !Weapon->currentWeapon)
+	{
+		UE_LOG(LogTemp, Warning,TEXT("ABaseCharacter::SheatheWeapon(FName socket) --- WeaponComponent or Current weapon are NULPTR!!!"));
+	}else
+	{
+		PlayAnimMontage(Weapon->GetCurrentWeaponData()->SheathingWeaponAnim);//this anim has a animnotify to change sockets
+	}
+	
 }
 

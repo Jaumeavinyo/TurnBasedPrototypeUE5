@@ -14,7 +14,7 @@ class TURNBASEDPROTOTYPE_API ABaseCharacter : public ACharacter
 
 public:
 	// Sets default values for this character's properties
-	ABaseCharacter();
+	ABaseCharacter(const FObjectInitializer& ObjectInitializer);
 
 protected:
 	// Called when the game starts or when spawned
@@ -31,4 +31,14 @@ protected:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Combat")
 	UWeaponComponent* Weapon;
+
+
+	
+	//calls character to play the anim to hold saved weapon. after, an anim notify calls SetCurrentSocket(FName name) in the right moment
+	UFUNCTION(BlueprintCallable, Category = "weapon")
+	void DrawWeapon(FName socket);
+
+	//calls character to play the anim to save weapon. after, an anim notify calls SetCurrentSocket(FName name) in the right moment
+	UFUNCTION(BlueprintCallable, Category = "weapon")
+	void SheatheWeapon(FName socket);
 };

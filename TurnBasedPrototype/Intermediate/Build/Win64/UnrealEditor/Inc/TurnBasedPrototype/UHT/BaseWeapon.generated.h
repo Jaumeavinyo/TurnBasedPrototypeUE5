@@ -9,10 +9,15 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class UWeaponDataAsset;
 #ifdef TURNBASEDPROTOTYPE_BaseWeapon_generated_h
 #error "BaseWeapon.generated.h already included, missing '#pragma once' in BaseWeapon.h"
 #endif
 #define TURNBASEDPROTOTYPE_BaseWeapon_generated_h
+
+#define FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_BaseWeapon_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execGetWeaponData);
+
 
 #define FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_BaseWeapon_h_12_INCLASS_NO_PURE_DECLS \
 private: \
@@ -39,6 +44,7 @@ public: \
 #define FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_BaseWeapon_h_12_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
+	FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_BaseWeapon_h_12_RPC_WRAPPERS_NO_PURE_DECLS \
 	FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_BaseWeapon_h_12_INCLASS_NO_PURE_DECLS \
 	FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_BaseWeapon_h_12_ENHANCED_CONSTRUCTORS \
 private: \
