@@ -10,7 +10,8 @@ ABaseCharacter::ABaseCharacter(const FObjectInitializer& ObjectInitializer) : Su
  	
 	//Create Weapon
 	Weapon = CreateDefaultSubobject<UWeaponComponent>(TEXT("Weapon Component"));
-
+	bWeaponDrawed = false;
+	bWeaponSheathed = false;
 	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 }
@@ -40,10 +41,13 @@ void ABaseCharacter::DrawWeapon(FName socket)
 {
 	if (!Weapon || !Weapon->currentWeapon)
 	{
+		
 		UE_LOG(LogTemp, Warning,TEXT("ABaseCharacter::DrawWeapon(FName socket) --- WeaponComponent or Current weapon are NULPTR!!!"));
-	}else
+	}else if (!bWeaponDrawed)
 	{
 		PlayAnimMontage(Weapon->GetCurrentWeaponData()->DrawWeaponAnim);//this anim has a animnotify to change sockets
+		bWeaponDrawed = true;
+		bWeaponSheathed = false;
 	}
 	
 }
@@ -52,10 +56,13 @@ void ABaseCharacter::SheatheWeapon(FName socket)
 {
 	if (!Weapon || !Weapon->currentWeapon)
 	{
+		
 		UE_LOG(LogTemp, Warning,TEXT("ABaseCharacter::SheatheWeapon(FName socket) --- WeaponComponent or Current weapon are NULPTR!!!"));
-	}else
+	}else if(!bWeaponSheathed)
 	{
 		PlayAnimMontage(Weapon->GetCurrentWeaponData()->SheathingWeaponAnim);//this anim has a animnotify to change sockets
+		bWeaponDrawed = false;
+		bWeaponSheathed = true;
 	}
 	
 }
