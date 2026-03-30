@@ -74,11 +74,17 @@ public:
 	UAnimMontage* SheathingWeaponAnim;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Socket")
-	FName CombatAttachSocket;
+	FName OnRHandAttachSocket;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Socket")
-	FName CarryAttachSocket;
-		
+	FTransform OnRHandSocketTransform;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Socket")
+	FName OnBackAttachSocket;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Socket")
+	FTransform OnBackSocketTransform;
+	
 	//COMBAT STATS
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Combat")
 	int32 damageDice;

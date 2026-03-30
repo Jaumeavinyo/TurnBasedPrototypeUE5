@@ -19,7 +19,21 @@ void UWeaponComponent::SetCurrentSocket(FName socket)
 {
 	if (USkeletalMeshComponent* CharacterMesh = GetOwner()->FindComponentByClass<USkeletalMeshComponent>())
 	{
-		currentWeapon->AttachToComponent(CharacterMesh,FAttachmentTransformRules::SnapToTargetIncludingScale,socket );
+		//How to set sockets for static mesh weapons:
+		
+		//Blue arrow needs to point to the tip of the weapon, the red one to an edge that cuts, and green to a side (this is the blade example)
+		
+		//set the character static mesh socket in the place you want the weapon socket to be in game, in case of the blade,
+		//if we put the socket location in the palm of the hand, the weapon socket will be in the palm of the hand
+
+		//All weapons or tools will have a socket named: ObjectGripSocket
+		
+		FTransform weaponSocket = currentWeapon->WeaponMesh->GetSocketTransform(TEXT("ObjectGripSocket"),RTS_Component);
+		FTransform InverseGrip = weaponSocket.Inverse();
+
+		currentWeapon->AttachToComponent(CharacterMesh, FAttachmentTransformRules::KeepRelativeTransform, socket);
+		currentWeapon->SetActorRelativeTransform(InverseGrip);
+		
 	}
 }
 
@@ -49,7 +63,8 @@ void UWeaponComponent::EquipWeapon(TSubclassOf<ABaseWeapon> newWeapon, FName soc
 	//Attach new weapon to socket
 	if (USkeletalMeshComponent* CharacterMesh = GetOwner()->FindComponentByClass<USkeletalMeshComponent>())
 	{
-		currentWeapon->AttachToComponent(CharacterMesh,FAttachmentTransformRules::SnapToTargetIncludingScale,socket );
+		SetCurrentSocket(socket);
+		//currentWeapon->AttachToComponent(CharacterMesh,FAttachmentTransformRules::SnapToTargetIncludingScale,socket );
 	}
 }
 
