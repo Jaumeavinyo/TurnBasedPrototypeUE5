@@ -10,7 +10,7 @@
 
 //WEAPON INFO
 UENUM(BlueprintType)
-enum class WeaponType : uint8
+enum class WeaponAttackType : uint8
 {
 	Melee UMETA(DisplayName = "Melee"),
 	Ranged UMETA(DisplayName = "Ranged")
@@ -21,7 +21,15 @@ enum class WeaponDamageType : uint8
 	Physical UMETA(DisplayName = "Physical"),
 	Magical UMETA(DisplayName = "Magic")
 };
-//~WEAPON INFO
+
+UENUM(BlueprintType)
+enum class WeaponType : uint8
+{
+	GreatSword UMETA(DisplayName = "GreatSword"),
+	Sword UMETA(DisplayName = "Sword"),
+	Dagger UMETA(DisplayName = "Dagger"),
+	Stick UMETA(DisplayName = "Stick")
+};
 
 
 //WEAPON ANIMS
@@ -75,15 +83,10 @@ public:
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Socket")
 	FName OnRHandAttachSocket;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Socket")
-	FTransform OnRHandSocketTransform;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Socket")
 	FName OnBackAttachSocket;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Socket")
-	FTransform OnBackSocketTransform;
 	
 	//COMBAT STATS
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Combat")
@@ -93,10 +96,13 @@ public:
 	int32 numberOfDices;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Combat")
-	WeaponType weaponType;
+	WeaponAttackType weaponAttackType;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Combat")
 	WeaponDamageType damageType;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Combat")
+	WeaponType weaponType;
 	
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Combat")
 	float weaponRange;

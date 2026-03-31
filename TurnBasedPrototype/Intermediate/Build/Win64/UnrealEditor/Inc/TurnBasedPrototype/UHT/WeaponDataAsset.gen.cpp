@@ -10,7 +10,6 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeWeaponDataAsset() {}
 
 // Begin Cross Module References
-COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FTransform();
 ENGINE_API UClass* Z_Construct_UClass_UAnimMontage_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_UMaterialInterface_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_UPrimaryDataAsset();
@@ -19,27 +18,28 @@ ENGINE_API UClass* Z_Construct_UClass_UTexture2D_NoRegister();
 TURNBASEDPROTOTYPE_API UClass* Z_Construct_UClass_UWeaponDataAsset();
 TURNBASEDPROTOTYPE_API UClass* Z_Construct_UClass_UWeaponDataAsset_NoRegister();
 TURNBASEDPROTOTYPE_API UEnum* Z_Construct_UEnum_TurnBasedPrototype_AttackType();
+TURNBASEDPROTOTYPE_API UEnum* Z_Construct_UEnum_TurnBasedPrototype_WeaponAttackType();
 TURNBASEDPROTOTYPE_API UEnum* Z_Construct_UEnum_TurnBasedPrototype_WeaponDamageType();
 TURNBASEDPROTOTYPE_API UEnum* Z_Construct_UEnum_TurnBasedPrototype_WeaponType();
 TURNBASEDPROTOTYPE_API UScriptStruct* Z_Construct_UScriptStruct_FWeaponAnim();
 UPackage* Z_Construct_UPackage__Script_TurnBasedPrototype();
 // End Cross Module References
 
-// Begin Enum WeaponType
-static FEnumRegistrationInfo Z_Registration_Info_UEnum_WeaponType;
-static UEnum* WeaponType_StaticEnum()
+// Begin Enum WeaponAttackType
+static FEnumRegistrationInfo Z_Registration_Info_UEnum_WeaponAttackType;
+static UEnum* WeaponAttackType_StaticEnum()
 {
-	if (!Z_Registration_Info_UEnum_WeaponType.OuterSingleton)
+	if (!Z_Registration_Info_UEnum_WeaponAttackType.OuterSingleton)
 	{
-		Z_Registration_Info_UEnum_WeaponType.OuterSingleton = GetStaticEnum(Z_Construct_UEnum_TurnBasedPrototype_WeaponType, (UObject*)Z_Construct_UPackage__Script_TurnBasedPrototype(), TEXT("WeaponType"));
+		Z_Registration_Info_UEnum_WeaponAttackType.OuterSingleton = GetStaticEnum(Z_Construct_UEnum_TurnBasedPrototype_WeaponAttackType, (UObject*)Z_Construct_UPackage__Script_TurnBasedPrototype(), TEXT("WeaponAttackType"));
 	}
-	return Z_Registration_Info_UEnum_WeaponType.OuterSingleton;
+	return Z_Registration_Info_UEnum_WeaponAttackType.OuterSingleton;
 }
-template<> TURNBASEDPROTOTYPE_API UEnum* StaticEnum<WeaponType>()
+template<> TURNBASEDPROTOTYPE_API UEnum* StaticEnum<WeaponAttackType>()
 {
-	return WeaponType_StaticEnum();
+	return WeaponAttackType_StaticEnum();
 }
-struct Z_Construct_UEnum_TurnBasedPrototype_WeaponType_Statics
+struct Z_Construct_UEnum_TurnBasedPrototype_WeaponAttackType_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[] = {
@@ -48,42 +48,42 @@ struct Z_Construct_UEnum_TurnBasedPrototype_WeaponType_Statics
 		{ "Comment", "//WEAPON INFO\n" },
 #endif
 		{ "Melee.DisplayName", "Melee" },
-		{ "Melee.Name", "WeaponType::Melee" },
+		{ "Melee.Name", "WeaponAttackType::Melee" },
 		{ "ModuleRelativePath", "Public/WeaponDataAsset.h" },
 		{ "Ranged.DisplayName", "Ranged" },
-		{ "Ranged.Name", "WeaponType::Ranged" },
+		{ "Ranged.Name", "WeaponAttackType::Ranged" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "WEAPON INFO" },
 #endif
 	};
 #endif // WITH_METADATA
 	static constexpr UECodeGen_Private::FEnumeratorParam Enumerators[] = {
-		{ "WeaponType::Melee", (int64)WeaponType::Melee },
-		{ "WeaponType::Ranged", (int64)WeaponType::Ranged },
+		{ "WeaponAttackType::Melee", (int64)WeaponAttackType::Melee },
+		{ "WeaponAttackType::Ranged", (int64)WeaponAttackType::Ranged },
 	};
 	static const UECodeGen_Private::FEnumParams EnumParams;
 };
-const UECodeGen_Private::FEnumParams Z_Construct_UEnum_TurnBasedPrototype_WeaponType_Statics::EnumParams = {
+const UECodeGen_Private::FEnumParams Z_Construct_UEnum_TurnBasedPrototype_WeaponAttackType_Statics::EnumParams = {
 	(UObject*(*)())Z_Construct_UPackage__Script_TurnBasedPrototype,
 	nullptr,
-	"WeaponType",
-	"WeaponType",
-	Z_Construct_UEnum_TurnBasedPrototype_WeaponType_Statics::Enumerators,
+	"WeaponAttackType",
+	"WeaponAttackType",
+	Z_Construct_UEnum_TurnBasedPrototype_WeaponAttackType_Statics::Enumerators,
 	RF_Public|RF_Transient|RF_MarkAsNative,
-	UE_ARRAY_COUNT(Z_Construct_UEnum_TurnBasedPrototype_WeaponType_Statics::Enumerators),
+	UE_ARRAY_COUNT(Z_Construct_UEnum_TurnBasedPrototype_WeaponAttackType_Statics::Enumerators),
 	EEnumFlags::None,
 	(uint8)UEnum::ECppForm::EnumClass,
-	METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UEnum_TurnBasedPrototype_WeaponType_Statics::Enum_MetaDataParams), Z_Construct_UEnum_TurnBasedPrototype_WeaponType_Statics::Enum_MetaDataParams)
+	METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UEnum_TurnBasedPrototype_WeaponAttackType_Statics::Enum_MetaDataParams), Z_Construct_UEnum_TurnBasedPrototype_WeaponAttackType_Statics::Enum_MetaDataParams)
 };
-UEnum* Z_Construct_UEnum_TurnBasedPrototype_WeaponType()
+UEnum* Z_Construct_UEnum_TurnBasedPrototype_WeaponAttackType()
 {
-	if (!Z_Registration_Info_UEnum_WeaponType.InnerSingleton)
+	if (!Z_Registration_Info_UEnum_WeaponAttackType.InnerSingleton)
 	{
-		UECodeGen_Private::ConstructUEnum(Z_Registration_Info_UEnum_WeaponType.InnerSingleton, Z_Construct_UEnum_TurnBasedPrototype_WeaponType_Statics::EnumParams);
+		UECodeGen_Private::ConstructUEnum(Z_Registration_Info_UEnum_WeaponAttackType.InnerSingleton, Z_Construct_UEnum_TurnBasedPrototype_WeaponAttackType_Statics::EnumParams);
 	}
-	return Z_Registration_Info_UEnum_WeaponType.InnerSingleton;
+	return Z_Registration_Info_UEnum_WeaponAttackType.InnerSingleton;
 }
-// End Enum WeaponType
+// End Enum WeaponAttackType
 
 // Begin Enum WeaponDamageType
 static FEnumRegistrationInfo Z_Registration_Info_UEnum_WeaponDamageType;
@@ -138,6 +138,66 @@ UEnum* Z_Construct_UEnum_TurnBasedPrototype_WeaponDamageType()
 	return Z_Registration_Info_UEnum_WeaponDamageType.InnerSingleton;
 }
 // End Enum WeaponDamageType
+
+// Begin Enum WeaponType
+static FEnumRegistrationInfo Z_Registration_Info_UEnum_WeaponType;
+static UEnum* WeaponType_StaticEnum()
+{
+	if (!Z_Registration_Info_UEnum_WeaponType.OuterSingleton)
+	{
+		Z_Registration_Info_UEnum_WeaponType.OuterSingleton = GetStaticEnum(Z_Construct_UEnum_TurnBasedPrototype_WeaponType, (UObject*)Z_Construct_UPackage__Script_TurnBasedPrototype(), TEXT("WeaponType"));
+	}
+	return Z_Registration_Info_UEnum_WeaponType.OuterSingleton;
+}
+template<> TURNBASEDPROTOTYPE_API UEnum* StaticEnum<WeaponType>()
+{
+	return WeaponType_StaticEnum();
+}
+struct Z_Construct_UEnum_TurnBasedPrototype_WeaponType_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[] = {
+		{ "BlueprintType", "true" },
+		{ "Dagger.DisplayName", "Dagger" },
+		{ "Dagger.Name", "WeaponType::Dagger" },
+		{ "GreatSword.DisplayName", "GreatSword" },
+		{ "GreatSword.Name", "WeaponType::GreatSword" },
+		{ "ModuleRelativePath", "Public/WeaponDataAsset.h" },
+		{ "Stick.DisplayName", "Stick" },
+		{ "Stick.Name", "WeaponType::Stick" },
+		{ "Sword.DisplayName", "Sword" },
+		{ "Sword.Name", "WeaponType::Sword" },
+	};
+#endif // WITH_METADATA
+	static constexpr UECodeGen_Private::FEnumeratorParam Enumerators[] = {
+		{ "WeaponType::GreatSword", (int64)WeaponType::GreatSword },
+		{ "WeaponType::Sword", (int64)WeaponType::Sword },
+		{ "WeaponType::Dagger", (int64)WeaponType::Dagger },
+		{ "WeaponType::Stick", (int64)WeaponType::Stick },
+	};
+	static const UECodeGen_Private::FEnumParams EnumParams;
+};
+const UECodeGen_Private::FEnumParams Z_Construct_UEnum_TurnBasedPrototype_WeaponType_Statics::EnumParams = {
+	(UObject*(*)())Z_Construct_UPackage__Script_TurnBasedPrototype,
+	nullptr,
+	"WeaponType",
+	"WeaponType",
+	Z_Construct_UEnum_TurnBasedPrototype_WeaponType_Statics::Enumerators,
+	RF_Public|RF_Transient|RF_MarkAsNative,
+	UE_ARRAY_COUNT(Z_Construct_UEnum_TurnBasedPrototype_WeaponType_Statics::Enumerators),
+	EEnumFlags::None,
+	(uint8)UEnum::ECppForm::EnumClass,
+	METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UEnum_TurnBasedPrototype_WeaponType_Statics::Enum_MetaDataParams), Z_Construct_UEnum_TurnBasedPrototype_WeaponType_Statics::Enum_MetaDataParams)
+};
+UEnum* Z_Construct_UEnum_TurnBasedPrototype_WeaponType()
+{
+	if (!Z_Registration_Info_UEnum_WeaponType.InnerSingleton)
+	{
+		UECodeGen_Private::ConstructUEnum(Z_Registration_Info_UEnum_WeaponType.InnerSingleton, Z_Construct_UEnum_TurnBasedPrototype_WeaponType_Statics::EnumParams);
+	}
+	return Z_Registration_Info_UEnum_WeaponType.InnerSingleton;
+}
+// End Enum WeaponType
 
 // Begin Enum AttackType
 static FEnumRegistrationInfo Z_Registration_Info_UEnum_AttackType;
@@ -343,15 +403,7 @@ struct Z_Construct_UClass_UWeaponDataAsset_Statics
 		{ "Category", "Socket" },
 		{ "ModuleRelativePath", "Public/WeaponDataAsset.h" },
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_OnRHandSocketTransform_MetaData[] = {
-		{ "Category", "Socket" },
-		{ "ModuleRelativePath", "Public/WeaponDataAsset.h" },
-	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_OnBackAttachSocket_MetaData[] = {
-		{ "Category", "Socket" },
-		{ "ModuleRelativePath", "Public/WeaponDataAsset.h" },
-	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_OnBackSocketTransform_MetaData[] = {
 		{ "Category", "Socket" },
 		{ "ModuleRelativePath", "Public/WeaponDataAsset.h" },
 	};
@@ -369,11 +421,15 @@ struct Z_Construct_UClass_UWeaponDataAsset_Statics
 		{ "Category", "Combat" },
 		{ "ModuleRelativePath", "Public/WeaponDataAsset.h" },
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_weaponType_MetaData[] = {
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_weaponAttackType_MetaData[] = {
 		{ "Category", "Combat" },
 		{ "ModuleRelativePath", "Public/WeaponDataAsset.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_damageType_MetaData[] = {
+		{ "Category", "Combat" },
+		{ "ModuleRelativePath", "Public/WeaponDataAsset.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_weaponType_MetaData[] = {
 		{ "Category", "Combat" },
 		{ "ModuleRelativePath", "Public/WeaponDataAsset.h" },
 	};
@@ -408,15 +464,15 @@ struct Z_Construct_UClass_UWeaponDataAsset_Statics
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_DrawWeaponAnim;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_SheathingWeaponAnim;
 	static const UECodeGen_Private::FNamePropertyParams NewProp_OnRHandAttachSocket;
-	static const UECodeGen_Private::FStructPropertyParams NewProp_OnRHandSocketTransform;
 	static const UECodeGen_Private::FNamePropertyParams NewProp_OnBackAttachSocket;
-	static const UECodeGen_Private::FStructPropertyParams NewProp_OnBackSocketTransform;
 	static const UECodeGen_Private::FIntPropertyParams NewProp_damageDice;
 	static const UECodeGen_Private::FIntPropertyParams NewProp_numberOfDices;
-	static const UECodeGen_Private::FBytePropertyParams NewProp_weaponType_Underlying;
-	static const UECodeGen_Private::FEnumPropertyParams NewProp_weaponType;
+	static const UECodeGen_Private::FBytePropertyParams NewProp_weaponAttackType_Underlying;
+	static const UECodeGen_Private::FEnumPropertyParams NewProp_weaponAttackType;
 	static const UECodeGen_Private::FBytePropertyParams NewProp_damageType_Underlying;
 	static const UECodeGen_Private::FEnumPropertyParams NewProp_damageType;
+	static const UECodeGen_Private::FBytePropertyParams NewProp_weaponType_Underlying;
+	static const UECodeGen_Private::FEnumPropertyParams NewProp_weaponType;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_weaponRange;
 	static const UECodeGen_Private::FNamePropertyParams NewProp_weaponName;
 	static const UECodeGen_Private::FTextPropertyParams NewProp_weaponDescription;
@@ -436,15 +492,15 @@ const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UWeaponDataAsse
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_DrawWeaponAnim = { "DrawWeaponAnim", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UWeaponDataAsset, DrawWeaponAnim), Z_Construct_UClass_UAnimMontage_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_DrawWeaponAnim_MetaData), NewProp_DrawWeaponAnim_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_SheathingWeaponAnim = { "SheathingWeaponAnim", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UWeaponDataAsset, SheathingWeaponAnim), Z_Construct_UClass_UAnimMontage_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SheathingWeaponAnim_MetaData), NewProp_SheathingWeaponAnim_MetaData) };
 const UECodeGen_Private::FNamePropertyParams Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_OnRHandAttachSocket = { "OnRHandAttachSocket", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UWeaponDataAsset, OnRHandAttachSocket), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_OnRHandAttachSocket_MetaData), NewProp_OnRHandAttachSocket_MetaData) };
-const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_OnRHandSocketTransform = { "OnRHandSocketTransform", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UWeaponDataAsset, OnRHandSocketTransform), Z_Construct_UScriptStruct_FTransform, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_OnRHandSocketTransform_MetaData), NewProp_OnRHandSocketTransform_MetaData) };
 const UECodeGen_Private::FNamePropertyParams Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_OnBackAttachSocket = { "OnBackAttachSocket", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UWeaponDataAsset, OnBackAttachSocket), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_OnBackAttachSocket_MetaData), NewProp_OnBackAttachSocket_MetaData) };
-const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_OnBackSocketTransform = { "OnBackSocketTransform", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UWeaponDataAsset, OnBackSocketTransform), Z_Construct_UScriptStruct_FTransform, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_OnBackSocketTransform_MetaData), NewProp_OnBackSocketTransform_MetaData) };
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_damageDice = { "damageDice", nullptr, (EPropertyFlags)0x0010000000010015, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UWeaponDataAsset, damageDice), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_damageDice_MetaData), NewProp_damageDice_MetaData) };
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_numberOfDices = { "numberOfDices", nullptr, (EPropertyFlags)0x0010000000010015, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UWeaponDataAsset, numberOfDices), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_numberOfDices_MetaData), NewProp_numberOfDices_MetaData) };
-const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_weaponType_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_weaponType = { "weaponType", nullptr, (EPropertyFlags)0x0010000000010015, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UWeaponDataAsset, weaponType), Z_Construct_UEnum_TurnBasedPrototype_WeaponType, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_weaponType_MetaData), NewProp_weaponType_MetaData) }; // 292857346
+const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_weaponAttackType_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_weaponAttackType = { "weaponAttackType", nullptr, (EPropertyFlags)0x0010000000010015, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UWeaponDataAsset, weaponAttackType), Z_Construct_UEnum_TurnBasedPrototype_WeaponAttackType, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_weaponAttackType_MetaData), NewProp_weaponAttackType_MetaData) }; // 279078405
 const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_damageType_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_damageType = { "damageType", nullptr, (EPropertyFlags)0x0010000000010015, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UWeaponDataAsset, damageType), Z_Construct_UEnum_TurnBasedPrototype_WeaponDamageType, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_damageType_MetaData), NewProp_damageType_MetaData) }; // 3875108605
+const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_weaponType_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_weaponType = { "weaponType", nullptr, (EPropertyFlags)0x0010000000010015, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UWeaponDataAsset, weaponType), Z_Construct_UEnum_TurnBasedPrototype_WeaponType, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_weaponType_MetaData), NewProp_weaponType_MetaData) }; // 1369781356
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_weaponRange = { "weaponRange", nullptr, (EPropertyFlags)0x0010000000010015, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UWeaponDataAsset, weaponRange), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_weaponRange_MetaData), NewProp_weaponRange_MetaData) };
 const UECodeGen_Private::FNamePropertyParams Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_weaponName = { "weaponName", nullptr, (EPropertyFlags)0x0010000000010015, UECodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UWeaponDataAsset, weaponName), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_weaponName_MetaData), NewProp_weaponName_MetaData) };
 const UECodeGen_Private::FTextPropertyParams Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_weaponDescription = { "weaponDescription", nullptr, (EPropertyFlags)0x0010000000010015, UECodeGen_Private::EPropertyGenFlags::Text, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UWeaponDataAsset, weaponDescription), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_weaponDescription_MetaData), NewProp_weaponDescription_MetaData) };
@@ -458,15 +514,15 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UWeaponDa
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_DrawWeaponAnim,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_SheathingWeaponAnim,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_OnRHandAttachSocket,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_OnRHandSocketTransform,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_OnBackAttachSocket,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_OnBackSocketTransform,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_damageDice,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_numberOfDices,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_weaponType_Underlying,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_weaponType,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_weaponAttackType_Underlying,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_weaponAttackType,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_damageType_Underlying,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_damageType,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_weaponType_Underlying,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_weaponType,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_weaponRange,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_weaponName,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_weaponDescription,
@@ -514,18 +570,19 @@ UWeaponDataAsset::~UWeaponDataAsset() {}
 struct Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_WeaponDataAsset_h_Statics
 {
 	static constexpr FEnumRegisterCompiledInInfo EnumInfo[] = {
-		{ WeaponType_StaticEnum, TEXT("WeaponType"), &Z_Registration_Info_UEnum_WeaponType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 292857346U) },
+		{ WeaponAttackType_StaticEnum, TEXT("WeaponAttackType"), &Z_Registration_Info_UEnum_WeaponAttackType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 279078405U) },
 		{ WeaponDamageType_StaticEnum, TEXT("WeaponDamageType"), &Z_Registration_Info_UEnum_WeaponDamageType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3875108605U) },
+		{ WeaponType_StaticEnum, TEXT("WeaponType"), &Z_Registration_Info_UEnum_WeaponType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 1369781356U) },
 		{ AttackType_StaticEnum, TEXT("AttackType"), &Z_Registration_Info_UEnum_AttackType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 456875713U) },
 	};
 	static constexpr FStructRegisterCompiledInInfo ScriptStructInfo[] = {
 		{ FWeaponAnim::StaticStruct, Z_Construct_UScriptStruct_FWeaponAnim_Statics::NewStructOps, TEXT("WeaponAnim"), &Z_Registration_Info_UScriptStruct_WeaponAnim, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FWeaponAnim), 4110656983U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UWeaponDataAsset, UWeaponDataAsset::StaticClass, TEXT("UWeaponDataAsset"), &Z_Registration_Info_UClass_UWeaponDataAsset, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UWeaponDataAsset), 3595582024U) },
+		{ Z_Construct_UClass_UWeaponDataAsset, UWeaponDataAsset::StaticClass, TEXT("UWeaponDataAsset"), &Z_Registration_Info_UClass_UWeaponDataAsset, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UWeaponDataAsset), 860205363U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_WeaponDataAsset_h_74287313(TEXT("/Script/TurnBasedPrototype"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_WeaponDataAsset_h_1065606827(TEXT("/Script/TurnBasedPrototype"),
 	Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_WeaponDataAsset_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_WeaponDataAsset_h_Statics::ClassInfo),
 	Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_WeaponDataAsset_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_WeaponDataAsset_h_Statics::ScriptStructInfo),
 	Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_WeaponDataAsset_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_WeaponDataAsset_h_Statics::EnumInfo));

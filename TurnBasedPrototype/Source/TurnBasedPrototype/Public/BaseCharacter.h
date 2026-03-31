@@ -31,8 +31,6 @@ protected:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Combat")
 	UWeaponComponent* Weapon;
-
-
 	
 	//calls character to play the anim to hold saved weapon. after, an anim notify calls SetCurrentSocket(FName name) in the right moment
 	UFUNCTION(BlueprintCallable, Category = "weapon")
