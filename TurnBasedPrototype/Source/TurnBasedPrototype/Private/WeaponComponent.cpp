@@ -34,6 +34,8 @@ void UWeaponComponent::SetCurrentSocket(FName socket)
 		currentWeapon->AttachToComponent(CharacterMesh, FAttachmentTransformRules::KeepRelativeTransform, socket);
 		currentWeapon->SetActorRelativeTransform(InverseGrip);
 		
+		
+		
 	}
 }
 

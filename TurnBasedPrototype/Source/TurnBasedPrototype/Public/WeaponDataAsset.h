@@ -15,12 +15,13 @@ enum class WeaponAttackType : uint8
 	Melee UMETA(DisplayName = "Melee"),
 	Ranged UMETA(DisplayName = "Ranged")
 };
+
 UENUM(BlueprintType)
 enum class WeaponDamageType : uint8
 {
 	Physical UMETA(DisplayName = "Physical"),
 	Magical UMETA(DisplayName = "Magic")
-};
+}; 
 
 UENUM(BlueprintType)
 enum class WeaponType : uint8

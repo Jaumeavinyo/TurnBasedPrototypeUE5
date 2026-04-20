@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "Templates/SubclassOf.h"
 #include "GameFramework/PlayerController.h"
+#include "InputMappingContext.h"
 #include "TurnBasedPrototypePlayerController.generated.h"
 
 /** Forward declaration to improve compiling times */
