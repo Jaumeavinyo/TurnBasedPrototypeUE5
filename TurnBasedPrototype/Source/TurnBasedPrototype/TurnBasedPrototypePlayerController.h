@@ -52,11 +52,12 @@ public:
 	
 	/** move to Input Action */
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Input, meta=(AllowPrivateAccess = "true"))
-	UInputAction* SetDestinationClickAction;
-
+	//UInputAction* SetDestinationClickAction;
+	UInputAction* SetLeftClickAction;
+	
 	/** Input action for mouse right click, used for "more info", "interections" etc*/
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Input, meta=(AllowPrivateAccess = "true"))
-	UInputAction* SetClickOnInteractuableAction;
+	UInputAction* SetRightClickAction;
 
 protected:
 	/** True if the controlled character should navigate to the mouse cursor. */
@@ -70,12 +71,24 @@ protected:
 	// To add mapping context
 	virtual void BeginPlay();
 
+
+	//LEFT AND RIGHT CLICK MAIN FUNCTIONS
+	void OnLeftClickInputStarted();
+	void OnLeftClickInputTriggered();
+	void OnLeftClickInputReleased();
+
+	void OnRightClickInputStarted();
+	void OnRightClickInputTriggered();
+	void OnRightClickInputReleased();
+	
 	/** Input handlers for SetDestination action. */
+	bool bWantToMove;
 	void OnMovementInputStarted();
 	void OnSetDestinationTriggered();
 	void OnSetDestinationReleased();
 
-	void OnClickInteractuableStarted();
+	bool bWantToInteract;
+	void OnClickInteractuableStarted(AActor* interactionActor);
 	void OnClickInteractuableTriggered();
 	void OnClickInteractuableReleased();
 

@@ -22,6 +22,8 @@ ATurnBasedPrototypePlayerController::ATurnBasedPrototypePlayerController()
 	DefaultMouseCursor = EMouseCursor::Default;
 	CachedDestination = FVector::ZeroVector;
 	FollowTime = 0.f;
+	bWantToMove = false;
+	bWantToInteract = false;
 
 	bMousePressed = false;
 	currentMouseCursor = MouseSymbol::Hand;
@@ -37,6 +39,64 @@ void ATurnBasedPrototypePlayerController::BeginPlay()
 {
 	// Call the base class  
 	Super::BeginPlay();
+}
+
+void ATurnBasedPrototypePlayerController::OnLeftClickInputStarted()
+{
+	
+	//Can be for movement purposes or for interact purposes
+	if (currentMouseCursor == MouseSymbol::Hand)//left click means I want to move
+	{
+		OnMovementInputStarted();
+		bWantToMove = true;
+		
+	}
+	if (currentMouseCursor == MouseSymbol::Dialogue)
+	{
+		// ASK FOR DIALOGUE START
+	}
+}
+
+void ATurnBasedPrototypePlayerController::OnLeftClickInputTriggered()
+{
+	if (bWantToMove)
+	{
+		OnSetDestinationTriggered();
+	}
+}
+
+void ATurnBasedPrototypePlayerController::OnLeftClickInputReleased()
+{
+	if (bWantToMove)
+	{
+		OnSetDestinationReleased();
+		bWantToMove = false;
+	}
+}
+
+void ATurnBasedPrototypePlayerController::OnRightClickInputStarted()
+{
+	FHitResult HitResult;
+	bool hit = GetHitResultUnderCursor(ECC_Visibility,false,HitResult);
+
+	AActor* HitActor = HitResult.GetActor();
+
+	if (HitActor && HitActor->Implements<UInteractable>())
+	{
+		IInteractable* Interactable = Cast<IInteractable>(HitActor);
+		if (Interactable)
+		{
+			OnClickInteractuableStarted(HitActor);
+		}
+	}
+}
+
+void ATurnBasedPrototypePlayerController::OnRightClickInputTriggered()
+{
+}
+
+void ATurnBasedPrototypePlayerController::OnRightClickInputReleased()
+{
 }
 
 void ATurnBasedPrototypePlayerController::SetupInputComponent()
@@ -55,16 +115,16 @@ void ATurnBasedPrototypePlayerController::SetupInputComponent()
 	{
 		// Setup mouse input events
 		//(Mouse click left)
-		EnhancedInputComponent->BindAction(SetDestinationClickAction, ETriggerEvent::Started, this, &ATurnBasedPrototypePlayerController::OnMovementInputStarted);
-		EnhancedInputComponent->BindAction(SetDestinationClickAction, ETriggerEvent::Triggered, this, &ATurnBasedPrototypePlayerController::OnSetDestinationTriggered);
-		EnhancedInputComponent->BindAction(SetDestinationClickAction, ETriggerEvent::Completed, this, &ATurnBasedPrototypePlayerController::OnSetDestinationReleased);
-		EnhancedInputComponent->BindAction(SetDestinationClickAction, ETriggerEvent::Canceled, this, &ATurnBasedPrototypePlayerController::OnSetDestinationReleased);
+		EnhancedInputComponent->BindAction(SetLeftClickAction, ETriggerEvent::Started, this, &ATurnBasedPrototypePlayerController::OnMovementInputStarted);
+		EnhancedInputComponent->BindAction(SetLeftClickAction, ETriggerEvent::Triggered, this, &ATurnBasedPrototypePlayerController::OnSetDestinationTriggered);
+		EnhancedInputComponent->BindAction(SetLeftClickAction, ETriggerEvent::Completed, this, &ATurnBasedPrototypePlayerController::OnSetDestinationReleased);
+		EnhancedInputComponent->BindAction(SetLeftClickAction, ETriggerEvent::Canceled, this, &ATurnBasedPrototypePlayerController::OnSetDestinationReleased);
 
 		//(Mouse click right to interact with something)
-		EnhancedInputComponent->BindAction(SetClickOnInteractuableAction, ETriggerEvent::Started, this, &ATurnBasedPrototypePlayerController::OnClickInteractuableStarted);
-		EnhancedInputComponent->BindAction(SetClickOnInteractuableAction, ETriggerEvent::Triggered, this, &ATurnBasedPrototypePlayerController::OnClickInteractuableTriggered);
-		EnhancedInputComponent->BindAction(SetClickOnInteractuableAction, ETriggerEvent::Completed, this, &ATurnBasedPrototypePlayerController::OnClickInteractuableReleased);
-		EnhancedInputComponent->BindAction(SetClickOnInteractuableAction, ETriggerEvent::Canceled, this, &ATurnBasedPrototypePlayerController::OnClickInteractuableReleased);
+		EnhancedInputComponent->BindAction(SetRightClickAction, ETriggerEvent::Started, this, &ATurnBasedPrototypePlayerController::OnRightClickInputStarted);
+		EnhancedInputComponent->BindAction(SetRightClickAction, ETriggerEvent::Triggered, this, &ATurnBasedPrototypePlayerController::OnRightClickInputTriggered);
+		EnhancedInputComponent->BindAction(SetRightClickAction, ETriggerEvent::Completed, this, &ATurnBasedPrototypePlayerController::OnRightClickInputReleased);
+		EnhancedInputComponent->BindAction(SetRightClickAction, ETriggerEvent::Canceled, this, &ATurnBasedPrototypePlayerController::OnRightClickInputReleased);
 		
 	}
 	else
@@ -73,12 +133,13 @@ void ATurnBasedPrototypePlayerController::SetupInputComponent()
 	}
 }
 
+
+//MOVEMENT
 void ATurnBasedPrototypePlayerController::OnMovementInputStarted()
 {
 	StopMovement();
 }
 
-// Triggered every frame when the input is held down
 void ATurnBasedPrototypePlayerController::OnSetDestinationTriggered()
 {
 	//We mark mouse as pressed for UI visual purposes such as MouseSymbol
@@ -129,22 +190,22 @@ void ATurnBasedPrototypePlayerController::OnSetDestinationReleased()
 
 	FollowTime = 0.f;
 }
+//!MOVEMENT
 
-void ATurnBasedPrototypePlayerController::OnClickInteractuableStarted()
+//INTERACT
+void ATurnBasedPrototypePlayerController::OnClickInteractuableStarted(AActor* interactionActor)
 {
 	FHitResult HitResult;
 	bool hit = GetHitResultUnderCursor(ECC_Visibility,false,HitResult);
 
 	AActor* HitActor = HitResult.GetActor();
-
-	if (HitActor && HitActor->Implements<UInteractable>())
+	
+	if (interactionActor && interactionActor->Implements<UInteractable>())
 	{
-		IInteractable* Interactable = Cast<IInteractable>(HitActor);
+		IInteractable* Interactable = Cast<IInteractable>(interactionActor);
 		if (Interactable)
 		{
-			//ASK interactuable for their interactions
-			UE_LOG(LogTemp, Warning, TEXT("ASKING ACTOR FOR ITS INTERACTIONS"));
-			return;
+			GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("want to interact"));
 		}
 	}
 	
@@ -159,6 +220,9 @@ void ATurnBasedPrototypePlayerController::OnClickInteractuableTriggered()
 void ATurnBasedPrototypePlayerController::OnClickInteractuableReleased()
 {
 }
+//!INTERACT
+
+
 //Generates a ray to detect underneath objects and changes mouse cursor depending on it
 void ATurnBasedPrototypePlayerController::UpdateMouseCursor()
 {
