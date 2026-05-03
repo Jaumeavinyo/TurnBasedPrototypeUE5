@@ -2,6 +2,7 @@
 
 #include "TurnBasedPrototypePlayerController.h"
 #include "GameFramework/Pawn.h"
+#include "GameFramework/PlayerController.h"
 #include "Blueprint/AIBlueprintHelperLibrary.h"
 #include "NiagaraSystem.h"
 #include "NiagaraFunctionLibrary.h"
@@ -11,6 +12,7 @@
 #include "InputActionValue.h"
 #include "EnhancedInputSubsystems.h"
 #include "Engine/LocalPlayer.h"
+#include "UInteractable.h"
 
 DEFINE_LOG_CATEGORY(LogTemplateCharacter);
 
@@ -20,6 +22,15 @@ ATurnBasedPrototypePlayerController::ATurnBasedPrototypePlayerController()
 	DefaultMouseCursor = EMouseCursor::Default;
 	CachedDestination = FVector::ZeroVector;
 	FollowTime = 0.f;
+
+	bMousePressed = false;
+	currentMouseCursor = MouseSymbol::Hand;
+}
+
+void ATurnBasedPrototypePlayerController::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+	UpdateMouseCursor();
 }
 
 void ATurnBasedPrototypePlayerController::BeginPlay()
@@ -43,16 +54,18 @@ void ATurnBasedPrototypePlayerController::SetupInputComponent()
 	if (UEnhancedInputComponent* EnhancedInputComponent = Cast<UEnhancedInputComponent>(InputComponent))
 	{
 		// Setup mouse input events
-		EnhancedInputComponent->BindAction(SetDestinationClickAction, ETriggerEvent::Started, this, &ATurnBasedPrototypePlayerController::OnInputStarted);
+		//(Mouse click left)
+		EnhancedInputComponent->BindAction(SetDestinationClickAction, ETriggerEvent::Started, this, &ATurnBasedPrototypePlayerController::OnMovementInputStarted);
 		EnhancedInputComponent->BindAction(SetDestinationClickAction, ETriggerEvent::Triggered, this, &ATurnBasedPrototypePlayerController::OnSetDestinationTriggered);
 		EnhancedInputComponent->BindAction(SetDestinationClickAction, ETriggerEvent::Completed, this, &ATurnBasedPrototypePlayerController::OnSetDestinationReleased);
 		EnhancedInputComponent->BindAction(SetDestinationClickAction, ETriggerEvent::Canceled, this, &ATurnBasedPrototypePlayerController::OnSetDestinationReleased);
 
-		// Setup touch input events
-		EnhancedInputComponent->BindAction(SetDestinationTouchAction, ETriggerEvent::Started, this, &ATurnBasedPrototypePlayerController::OnInputStarted);
-		EnhancedInputComponent->BindAction(SetDestinationTouchAction, ETriggerEvent::Triggered, this, &ATurnBasedPrototypePlayerController::OnTouchTriggered);
-		EnhancedInputComponent->BindAction(SetDestinationTouchAction, ETriggerEvent::Completed, this, &ATurnBasedPrototypePlayerController::OnTouchReleased);
-		EnhancedInputComponent->BindAction(SetDestinationTouchAction, ETriggerEvent::Canceled, this, &ATurnBasedPrototypePlayerController::OnTouchReleased);
+		//(Mouse click right to interact with something)
+		EnhancedInputComponent->BindAction(SetClickOnInteractuableAction, ETriggerEvent::Started, this, &ATurnBasedPrototypePlayerController::OnClickInteractuableStarted);
+		EnhancedInputComponent->BindAction(SetClickOnInteractuableAction, ETriggerEvent::Triggered, this, &ATurnBasedPrototypePlayerController::OnClickInteractuableTriggered);
+		EnhancedInputComponent->BindAction(SetClickOnInteractuableAction, ETriggerEvent::Completed, this, &ATurnBasedPrototypePlayerController::OnClickInteractuableReleased);
+		EnhancedInputComponent->BindAction(SetClickOnInteractuableAction, ETriggerEvent::Canceled, this, &ATurnBasedPrototypePlayerController::OnClickInteractuableReleased);
+		
 	}
 	else
 	{
@@ -60,7 +73,7 @@ void ATurnBasedPrototypePlayerController::SetupInputComponent()
 	}
 }
 
-void ATurnBasedPrototypePlayerController::OnInputStarted()
+void ATurnBasedPrototypePlayerController::OnMovementInputStarted()
 {
 	StopMovement();
 }
@@ -68,6 +81,9 @@ void ATurnBasedPrototypePlayerController::OnInputStarted()
 // Triggered every frame when the input is held down
 void ATurnBasedPrototypePlayerController::OnSetDestinationTriggered()
 {
+	//We mark mouse as pressed for UI visual purposes such as MouseSymbol
+	bMousePressed = true;
+	
 	// We flag that the input is being pressed
 	FollowTime += GetWorld()->GetDeltaSeconds();
 	
@@ -100,6 +116,9 @@ void ATurnBasedPrototypePlayerController::OnSetDestinationTriggered()
 
 void ATurnBasedPrototypePlayerController::OnSetDestinationReleased()
 {
+	// release mouse state
+	bMousePressed = false;
+	
 	// If it was a short press
 	if (FollowTime <= ShortPressThreshold)
 	{
@@ -111,15 +130,68 @@ void ATurnBasedPrototypePlayerController::OnSetDestinationReleased()
 	FollowTime = 0.f;
 }
 
-// Triggered every frame when the input is held down
-void ATurnBasedPrototypePlayerController::OnTouchTriggered()
+void ATurnBasedPrototypePlayerController::OnClickInteractuableStarted()
 {
-	bIsTouch = true;
-	OnSetDestinationTriggered();
+	FHitResult HitResult;
+	bool hit = GetHitResultUnderCursor(ECC_Visibility,false,HitResult);
+
+	AActor* HitActor = HitResult.GetActor();
+
+	if (HitActor && HitActor->Implements<UInteractable>())
+	{
+		IInteractable* Interactable = Cast<IInteractable>(HitActor);
+		if (Interactable)
+		{
+			//ASK interactuable for their interactions
+			UE_LOG(LogTemp, Warning, TEXT("ASKING ACTOR FOR ITS INTERACTIONS"));
+			return;
+		}
+	}
+	
 }
 
-void ATurnBasedPrototypePlayerController::OnTouchReleased()
+void ATurnBasedPrototypePlayerController::OnClickInteractuableTriggered()
 {
-	bIsTouch = false;
-	OnSetDestinationReleased();
+	//hit
+	//call UI manager to open posible interactions tab on top of the interactuable object
 }
+
+void ATurnBasedPrototypePlayerController::OnClickInteractuableReleased()
+{
+}
+//Generates a ray to detect underneath objects and changes mouse cursor depending on it
+void ATurnBasedPrototypePlayerController::UpdateMouseCursor()
+{
+	FHitResult HitResult;
+	bool hit = GetHitResultUnderCursor(ECC_Visibility,false,HitResult);
+
+	AActor* HitActor = HitResult.GetActor();
+
+	if (HitActor && HitActor->Implements<UInteractable>())
+	{
+		
+		IInteractable* Interactable = Cast<IInteractable>(HitActor);//this is bc if hitactor is a bp that implements interface but not a c++ that inherits from interface then could return nullptr
+		if (Interactable)
+		{
+			//TODO interactable can be an anything, create those cases here when developing doors chests enemies etc
+			currentMouseCursor = MouseSymbol::Dialogue;
+			
+			return;
+		}
+	}
+
+	
+	if (bMousePressed)
+	{
+		currentMouseCursor = MouseSymbol::ClickHand;
+	}else
+	{
+		currentMouseCursor = MouseSymbol::Hand;
+	}
+	
+}
+
+
+
+
+

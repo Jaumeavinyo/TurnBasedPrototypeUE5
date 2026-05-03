@@ -9,10 +9,15 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+enum class EInteractionType : uint8;
 #ifdef TURNBASEDPROTOTYPE_NPCharacter_generated_h
 #error "NPCharacter.generated.h already included, missing '#pragma once' in NPCharacter.h"
 #endif
 #define TURNBASEDPROTOTYPE_NPCharacter_generated_h
+
+#define FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_NPCharacter_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execGetSupportedInteractions);
+
 
 #define FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_NPCharacter_h_17_INCLASS_NO_PURE_DECLS \
 private: \
@@ -42,6 +47,7 @@ public: \
 #define FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_NPCharacter_h_17_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
+	FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_NPCharacter_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
 	FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_NPCharacter_h_17_INCLASS_NO_PURE_DECLS \
 	FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_NPCharacter_h_17_ENHANCED_CONSTRUCTORS \
 private: \

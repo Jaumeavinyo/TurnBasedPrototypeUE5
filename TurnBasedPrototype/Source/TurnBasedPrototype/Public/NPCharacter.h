@@ -21,8 +21,6 @@ public:
 	UPROPERTY(EditDefaultsOnly , Category = "Data")
 	UNPCDataAsset* NPC_Data;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
-	UWeaponComponent* WeaponComponent;
 public:
 	
 	virtual TArray<EInteractionType>* GetSupportedInteractions() const override;

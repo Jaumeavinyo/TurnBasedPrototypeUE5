@@ -114,19 +114,9 @@ struct Z_Construct_UClass_UNPCDataAsset_Statics
 		{ "ToolTip", "Initial NPC state (Agressive, pacific...)" },
 #endif
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_currentNPCState_MetaData[] = {
-		{ "Category", "state" },
-		{ "ModuleRelativePath", "Public/NPCDataAsset.h" },
-	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_NPCName_MetaData[] = {
 		{ "Category", "Name" },
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "//name\n" },
-#endif
 		{ "ModuleRelativePath", "Public/NPCDataAsset.h" },
-#if !UE_BUILD_SHIPPING
-		{ "ToolTip", "name" },
-#endif
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FBytePropertyParams NewProp_interactions_Inner_Underlying;
@@ -134,8 +124,6 @@ struct Z_Construct_UClass_UNPCDataAsset_Statics
 	static const UECodeGen_Private::FArrayPropertyParams NewProp_interactions;
 	static const UECodeGen_Private::FBytePropertyParams NewProp_initialNPCState_Underlying;
 	static const UECodeGen_Private::FEnumPropertyParams NewProp_initialNPCState;
-	static const UECodeGen_Private::FBytePropertyParams NewProp_currentNPCState_Underlying;
-	static const UECodeGen_Private::FEnumPropertyParams NewProp_currentNPCState;
 	static const UECodeGen_Private::FNamePropertyParams NewProp_NPCName;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
@@ -149,8 +137,6 @@ const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_UNPCDataAsset_St
 const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UNPCDataAsset_Statics::NewProp_interactions = { "interactions", nullptr, (EPropertyFlags)0x0010000000010015, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UNPCDataAsset, interactions), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_interactions_MetaData), NewProp_interactions_MetaData) }; // 1346780968
 const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_UNPCDataAsset_Statics::NewProp_initialNPCState_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_UNPCDataAsset_Statics::NewProp_initialNPCState = { "initialNPCState", nullptr, (EPropertyFlags)0x0010000000010015, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UNPCDataAsset, initialNPCState), Z_Construct_UEnum_TurnBasedPrototype_NPCState, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_initialNPCState_MetaData), NewProp_initialNPCState_MetaData) }; // 3943753010
-const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_UNPCDataAsset_Statics::NewProp_currentNPCState_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_UNPCDataAsset_Statics::NewProp_currentNPCState = { "currentNPCState", nullptr, (EPropertyFlags)0x0010000000010015, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UNPCDataAsset, currentNPCState), Z_Construct_UEnum_TurnBasedPrototype_NPCState, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_currentNPCState_MetaData), NewProp_currentNPCState_MetaData) }; // 3943753010
 const UECodeGen_Private::FNamePropertyParams Z_Construct_UClass_UNPCDataAsset_Statics::NewProp_NPCName = { "NPCName", nullptr, (EPropertyFlags)0x0010000000010015, UECodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UNPCDataAsset, NPCName), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_NPCName_MetaData), NewProp_NPCName_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UNPCDataAsset_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UNPCDataAsset_Statics::NewProp_interactions_Inner_Underlying,
@@ -158,8 +144,6 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UNPCDataA
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UNPCDataAsset_Statics::NewProp_interactions,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UNPCDataAsset_Statics::NewProp_initialNPCState_Underlying,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UNPCDataAsset_Statics::NewProp_initialNPCState,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UNPCDataAsset_Statics::NewProp_currentNPCState_Underlying,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UNPCDataAsset_Statics::NewProp_currentNPCState,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UNPCDataAsset_Statics::NewProp_NPCName,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UNPCDataAsset_Statics::PropPointers) < 2048);
@@ -207,10 +191,10 @@ struct Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototype
 		{ NPCState_StaticEnum, TEXT("NPCState"), &Z_Registration_Info_UEnum_NPCState, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3943753010U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UNPCDataAsset, UNPCDataAsset::StaticClass, TEXT("UNPCDataAsset"), &Z_Registration_Info_UClass_UNPCDataAsset, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UNPCDataAsset), 1194937892U) },
+		{ Z_Construct_UClass_UNPCDataAsset, UNPCDataAsset::StaticClass, TEXT("UNPCDataAsset"), &Z_Registration_Info_UClass_UNPCDataAsset, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UNPCDataAsset), 1861691056U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_NPCDataAsset_h_2344899679(TEXT("/Script/TurnBasedPrototype"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_NPCDataAsset_h_4052148166(TEXT("/Script/TurnBasedPrototype"),
 	Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_NPCDataAsset_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_NPCDataAsset_h_Statics::ClassInfo),
 	nullptr, 0,
 	Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_NPCDataAsset_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_NPCDataAsset_h_Statics::EnumInfo));

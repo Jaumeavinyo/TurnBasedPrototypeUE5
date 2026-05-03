@@ -30,10 +30,7 @@ public:
 	//Initial NPC state (Agressive, pacific...)
 	UPROPERTY(EditDefaultsOnly,BlueprintReadOnly,Category = "state")
 	NPCState initialNPCState;
-
-	UPROPERTY(EditDefaultsOnly,BlueprintReadOnly,Category = "state")
-	NPCState currentNPCState;
-	//name
+	
 
 	UPROPERTY(EditDefaultsOnly,BlueprintReadOnly,Category = "Name")
 	FName NPCName;
