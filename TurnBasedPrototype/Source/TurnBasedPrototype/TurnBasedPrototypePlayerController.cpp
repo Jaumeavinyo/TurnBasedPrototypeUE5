@@ -27,6 +27,7 @@ ATurnBasedPrototypePlayerController::ATurnBasedPrototypePlayerController()
 
 	bMousePressed = false;
 	currentMouseCursor = MouseSymbol::Hand;
+	currentMouseHover = MouseHoverType::None;
 }
 
 void ATurnBasedPrototypePlayerController::Tick(float DeltaTime)
@@ -45,13 +46,13 @@ void ATurnBasedPrototypePlayerController::OnLeftClickInputStarted()
 {
 	
 	//Can be for movement purposes or for interact purposes
-	if (currentMouseCursor == MouseSymbol::Hand)//left click means I want to move
+	if (currentMouseHover == MouseHoverType::None)//left click means I want to move
 	{
 		OnMovementInputStarted();
 		bWantToMove = true;
 		
 	}
-	if (currentMouseCursor == MouseSymbol::Dialogue)
+	if (currentMouseHover == MouseHoverType::NPC_Pasive)
 	{
 		// ASK FOR DIALOGUE START
 	}
@@ -93,6 +94,7 @@ void ATurnBasedPrototypePlayerController::OnRightClickInputStarted()
 
 void ATurnBasedPrototypePlayerController::OnRightClickInputTriggered()
 {
+	
 }
 
 void ATurnBasedPrototypePlayerController::OnRightClickInputReleased()
@@ -115,10 +117,10 @@ void ATurnBasedPrototypePlayerController::SetupInputComponent()
 	{
 		// Setup mouse input events
 		//(Mouse click left)
-		EnhancedInputComponent->BindAction(SetLeftClickAction, ETriggerEvent::Started, this, &ATurnBasedPrototypePlayerController::OnMovementInputStarted);
-		EnhancedInputComponent->BindAction(SetLeftClickAction, ETriggerEvent::Triggered, this, &ATurnBasedPrototypePlayerController::OnSetDestinationTriggered);
-		EnhancedInputComponent->BindAction(SetLeftClickAction, ETriggerEvent::Completed, this, &ATurnBasedPrototypePlayerController::OnSetDestinationReleased);
-		EnhancedInputComponent->BindAction(SetLeftClickAction, ETriggerEvent::Canceled, this, &ATurnBasedPrototypePlayerController::OnSetDestinationReleased);
+		EnhancedInputComponent->BindAction(SetLeftClickAction, ETriggerEvent::Started, this, &ATurnBasedPrototypePlayerController::OnLeftClickInputStarted);
+		EnhancedInputComponent->BindAction(SetLeftClickAction, ETriggerEvent::Triggered, this, &ATurnBasedPrototypePlayerController::OnLeftClickInputTriggered);
+		EnhancedInputComponent->BindAction(SetLeftClickAction, ETriggerEvent::Completed, this, &ATurnBasedPrototypePlayerController::OnLeftClickInputReleased);
+		EnhancedInputComponent->BindAction(SetLeftClickAction, ETriggerEvent::Canceled, this, &ATurnBasedPrototypePlayerController::OnLeftClickInputReleased);
 
 		//(Mouse click right to interact with something)
 		EnhancedInputComponent->BindAction(SetRightClickAction, ETriggerEvent::Started, this, &ATurnBasedPrototypePlayerController::OnRightClickInputStarted);
@@ -205,7 +207,7 @@ void ATurnBasedPrototypePlayerController::OnClickInteractuableStarted(AActor* in
 		IInteractable* Interactable = Cast<IInteractable>(interactionActor);
 		if (Interactable)
 		{
-			GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("want to interact"));
+			GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("want to see interaction options"));
 		}
 	}
 	
@@ -230,7 +232,6 @@ void ATurnBasedPrototypePlayerController::UpdateMouseCursor()
 	bool hit = GetHitResultUnderCursor(ECC_Visibility,false,HitResult);
 
 	AActor* HitActor = HitResult.GetActor();
-
 	if (HitActor && HitActor->Implements<UInteractable>())
 	{
 		
@@ -238,19 +239,23 @@ void ATurnBasedPrototypePlayerController::UpdateMouseCursor()
 		if (Interactable)
 		{
 			//TODO interactable can be an anything, create those cases here when developing doors chests enemies etc
+
+			//This only works for now, for pasive interactuable actors like npcs a chest will be a public intractable and a public chest?
+			currentMouseHover = MouseHoverType::NPC_Pasive;
 			currentMouseCursor = MouseSymbol::Dialogue;
 			
 			return;
 		}
 	}
 
-	
 	if (bMousePressed)
 	{
 		currentMouseCursor = MouseSymbol::ClickHand;
+		
 	}else
 	{
 		currentMouseCursor = MouseSymbol::Hand;
+		currentMouseHover = MouseHoverType::None;
 	}
 	
 }

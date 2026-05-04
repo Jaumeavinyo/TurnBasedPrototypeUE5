@@ -17,13 +17,13 @@ void EmptyLinkFunctionForGeneratedCodeTurnBasedPrototype_init() {}
 				nullptr,
 				0,
 				PKG_CompiledIn | 0x00000000,
-				0xB2178CCF,
-				0xF52F59D0,
+				0x9440859B,
+				0x377B45FF,
 				METADATA_PARAMS(0, nullptr)
 			};
 			UECodeGen_Private::ConstructUPackage(Z_Registration_Info_UPackage__Script_TurnBasedPrototype.OuterSingleton, PackageParams);
 		}
 		return Z_Registration_Info_UPackage__Script_TurnBasedPrototype.OuterSingleton;
 	}
-	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_TurnBasedPrototype(Z_Construct_UPackage__Script_TurnBasedPrototype, TEXT("/Script/TurnBasedPrototype"), Z_Registration_Info_UPackage__Script_TurnBasedPrototype, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0xB2178CCF, 0xF52F59D0));
+	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_TurnBasedPrototype(Z_Construct_UPackage__Script_TurnBasedPrototype, TEXT("/Script/TurnBasedPrototype"), Z_Registration_Info_UPackage__Script_TurnBasedPrototype, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x9440859B, 0x377B45FF));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

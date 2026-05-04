@@ -69,13 +69,16 @@
     <ClCompile Include="..\..\Source\TurnBasedPrototype\Private\BaseWeapon.cpp">
       <Filter>Source\TurnBasedPrototype\Private</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\TurnBasedPrototype\Private\NPCDataBase.cpp">
+    <ClCompile Include="..\..\Source\TurnBasedPrototype\Private\NPCDataAsset.cpp">
       <Filter>Source\TurnBasedPrototype\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\TurnBasedPrototype\Private\NPCharacter.cpp">
       <Filter>Source\TurnBasedPrototype\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\TurnBasedPrototype\Private\PlayerCharacter.cpp">
+      <Filter>Source\TurnBasedPrototype\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TurnBasedPrototype\Private\UIManager.cpp">
       <Filter>Source\TurnBasedPrototype\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\TurnBasedPrototype\Private\UInteractable.cpp">
@@ -96,13 +99,16 @@
     <ClCompile Include="..\..\Source\TurnBasedPrototype\Public\BaseWeapon.h">
       <Filter>Source\TurnBasedPrototype\Public</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\TurnBasedPrototype\Public\NPCDataBase.h">
+    <ClCompile Include="..\..\Source\TurnBasedPrototype\Public\NPCDataAsset.h">
       <Filter>Source\TurnBasedPrototype\Public</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\TurnBasedPrototype\Public\NPCharacter.h">
       <Filter>Source\TurnBasedPrototype\Public</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\TurnBasedPrototype\Public\PlayerCharacter.h">
+      <Filter>Source\TurnBasedPrototype\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TurnBasedPrototype\Public\UIManager.h">
       <Filter>Source\TurnBasedPrototype\Public</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\TurnBasedPrototype\Public\UInteractable.h">

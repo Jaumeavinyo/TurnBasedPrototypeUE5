@@ -16,6 +16,7 @@ class UInputAction;
 UENUM(BlueprintType)
 enum class MouseSymbol : uint8
 {
+	None UMETA(DisplayName = "none"),
 	Hand UMETA(DisplayName = "Hand"),
 	ClickHand UMETA(DisplayName = "ClickHand"),
 	Dialogue UMETA(DisplayName = "Dialogue"),
@@ -23,6 +24,13 @@ enum class MouseSymbol : uint8
 	OpenDoor UMETA(DisplayName = "OpenDoor"),
 	OpenChest UMETA(DisplayName = "OpenChest"),
 	Attack UMETA(DisplayName = "Attack")
+};
+
+enum class MouseHoverType : uint8
+{
+	None UMETA(DisplayName = "none"),//normal hand 
+	NPC_Pasive UMETA(DisplayName = "NPC_Pasive"),
+	NPC_Agressive UMETA(DisplayName = "NPC_Agressive")
 };
 
 DECLARE_LOG_CATEGORY_EXTERN(LogTemplateCharacter, Log, All);
@@ -64,6 +72,8 @@ protected:
 	uint32 bMoveToMouseCursor : 1;
 
 	MouseSymbol currentMouseCursor;
+	MouseHoverType currentMouseHover;
+	
 	bool bMousePressed;
 	
 	virtual void SetupInputComponent() override;

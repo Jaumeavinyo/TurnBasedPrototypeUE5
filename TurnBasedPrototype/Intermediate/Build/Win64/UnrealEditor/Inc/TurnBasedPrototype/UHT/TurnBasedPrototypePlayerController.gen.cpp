@@ -50,6 +50,8 @@ struct Z_Construct_UEnum_TurnBasedPrototype_MouseSymbol_Statics
 		{ "Interact.DisplayName", "Interact" },
 		{ "Interact.Name", "MouseSymbol::Interact" },
 		{ "ModuleRelativePath", "TurnBasedPrototypePlayerController.h" },
+		{ "None.DisplayName", "none" },
+		{ "None.Name", "MouseSymbol::None" },
 		{ "OpenChest.DisplayName", "OpenChest" },
 		{ "OpenChest.Name", "MouseSymbol::OpenChest" },
 		{ "OpenDoor.DisplayName", "OpenDoor" },
@@ -57,6 +59,7 @@ struct Z_Construct_UEnum_TurnBasedPrototype_MouseSymbol_Statics
 	};
 #endif // WITH_METADATA
 	static constexpr UECodeGen_Private::FEnumeratorParam Enumerators[] = {
+		{ "MouseSymbol::None", (int64)MouseSymbol::None },
 		{ "MouseSymbol::Hand", (int64)MouseSymbol::Hand },
 		{ "MouseSymbol::ClickHand", (int64)MouseSymbol::ClickHand },
 		{ "MouseSymbol::Dialogue", (int64)MouseSymbol::Dialogue },
@@ -108,7 +111,7 @@ struct Z_Construct_UFunction_ATurnBasedPrototypePlayerController_GetMouseSymbol_
 	static const UECodeGen_Private::FFunctionParams FuncParams;
 };
 const UECodeGen_Private::FBytePropertyParams Z_Construct_UFunction_ATurnBasedPrototypePlayerController_GetMouseSymbol_Statics::NewProp_ReturnValue_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FEnumPropertyParams Z_Construct_UFunction_ATurnBasedPrototypePlayerController_GetMouseSymbol_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(TurnBasedPrototypePlayerController_eventGetMouseSymbol_Parms, ReturnValue), Z_Construct_UEnum_TurnBasedPrototype_MouseSymbol, METADATA_PARAMS(0, nullptr) }; // 4080368944
+const UECodeGen_Private::FEnumPropertyParams Z_Construct_UFunction_ATurnBasedPrototypePlayerController_GetMouseSymbol_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(TurnBasedPrototypePlayerController_eventGetMouseSymbol_Parms, ReturnValue), Z_Construct_UEnum_TurnBasedPrototype_MouseSymbol, METADATA_PARAMS(0, nullptr) }; // 3343283530
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ATurnBasedPrototypePlayerController_GetMouseSymbol_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ATurnBasedPrototypePlayerController_GetMouseSymbol_Statics::NewProp_ReturnValue_Underlying,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ATurnBasedPrototypePlayerController_GetMouseSymbol_Statics::NewProp_ReturnValue,
@@ -218,7 +221,7 @@ struct Z_Construct_UClass_ATurnBasedPrototypePlayerController_Statics
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
-		{ &Z_Construct_UFunction_ATurnBasedPrototypePlayerController_GetMouseSymbol, "GetMouseSymbol" }, // 993538566
+		{ &Z_Construct_UFunction_ATurnBasedPrototypePlayerController_GetMouseSymbol, "GetMouseSymbol" }, // 636642410
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -279,13 +282,13 @@ ATurnBasedPrototypePlayerController::~ATurnBasedPrototypePlayerController() {}
 struct Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_TurnBasedPrototypePlayerController_h_Statics
 {
 	static constexpr FEnumRegisterCompiledInInfo EnumInfo[] = {
-		{ MouseSymbol_StaticEnum, TEXT("MouseSymbol"), &Z_Registration_Info_UEnum_MouseSymbol, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 4080368944U) },
+		{ MouseSymbol_StaticEnum, TEXT("MouseSymbol"), &Z_Registration_Info_UEnum_MouseSymbol, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3343283530U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ATurnBasedPrototypePlayerController, ATurnBasedPrototypePlayerController::StaticClass, TEXT("ATurnBasedPrototypePlayerController"), &Z_Registration_Info_UClass_ATurnBasedPrototypePlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ATurnBasedPrototypePlayerController), 394559683U) },
+		{ Z_Construct_UClass_ATurnBasedPrototypePlayerController, ATurnBasedPrototypePlayerController::StaticClass, TEXT("ATurnBasedPrototypePlayerController"), &Z_Registration_Info_UClass_ATurnBasedPrototypePlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ATurnBasedPrototypePlayerController), 1173099116U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_TurnBasedPrototypePlayerController_h_514148612(TEXT("/Script/TurnBasedPrototype"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_TurnBasedPrototypePlayerController_h_4194039361(TEXT("/Script/TurnBasedPrototype"),
 	Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_TurnBasedPrototypePlayerController_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_TurnBasedPrototypePlayerController_h_Statics::ClassInfo),
 	nullptr, 0,
 	Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_TurnBasedPrototypePlayerController_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_TurnBasedPrototypePlayerController_h_Statics::EnumInfo));
