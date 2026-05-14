@@ -11,6 +11,7 @@
 #include "EnhancedInputComponent.h"
 #include "InputActionValue.h"
 #include "EnhancedInputSubsystems.h"
+#include "UI/UIManager.h"
 #include "Engine/LocalPlayer.h"
 #include "UInteractable.h"
 
@@ -207,7 +208,13 @@ void ATurnBasedPrototypePlayerController::OnClickInteractuableStarted(AActor* in
 		IInteractable* Interactable = Cast<IInteractable>(interactionActor);
 		if (Interactable)
 		{
-			GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("want to see interaction options"));
+			
+			UUIManager* UIManager = GetLocalPlayer()->GetSubsystem<UUIManager>();
+			if (UIManager)
+			{
+				UIManager->ShowAvailableInteractionsMenu(HitActor,*(Interactable->Ainteractions));
+			}
+			
 		}
 	}
 	
@@ -259,6 +266,34 @@ void ATurnBasedPrototypePlayerController::UpdateMouseCursor()
 	}
 	
 }
+
+void ATurnBasedPrototypePlayerController::HandleInteractionOrder(EInteractionType InteractionType, AActor* target)
+{
+	switch (InteractionType)
+	{
+	case EInteractionType::None:
+		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Player wants to: None"));
+		break;
+	case EInteractionType::Attack:
+		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Player wants to: Attack"));
+		break;
+	case EInteractionType::Grab:
+		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Player wants to: Grab"));
+		break;
+	case EInteractionType::Inspect:
+		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Player wants to: Inspect"));
+		break;
+	case EInteractionType::Open:
+		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Player wants to: Open"));
+		break;
+	case EInteractionType::Talk:
+		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Player wants to: Talk"));
+		break;
+	
+	}
+}
+
+
 
 
 

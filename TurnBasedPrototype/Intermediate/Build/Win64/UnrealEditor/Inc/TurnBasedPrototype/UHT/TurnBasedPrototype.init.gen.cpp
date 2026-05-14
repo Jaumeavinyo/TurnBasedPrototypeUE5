@@ -7,23 +7,29 @@
 #include "UObject/GeneratedCppIncludes.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeTurnBasedPrototype_init() {}
+	TURNBASEDPROTOTYPE_API UFunction* Z_Construct_UDelegateFunction_TurnBasedPrototype_OnInteractionSelected__DelegateSignature();
+	TURNBASEDPROTOTYPE_API UFunction* Z_Construct_UDelegateFunction_TurnBasedPrototype_OnMenuInteractionSelected__DelegateSignature();
 	static FPackageRegistrationInfo Z_Registration_Info_UPackage__Script_TurnBasedPrototype;
 	FORCENOINLINE UPackage* Z_Construct_UPackage__Script_TurnBasedPrototype()
 	{
 		if (!Z_Registration_Info_UPackage__Script_TurnBasedPrototype.OuterSingleton)
 		{
+			static UObject* (*const SingletonFuncArray[])() = {
+				(UObject* (*)())Z_Construct_UDelegateFunction_TurnBasedPrototype_OnInteractionSelected__DelegateSignature,
+				(UObject* (*)())Z_Construct_UDelegateFunction_TurnBasedPrototype_OnMenuInteractionSelected__DelegateSignature,
+			};
 			static const UECodeGen_Private::FPackageParams PackageParams = {
 				"/Script/TurnBasedPrototype",
-				nullptr,
-				0,
+				SingletonFuncArray,
+				UE_ARRAY_COUNT(SingletonFuncArray),
 				PKG_CompiledIn | 0x00000000,
-				0x9440859B,
-				0x377B45FF,
+				0xE836BCF8,
+				0xAF213004,
 				METADATA_PARAMS(0, nullptr)
 			};
 			UECodeGen_Private::ConstructUPackage(Z_Registration_Info_UPackage__Script_TurnBasedPrototype.OuterSingleton, PackageParams);
 		}
 		return Z_Registration_Info_UPackage__Script_TurnBasedPrototype.OuterSingleton;
 	}
-	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_TurnBasedPrototype(Z_Construct_UPackage__Script_TurnBasedPrototype, TEXT("/Script/TurnBasedPrototype"), Z_Registration_Info_UPackage__Script_TurnBasedPrototype, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x9440859B, 0x377B45FF));
+	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_TurnBasedPrototype(Z_Construct_UPackage__Script_TurnBasedPrototype, TEXT("/Script/TurnBasedPrototype"), Z_Registration_Info_UPackage__Script_TurnBasedPrototype, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0xE836BCF8, 0xAF213004));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

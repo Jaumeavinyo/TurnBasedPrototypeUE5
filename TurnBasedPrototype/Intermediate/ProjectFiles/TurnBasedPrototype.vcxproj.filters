@@ -78,9 +78,6 @@
     <ClCompile Include="..\..\Source\TurnBasedPrototype\Private\PlayerCharacter.cpp">
       <Filter>Source\TurnBasedPrototype\Private</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\TurnBasedPrototype\Private\UIManager.cpp">
-      <Filter>Source\TurnBasedPrototype\Private</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\TurnBasedPrototype\Private\UInteractable.cpp">
       <Filter>Source\TurnBasedPrototype\Private</Filter>
     </ClCompile>
@@ -89,6 +86,18 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\TurnBasedPrototype\Private\WeaponDataAsset.cpp">
       <Filter>Source\TurnBasedPrototype\Private</Filter>
+    </ClCompile>
+    <Filter Include="Source\TurnBasedPrototype\Private\UI">
+      <UniqueIdentifier>{AA1E5CE0-2967-3CFD-B253-45648C82929A}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\TurnBasedPrototype\Private\UI\InteractionMenuItemWidget.cpp">
+      <Filter>Source\TurnBasedPrototype\Private\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TurnBasedPrototype\Private\UI\InteractionMenuWidget.cpp">
+      <Filter>Source\TurnBasedPrototype\Private\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TurnBasedPrototype\Private\UI\UIManager.cpp">
+      <Filter>Source\TurnBasedPrototype\Private\UI</Filter>
     </ClCompile>
     <Filter Include="Source\TurnBasedPrototype\Public">
       <UniqueIdentifier>{8660F87A-E485-320D-B7E4-0122CE589DCB}</UniqueIdentifier>
@@ -108,9 +117,6 @@
     <ClCompile Include="..\..\Source\TurnBasedPrototype\Public\PlayerCharacter.h">
       <Filter>Source\TurnBasedPrototype\Public</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\TurnBasedPrototype\Public\UIManager.h">
-      <Filter>Source\TurnBasedPrototype\Public</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\TurnBasedPrototype\Public\UInteractable.h">
       <Filter>Source\TurnBasedPrototype\Public</Filter>
     </ClCompile>
@@ -119,6 +125,18 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\TurnBasedPrototype\Public\WeaponDataAsset.h">
       <Filter>Source\TurnBasedPrototype\Public</Filter>
+    </ClCompile>
+    <Filter Include="Source\TurnBasedPrototype\Public\UI">
+      <UniqueIdentifier>{96255AB2-385C-3318-AABB-49B53DC8440C}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\TurnBasedPrototype\Public\UI\InteractionMenuItemWidget.h">
+      <Filter>Source\TurnBasedPrototype\Public\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TurnBasedPrototype\Public\UI\InteractionMenuWidget.h">
+      <Filter>Source\TurnBasedPrototype\Public\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TurnBasedPrototype\Public\UI\UIManager.h">
+      <Filter>Source\TurnBasedPrototype\Public\UI</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
