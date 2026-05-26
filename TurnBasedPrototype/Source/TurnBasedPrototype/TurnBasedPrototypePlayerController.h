@@ -7,6 +7,7 @@
 #include "GameFramework/PlayerController.h"
 #include "InputMappingContext.h"
 #include "UInteractable.h"
+#include "UI/InteractionMenuWidget.h"
 #include "TurnBasedPrototypePlayerController.generated.h"
 
 /** Forward declaration to improve compiling times */
@@ -70,6 +71,16 @@ public:
 
 
 	void HandleInteractionOrder(EInteractionType InteractionType, AActor* target);
+
+
+	// UI 
+	
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Interaction UI")
+	TSubclassOf<UInteractionMenuWidget> CurrentInteractionMenuWidget;
+
+	UPROPERTY()
+	UInteractionMenuWidget* CurrentInteractionMenuInstance;
+
 	
 protected:
 	/** True if the controlled character should navigate to the mouse cursor. */

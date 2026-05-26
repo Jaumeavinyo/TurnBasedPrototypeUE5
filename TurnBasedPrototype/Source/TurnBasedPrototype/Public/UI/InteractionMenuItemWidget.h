@@ -26,18 +26,20 @@ public:
 	FOnInteractionSelected OnInteractionSelected;
 
 
-protected:
+
 	virtual void NativeConstruct() override;
 
 
 	UFUNCTION()
 	void HandleButtonClicked();
 	
-	UPROPERTY(meta = (BindWidget))
+	UPROPERTY(BlueprintReadWrite)
 	class UButton* InteractionButton;
 
-	UPROPERTY(meta = (BindWidget))
+	UPROPERTY(BlueprintReadWrite)
 	class UTextBlock* InteractionText;
+
+	
 
 private:
 	EInteractionType CurrentInteractionType;

@@ -48,10 +48,15 @@
             "c:\\program files\\epic games\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\uht\\widgetanimationevents.generated.h",
             "c:\\program files\\epic games\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\uht\\userwidget.generated.h",
             "c:\\users\\jauma\\documents\\github\\turnbasedprototypeue5\\turnbasedprototype\\source\\turnbasedprototype\\public\\ui\\interactionmenuwidget.h",
+            "c:\\program files\\epic games\\ue_5.5\\engine\\source\\runtime\\umg\\public\\components\\verticalbox.h",
+            "c:\\program files\\epic games\\ue_5.5\\engine\\source\\runtime\\umg\\public\\components\\panelwidget.h",
+            "c:\\program files\\epic games\\ue_5.5\\engine\\source\\runtime\\umg\\public\\components\\panelslot.h",
+            "c:\\program files\\epic games\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\uht\\panelslot.generated.h",
+            "c:\\program files\\epic games\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\uht\\panelwidget.generated.h",
+            "c:\\program files\\epic games\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\uht\\verticalbox.generated.h",
             "c:\\users\\jauma\\documents\\github\\turnbasedprototypeue5\\turnbasedprototype\\source\\turnbasedprototype\\public\\ui\\interactionmenuitemwidget.h",
             "c:\\users\\jauma\\documents\\github\\turnbasedprototypeue5\\turnbasedprototype\\intermediate\\build\\win64\\unrealeditor\\inc\\turnbasedprototype\\uht\\interactionmenuitemwidget.generated.h",
             "c:\\users\\jauma\\documents\\github\\turnbasedprototypeue5\\turnbasedprototype\\intermediate\\build\\win64\\unrealeditor\\inc\\turnbasedprototype\\uht\\interactionmenuwidget.generated.h",
-            "c:\\users\\jauma\\documents\\github\\turnbasedprototypeue5\\turnbasedprototype\\intermediate\\build\\win64\\unrealeditor\\inc\\turnbasedprototype\\uht\\uimanager.generated.h",
             "c:\\users\\jauma\\documents\\github\\turnbasedprototypeue5\\turnbasedprototype\\source\\turnbasedprototype\\turnbasedprototypeplayercontroller.h",
             "c:\\program files\\epic games\\ue_5.5\\engine\\plugins\\enhancedinput\\source\\enhancedinput\\public\\inputmappingcontext.h",
             "c:\\program files\\epic games\\ue_5.5\\engine\\plugins\\enhancedinput\\source\\enhancedinput\\public\\enhancedactionkeymapping.h",
@@ -65,7 +70,8 @@
             "c:\\program files\\epic games\\ue_5.5\\engine\\plugins\\enhancedinput\\intermediate\\build\\win64\\unrealeditor\\inc\\enhancedinput\\uht\\inputaction.generated.h",
             "c:\\program files\\epic games\\ue_5.5\\engine\\plugins\\enhancedinput\\intermediate\\build\\win64\\unrealeditor\\inc\\enhancedinput\\uht\\enhancedactionkeymapping.generated.h",
             "c:\\program files\\epic games\\ue_5.5\\engine\\plugins\\enhancedinput\\intermediate\\build\\win64\\unrealeditor\\inc\\enhancedinput\\uht\\inputmappingcontext.generated.h",
-            "c:\\users\\jauma\\documents\\github\\turnbasedprototypeue5\\turnbasedprototype\\intermediate\\build\\win64\\unrealeditor\\inc\\turnbasedprototype\\uht\\turnbasedprototypeplayercontroller.generated.h"
+            "c:\\users\\jauma\\documents\\github\\turnbasedprototypeue5\\turnbasedprototype\\intermediate\\build\\win64\\unrealeditor\\inc\\turnbasedprototype\\uht\\turnbasedprototypeplayercontroller.generated.h",
+            "c:\\users\\jauma\\documents\\github\\turnbasedprototypeue5\\turnbasedprototype\\intermediate\\build\\win64\\unrealeditor\\inc\\turnbasedprototype\\uht\\uimanager.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

@@ -14,7 +14,8 @@
 #include "Subsystems/LocalPlayerSubsystem.h" 
 #include "UInteractable.h"
 #include "Blueprint/UserWidget.h"
-#include "UI/InteractionMenuWidget.h" 
+#include "UI/InteractionMenuWidget.h"
+#include "TurnBasedPrototype/TurnBasedPrototypePlayerController.h"
 #include "UIManager.generated.h"
 /**
  *  PLAYER SUBSYSTEM
@@ -49,7 +50,8 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "UI")
 	void HideAvailableInteractionsMenu(AActor* Target, const TArray<EInteractionType>& Interactions);
-
+	
+	
 private:
 	UPROPERTY(EditDefaultsOnly, Category = "UI Classes")
 	TSubclassOf<UUserWidget> AvailableInteractionsMenuWidgetClass;
@@ -60,9 +62,7 @@ private:
 
 private:
 	// assign the windget BP in UI manager in editor
-	UPROPERTY(EditDefaultsOnly, Category = "UI Classes")
-	TSubclassOf<UInteractionMenuWidget> InteractionMenuWidgetClass;
 	
-	UPROPERTY()
-	UInteractionMenuWidget* CurrentInteractionMenuWidget;
+	
+	
 };

@@ -1,43 +1,45 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
+#include "UI/InteractionMenuWidget.h"
 #include "CoreMinimal.h"
 #include "Blueprint/UserWidget.h"
 #include "Blueprint/WidgetTree.h"
+
 #include "Components/PanelWidget.h"
 #include "UInteractable.h"
-#include "UI/InteractionMenuWidget.h"
 #include "UI/InteractionMenuItemWidget.h"
 
 
 void UInteractionMenuWidget::NativeConstruct()
 {
 	Super::NativeConstruct();
+
+	RootVerticalBox = NewObject<UVerticalBox>(this);
+
 }
 
 void UInteractionMenuWidget::PopulateMenu(AActor* InTarget, const TArray<EInteractionType>& Interactions)
 {
 	CurrentTarget = InTarget;
 
-	// clear panel
-	if (InteractionsMenuPanel)
+	for (UInteractionMenuItemWidget* item : MenuItems)
 	{
-		InteractionsMenuPanel->ClearChildren();
+		if (item) item->RemoveFromParent();
 	}
+	MenuItems.Empty();
 
-	// Create a button for every interaction
-	for (EInteractionType Type : Interactions)
+	for (EInteractionType type : Interactions)
 	{
-		if (MenuItemWidgetClass)
+		UInteractionMenuItemWidget* menuItem = CreateWidget<UInteractionMenuItemWidget>(this,UInteractionMenuItemWidget::StaticClass());
+
+		if (menuItem)
 		{
-			UInteractionMenuItemWidget* MenuItem = CreateWidget<UInteractionMenuItemWidget>(this, MenuItemWidgetClass);
-			if (MenuItem)
-			{
-				MenuItem->ConfigureInteraction(Type, CurrentTarget);
-				MenuItem->OnInteractionSelected.AddDynamic(this, &UInteractionMenuWidget::OnItemSelected);
-				InteractionsMenuPanel->AddChild(MenuItem);
-			}
+			menuItem->ConfigureInteraction(type, CurrentTarget);
+			menuItem->OnInteractionSelected.AddDynamic(this, &UInteractionMenuWidget::OnItemSelected);
+			MenuItems.Add(menuItem);
 		}
 	}
+	OnInteractionsReady();
 }
 
 void UInteractionMenuWidget::OnItemSelected(EInteractionType InteractionType, AActor* Target)

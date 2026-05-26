@@ -14,7 +14,6 @@ void EmptyLinkFunctionForGeneratedCodeUIManager() {}
 COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_ULocalPlayerSubsystem();
-TURNBASEDPROTOTYPE_API UClass* Z_Construct_UClass_UInteractionMenuWidget_NoRegister();
 TURNBASEDPROTOTYPE_API UClass* Z_Construct_UClass_UUIManager();
 TURNBASEDPROTOTYPE_API UClass* Z_Construct_UClass_UUIManager_NoRegister();
 TURNBASEDPROTOTYPE_API UEnum* Z_Construct_UEnum_TurnBasedPrototype_EInteractionType();
@@ -223,25 +222,9 @@ struct Z_Construct_UClass_UUIManager_Statics
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/UI/UIManager.h" },
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_InteractionMenuWidgetClass_MetaData[] = {
-		{ "Category", "UI Classes" },
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "// assign the windget BP in UI manager in editor\n" },
-#endif
-		{ "ModuleRelativePath", "Public/UI/UIManager.h" },
-#if !UE_BUILD_SHIPPING
-		{ "ToolTip", "assign the windget BP in UI manager in editor" },
-#endif
-	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CurrentInteractionMenuWidget_MetaData[] = {
-		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "Public/UI/UIManager.h" },
-	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FClassPropertyParams NewProp_AvailableInteractionsMenuWidgetClass;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_CurrentActiveWidget;
-	static const UECodeGen_Private::FClassPropertyParams NewProp_InteractionMenuWidgetClass;
-	static const UECodeGen_Private::FObjectPropertyParams NewProp_CurrentInteractionMenuWidget;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
@@ -257,13 +240,9 @@ struct Z_Construct_UClass_UUIManager_Statics
 };
 const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_UUIManager_Statics::NewProp_AvailableInteractionsMenuWidgetClass = { "AvailableInteractionsMenuWidgetClass", nullptr, (EPropertyFlags)0x0044000000010001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UUIManager, AvailableInteractionsMenuWidgetClass), Z_Construct_UClass_UClass, Z_Construct_UClass_UUserWidget_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_AvailableInteractionsMenuWidgetClass_MetaData), NewProp_AvailableInteractionsMenuWidgetClass_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UUIManager_Statics::NewProp_CurrentActiveWidget = { "CurrentActiveWidget", nullptr, (EPropertyFlags)0x0040000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UUIManager, CurrentActiveWidget), Z_Construct_UClass_UUserWidget_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CurrentActiveWidget_MetaData), NewProp_CurrentActiveWidget_MetaData) };
-const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_UUIManager_Statics::NewProp_InteractionMenuWidgetClass = { "InteractionMenuWidgetClass", nullptr, (EPropertyFlags)0x0044000000010001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UUIManager, InteractionMenuWidgetClass), Z_Construct_UClass_UClass, Z_Construct_UClass_UInteractionMenuWidget_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_InteractionMenuWidgetClass_MetaData), NewProp_InteractionMenuWidgetClass_MetaData) };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UUIManager_Statics::NewProp_CurrentInteractionMenuWidget = { "CurrentInteractionMenuWidget", nullptr, (EPropertyFlags)0x0040000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UUIManager, CurrentInteractionMenuWidget), Z_Construct_UClass_UInteractionMenuWidget_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CurrentInteractionMenuWidget_MetaData), NewProp_CurrentInteractionMenuWidget_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UUIManager_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UUIManager_Statics::NewProp_AvailableInteractionsMenuWidgetClass,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UUIManager_Statics::NewProp_CurrentActiveWidget,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UUIManager_Statics::NewProp_InteractionMenuWidgetClass,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UUIManager_Statics::NewProp_CurrentInteractionMenuWidget,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UUIManager_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_UUIManager_Statics::DependentSingletons[])() = {
@@ -306,10 +285,10 @@ UUIManager::~UUIManager() {}
 struct Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_UI_UIManager_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UUIManager, UUIManager::StaticClass, TEXT("UUIManager"), &Z_Registration_Info_UClass_UUIManager, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UUIManager), 2616438934U) },
+		{ Z_Construct_UClass_UUIManager, UUIManager::StaticClass, TEXT("UUIManager"), &Z_Registration_Info_UClass_UUIManager, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UUIManager), 2246376867U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_UI_UIManager_h_1092023401(TEXT("/Script/TurnBasedPrototype"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_UI_UIManager_h_3785535470(TEXT("/Script/TurnBasedPrototype"),
 	Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_UI_UIManager_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_UI_UIManager_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

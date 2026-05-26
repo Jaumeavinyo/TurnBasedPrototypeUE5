@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Blueprint/UserWidget.h"
+#include "Components/VerticalBox.h"
 #include "UInteractable.h"
 #include "UI/InteractionMenuItemWidget.h"
 #include "InteractionMenuWidget.generated.h"
@@ -24,25 +25,32 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Interaction")
 	void PopulateMenu(AActor* InTarget, const TArray<EInteractionType>& Interactions);
 
+	UFUNCTION(BlueprintCallable, Category = "Interaction")//called when click outside menu
+	void CloseMenu();
+	
 	UPROPERTY(BlueprintAssignable, Category = "Interaction")
 	FOnMenuInteractionSelected OnInteractionSelected;
 
-	UFUNCTION(BlueprintCallable, Category = "Interaction")//called when click outside menu
-	void CloseMenu();
 
+	UPROPERTY(BlueprintReadWrite, Category = "Buttons")
+	TArray<UInteractionMenuItemWidget*> MenuItems;
+
+	UFUNCTION(BlueprintImplementableEvent, Category = "Interaction")
+	void OnInteractionsReady();
+		
 protected:
 
 	virtual void NativeConstruct() override;
 	
-	UPROPERTY(meta = (BindWidget))
-	class UPanelWidget* InteractionsMenuPanel;
 
-	UPROPERTY(EditDefaultsOnly, Category = "Interaction")
-	TSubclassOf<UInteractionMenuItemWidget> MenuItemWidgetClass;
 
 private:
 	UFUNCTION()
 	void OnItemSelected(EInteractionType InteractionType, AActor* Target);
 
+	
+
+	
 	AActor* CurrentTarget;
+	UVerticalBox* RootVerticalBox;
 };

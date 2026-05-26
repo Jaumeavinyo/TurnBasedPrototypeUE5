@@ -39,6 +39,8 @@ public:
 	/** Rotation camera with mouse central button. Called from BP */
 	UFUNCTION(BlueprintCallable, Category="Camera Controll")
 	void RotateCamera(float axisValue);
+
+
 	
 };
 

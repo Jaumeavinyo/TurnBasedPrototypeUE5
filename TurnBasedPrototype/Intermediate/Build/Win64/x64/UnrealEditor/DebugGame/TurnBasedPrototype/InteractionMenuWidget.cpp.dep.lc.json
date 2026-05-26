@@ -6,6 +6,7 @@
         "PCH": "c:\\users\\jauma\\documents\\github\\turnbasedprototypeue5\\turnbasedprototype\\intermediate\\build\\win64\\x64\\turnbasedprototypeeditor\\debuggame\\unrealed\\sharedpch.unrealed.project.nonoptimized.valapi.cpp20.h.pch",
         "Includes": [
             "c:\\users\\jauma\\documents\\github\\turnbasedprototypeue5\\turnbasedprototype\\intermediate\\build\\win64\\x64\\unrealeditor\\debuggame\\turnbasedprototype\\definitions.turnbasedprototype.h",
+            "c:\\users\\jauma\\documents\\github\\turnbasedprototypeue5\\turnbasedprototype\\source\\turnbasedprototype\\public\\ui\\interactionmenuwidget.h",
             "c:\\program files\\epic games\\ue_5.5\\engine\\source\\runtime\\umg\\public\\blueprint\\userwidget.h",
             "c:\\program files\\epic games\\ue_5.5\\engine\\source\\runtime\\umg\\public\\blueprint\\widgetchild.h",
             "c:\\program files\\epic games\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\uht\\widgetchild.generated.h",
@@ -38,12 +39,12 @@
             "c:\\program files\\epic games\\ue_5.5\\engine\\source\\runtime\\umg\\public\\animation\\widgetanimationevents.h",
             "c:\\program files\\epic games\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\uht\\widgetanimationevents.generated.h",
             "c:\\program files\\epic games\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\uht\\userwidget.generated.h",
-            "c:\\program files\\epic games\\ue_5.5\\engine\\source\\runtime\\umg\\public\\blueprint\\widgettree.h",
+            "c:\\program files\\epic games\\ue_5.5\\engine\\source\\runtime\\umg\\public\\components\\verticalbox.h",
             "c:\\program files\\epic games\\ue_5.5\\engine\\source\\runtime\\umg\\public\\components\\panelwidget.h",
             "c:\\program files\\epic games\\ue_5.5\\engine\\source\\runtime\\umg\\public\\components\\panelslot.h",
             "c:\\program files\\epic games\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\uht\\panelslot.generated.h",
             "c:\\program files\\epic games\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\uht\\panelwidget.generated.h",
-            "c:\\program files\\epic games\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\uht\\widgettree.generated.h",
+            "c:\\program files\\epic games\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\uht\\verticalbox.generated.h",
             "c:\\users\\jauma\\documents\\github\\turnbasedprototypeue5\\turnbasedprototype\\source\\turnbasedprototype\\public\\uinteractable.h",
             "c:\\program files\\epic games\\ue_5.5\\engine\\source\\runtime\\coreuobject\\public\\uobject\\noexporttypes.h",
             "c:\\program files\\epic games\\ue_5.5\\engine\\source\\runtime\\coreuobject\\public\\uobject\\propertyaccessutil.h",
@@ -52,10 +53,11 @@
             "c:\\program files\\epic games\\ue_5.5\\engine\\source\\runtime\\core\\public\\math\\unitconversion.inl",
             "c:\\program files\\epic games\\ue_5.5\\engine\\source\\runtime\\core\\public\\internationalization\\polyglottextdata.h",
             "c:\\users\\jauma\\documents\\github\\turnbasedprototypeue5\\turnbasedprototype\\intermediate\\build\\win64\\unrealeditor\\inc\\turnbasedprototype\\uht\\uinteractable.generated.h",
-            "c:\\users\\jauma\\documents\\github\\turnbasedprototypeue5\\turnbasedprototype\\source\\turnbasedprototype\\public\\ui\\interactionmenuwidget.h",
             "c:\\users\\jauma\\documents\\github\\turnbasedprototypeue5\\turnbasedprototype\\source\\turnbasedprototype\\public\\ui\\interactionmenuitemwidget.h",
             "c:\\users\\jauma\\documents\\github\\turnbasedprototypeue5\\turnbasedprototype\\intermediate\\build\\win64\\unrealeditor\\inc\\turnbasedprototype\\uht\\interactionmenuitemwidget.generated.h",
-            "c:\\users\\jauma\\documents\\github\\turnbasedprototypeue5\\turnbasedprototype\\intermediate\\build\\win64\\unrealeditor\\inc\\turnbasedprototype\\uht\\interactionmenuwidget.generated.h"
+            "c:\\users\\jauma\\documents\\github\\turnbasedprototypeue5\\turnbasedprototype\\intermediate\\build\\win64\\unrealeditor\\inc\\turnbasedprototype\\uht\\interactionmenuwidget.generated.h",
+            "c:\\program files\\epic games\\ue_5.5\\engine\\source\\runtime\\umg\\public\\blueprint\\widgettree.h",
+            "c:\\program files\\epic games\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\uht\\widgettree.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []
