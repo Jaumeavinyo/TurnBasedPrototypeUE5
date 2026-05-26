@@ -30,8 +30,6 @@ public: \
 
 
 #define FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_NPCharacter_h_17_ENHANCED_CONSTRUCTORS \
-	/** Standard constructor, called after all reflected properties have been initialized */ \
-	NO_API ANPCharacter(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	ANPCharacter(ANPCharacter&&); \
@@ -39,7 +37,7 @@ private: \
 public: \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, ANPCharacter); \
 	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ANPCharacter); \
-	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(ANPCharacter) \
+	DEFINE_DEFAULT_CONSTRUCTOR_CALL(ANPCharacter) \
 	NO_API virtual ~ANPCharacter();
 
 

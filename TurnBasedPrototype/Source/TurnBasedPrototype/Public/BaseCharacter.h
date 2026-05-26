@@ -13,6 +13,8 @@ class TURNBASEDPROTOTYPE_API ABaseCharacter : public ACharacter
 	GENERATED_BODY()
 
 public:
+	ABaseCharacter();
+	
 	// Sets default values for this character's properties
 	ABaseCharacter(const FObjectInitializer& ObjectInitializer);
 

@@ -5,6 +5,10 @@
 
 // Sets default values
 
+ABaseCharacter::ABaseCharacter()
+{
+}
+
 ABaseCharacter::ABaseCharacter(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
 {
  	

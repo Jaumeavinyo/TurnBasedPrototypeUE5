@@ -22,8 +22,8 @@ class TURNBASEDPROTOTYPE_API UInteractionMenuWidget : public UUserWidget
 
 
 public:
-	UFUNCTION(BlueprintCallable, Category = "Interaction")
-	void PopulateMenu(AActor* InTarget, const TArray<EInteractionType>& Interactions);
+	UFUNCTION(BlueprintImplementableEvent, Category = "Interaction")
+	void PopulateMenu(AActor* InTarget);
 
 	UFUNCTION(BlueprintCallable, Category = "Interaction")//called when click outside menu
 	void CloseMenu();
@@ -32,6 +32,9 @@ public:
 	FOnMenuInteractionSelected OnInteractionSelected;
 
 
+	UPROPERTY(BlueprintReadWrite, Category = "Buttons")
+	TArray<EInteractionType> Interactions;
+	
 	UPROPERTY(BlueprintReadWrite, Category = "Buttons")
 	TArray<UInteractionMenuItemWidget*> MenuItems;
 

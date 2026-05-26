@@ -3,14 +3,27 @@
 
 #include "NPCharacter.h"
 
-TArray<EInteractionType>* ANPCharacter::GetSupportedInteractions() const
+ANPCharacter::ANPCharacter()
 {
-	//_TODO designers should be able when creating an NPC to set its initial state "Pacific, agressive etc" and this should affect interaction list or else
-	//designers should also be able to seet the interactions available from BP.
-	Ainteractions->Add(EInteractionType::Attack);
-	Ainteractions->Add(EInteractionType::Talk);
+	Ainteractions = new TArray<EInteractionType>();//cant do this in interface bc interfaces dont have constructors, so must be initialized in all interactable objects
+}
 
+TArray<EInteractionType>*  ANPCharacter::GetSupportedInteractions() const
+{
+
+	for (EInteractionType Interaction : NPC_Data->interactions)
+	{
+		Ainteractions->Add(Interaction);
+	}
 	return Ainteractions;
+}
+
+void ANPCharacter::SetSupportedInteractions() const
+{
+	for (EInteractionType Interaction : NPC_Data->interactions)
+	{
+		Ainteractions->Add(Interaction);
+	}
 }
 
 void ANPCharacter::Interact(EInteractionType interactionType, AActor* instigator)

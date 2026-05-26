@@ -22,8 +22,7 @@ TURNBASEDPROTOTYPE_API void FOnMenuInteractionSelected_DelegateWrapper(const FMu
 
 #define FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_UI_InteractionMenuWidget_h_21_RPC_WRAPPERS_NO_PURE_DECLS \
 	DECLARE_FUNCTION(execOnItemSelected); \
-	DECLARE_FUNCTION(execCloseMenu); \
-	DECLARE_FUNCTION(execPopulateMenu);
+	DECLARE_FUNCTION(execCloseMenu);
 
 
 #define FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_UI_InteractionMenuWidget_h_21_CALLBACK_WRAPPERS

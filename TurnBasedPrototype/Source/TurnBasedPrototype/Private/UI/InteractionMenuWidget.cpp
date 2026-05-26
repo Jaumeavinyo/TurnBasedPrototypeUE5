@@ -17,9 +17,14 @@ void UInteractionMenuWidget::NativeConstruct()
 	RootVerticalBox = NewObject<UVerticalBox>(this);
 
 }
-
+/*
 void UInteractionMenuWidget::PopulateMenu(AActor* InTarget, const TArray<EInteractionType>& Interactions)
 {
+
+	
+
+
+	
 	CurrentTarget = InTarget;
 
 	for (UInteractionMenuItemWidget* item : MenuItems)
@@ -40,7 +45,7 @@ void UInteractionMenuWidget::PopulateMenu(AActor* InTarget, const TArray<EIntera
 		}
 	}
 	OnInteractionsReady();
-}
+}*/
 
 void UInteractionMenuWidget::OnItemSelected(EInteractionType InteractionType, AActor* Target)
 {

@@ -31,8 +31,10 @@ class UInteractable : public UInterface
 class TURNBASEDPROTOTYPE_API IInteractable 
 {
 	GENERATED_BODY()
+public: 
 public:
 	virtual TArray<EInteractionType>* GetSupportedInteractions() const = 0;
+	virtual void SetSupportedInteractions() const = 0;
 	virtual void Interact(EInteractionType interactionType, AActor* instigator) = 0;
 
 	TArray<EInteractionType>* Ainteractions;

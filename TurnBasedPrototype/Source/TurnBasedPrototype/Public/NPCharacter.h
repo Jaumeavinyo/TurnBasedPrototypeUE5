@@ -15,7 +15,10 @@ UCLASS()
 class TURNBASEDPROTOTYPE_API ANPCharacter : public ABaseCharacter, public IInteractable
 {
 	GENERATED_BODY()
+public:
 
+	ANPCharacter();
+	
 public:
 	
 	UPROPERTY(EditDefaultsOnly , Category = "Data")
@@ -24,6 +27,7 @@ public:
 public:
 	
 	virtual TArray<EInteractionType>* GetSupportedInteractions() const override;
+	virtual void SetSupportedInteractions() const override;
 	virtual void Interact(EInteractionType interactionType, AActor* instigator) override;
 
 	UFUNCTION(BlueprintCallable, Category = "interactions")

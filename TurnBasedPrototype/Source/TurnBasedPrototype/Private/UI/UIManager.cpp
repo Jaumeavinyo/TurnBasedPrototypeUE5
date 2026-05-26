@@ -1,13 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
 
-/*
-#include "UI/InteractionMenuItemWidget.h"
-#include "UI/InteractionMenuWidget.h"
-#include "UI/UIManager.h"
-
-#include "TurnBasedPrototype/TurnBasedPrototypePlayerController.h"
-
-*/
 #include "UI/UIManager.h"
 #include "UI/InteractionMenuWidget.h"
 #include "TurnBasedPrototype/TurnBasedPrototypePlayerController.h"
@@ -45,7 +36,7 @@ void UUIManager::Deinitialize()
 
 
 
-void UUIManager::ShowAvailableInteractionsMenu(AActor* Target, const TArray<EInteractionType>& Interactions)
+void UUIManager::ShowAvailableInteractionsMenu(AActor* Target, const TArray<EInteractionType>& Interactions_)
 {
 	GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("want to see interaction options"));
 	
@@ -73,9 +64,17 @@ void UUIManager::ShowAvailableInteractionsMenu(AActor* Target, const TArray<EInt
 		if (PC->CurrentInteractionMenuInstance)
 		{
 			PC->CurrentInteractionMenuInstance->OnInteractionSelected.AddDynamic(this, &UUIManager::OnInteractionSelected);
-			//PC->CurrentInteractionMenuInstance->PopulateMenu(Target, Interactions);
-			//PC->CurrentInteractionMenuInstance->AddToViewport();
-			GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("menú in viewport"));
+			if (!Interactions_.IsEmpty())
+			{
+				PC->CurrentInteractionMenuInstance->Interactions = Interactions_;
+				PC->CurrentInteractionMenuInstance->PopulateMenu(Target);
+				//MORE CODE HERE
+				GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("menú in viewport"));
+			}else
+			{
+				GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Interactions for this interactable was empty"));
+			}
+			
 		}
 	}
 }

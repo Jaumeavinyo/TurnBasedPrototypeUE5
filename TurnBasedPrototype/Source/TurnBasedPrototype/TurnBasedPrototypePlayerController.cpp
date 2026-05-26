@@ -208,7 +208,7 @@ void ATurnBasedPrototypePlayerController::OnClickInteractuableStarted(AActor* in
 		IInteractable* Interactable = Cast<IInteractable>(interactionActor);
 		if (Interactable)
 		{
-			
+			Interactable->SetSupportedInteractions();//gets interactions from data asset and stores them in the interactable list
 			UUIManager* UIManager = GetLocalPlayer()->GetSubsystem<UUIManager>();
 			if (UIManager)
 			{

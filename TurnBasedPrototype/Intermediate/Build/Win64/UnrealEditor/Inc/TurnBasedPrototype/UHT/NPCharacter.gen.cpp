@@ -150,7 +150,6 @@ template<> TURNBASEDPROTOTYPE_API UClass* StaticClass<ANPCharacter>()
 {
 	return ANPCharacter::StaticClass();
 }
-ANPCharacter::ANPCharacter(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {}
 DEFINE_VTABLE_PTR_HELPER_CTOR(ANPCharacter);
 ANPCharacter::~ANPCharacter() {}
 // End Class ANPCharacter
