@@ -37,7 +37,7 @@ public:
 	class UButton* InteractionButton;
 
 	UPROPERTY(BlueprintReadWrite)
-	class UTextBlock* InteractionText;
+	FText InteractionText;
 
 	
 

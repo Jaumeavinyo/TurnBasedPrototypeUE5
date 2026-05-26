@@ -69,6 +69,7 @@ void UUIManager::ShowAvailableInteractionsMenu(AActor* Target, const TArray<EInt
 				PC->CurrentInteractionMenuInstance->Interactions = Interactions_;
 				PC->CurrentInteractionMenuInstance->PopulateMenu(Target);
 				//MORE CODE HERE
+				PC->CurrentInteractionMenuInstance->AddToViewport();
 				GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("menú in viewport"));
 			}else
 			{
@@ -81,12 +82,11 @@ void UUIManager::ShowAvailableInteractionsMenu(AActor* Target, const TArray<EInt
 
 void UUIManager::OnInteractionSelected(EInteractionType InteractionType, AActor* Target)
 {
-	// Aquí notificas al PlayerController o al GameManager
-	// Puedes usar un delegado, o buscar el PlayerController directamente
+
 	ATurnBasedPrototypePlayerController* PC = Cast<ATurnBasedPrototypePlayerController>(GetLocalPlayer()->GetPlayerController(GetWorld()));
 	if (PC)
 	{
-		// Por ejemplo, llamar a una función en el PlayerController
+	
 		
 		PC->HandleInteractionOrder(InteractionType, Target);
 		

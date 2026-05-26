@@ -50,7 +50,7 @@ void UInteractionMenuItemWidget::ConfigureInteraction(EInteractionType interacti
 	
 	}
 
-	InteractionText->SetText(FText::FromString(InteractionItemText));
+	InteractionText = FText::FromString(InteractionItemText);
 }
 
 void UInteractionMenuItemWidget::HandleButtonClicked() 

@@ -16,7 +16,6 @@ TURNBASEDPROTOTYPE_API UClass* Z_Construct_UClass_UInteractionMenuItemWidget_NoR
 TURNBASEDPROTOTYPE_API UEnum* Z_Construct_UEnum_TurnBasedPrototype_EInteractionType();
 TURNBASEDPROTOTYPE_API UFunction* Z_Construct_UDelegateFunction_TurnBasedPrototype_OnInteractionSelected__DelegateSignature();
 UMG_API UClass* Z_Construct_UClass_UButton_NoRegister();
-UMG_API UClass* Z_Construct_UClass_UTextBlock_NoRegister();
 UMG_API UClass* Z_Construct_UClass_UUserWidget();
 UPackage* Z_Construct_UPackage__Script_TurnBasedPrototype();
 // End Cross Module References
@@ -144,13 +143,12 @@ struct Z_Construct_UClass_UInteractionMenuItemWidget_Statics
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_InteractionText_MetaData[] = {
 		{ "Category", "InteractionMenuItemWidget" },
-		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/UI/InteractionMenuItemWidget.h" },
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FMulticastDelegatePropertyParams NewProp_OnInteractionSelected;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_InteractionButton;
-	static const UECodeGen_Private::FObjectPropertyParams NewProp_InteractionText;
+	static const UECodeGen_Private::FTextPropertyParams NewProp_InteractionText;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
@@ -164,7 +162,7 @@ struct Z_Construct_UClass_UInteractionMenuItemWidget_Statics
 };
 const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_UInteractionMenuItemWidget_Statics::NewProp_OnInteractionSelected = { "OnInteractionSelected", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UInteractionMenuItemWidget, OnInteractionSelected), Z_Construct_UDelegateFunction_TurnBasedPrototype_OnInteractionSelected__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_OnInteractionSelected_MetaData), NewProp_OnInteractionSelected_MetaData) }; // 2604554035
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UInteractionMenuItemWidget_Statics::NewProp_InteractionButton = { "InteractionButton", nullptr, (EPropertyFlags)0x001000000008000c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UInteractionMenuItemWidget, InteractionButton), Z_Construct_UClass_UButton_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_InteractionButton_MetaData), NewProp_InteractionButton_MetaData) };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UInteractionMenuItemWidget_Statics::NewProp_InteractionText = { "InteractionText", nullptr, (EPropertyFlags)0x001000000008000c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UInteractionMenuItemWidget, InteractionText), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_InteractionText_MetaData), NewProp_InteractionText_MetaData) };
+const UECodeGen_Private::FTextPropertyParams Z_Construct_UClass_UInteractionMenuItemWidget_Statics::NewProp_InteractionText = { "InteractionText", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Text, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UInteractionMenuItemWidget, InteractionText), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_InteractionText_MetaData), NewProp_InteractionText_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UInteractionMenuItemWidget_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInteractionMenuItemWidget_Statics::NewProp_OnInteractionSelected,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInteractionMenuItemWidget_Statics::NewProp_InteractionButton,
@@ -212,10 +210,10 @@ UInteractionMenuItemWidget::~UInteractionMenuItemWidget() {}
 struct Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_UI_InteractionMenuItemWidget_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UInteractionMenuItemWidget, UInteractionMenuItemWidget::StaticClass, TEXT("UInteractionMenuItemWidget"), &Z_Registration_Info_UClass_UInteractionMenuItemWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UInteractionMenuItemWidget), 1309047022U) },
+		{ Z_Construct_UClass_UInteractionMenuItemWidget, UInteractionMenuItemWidget::StaticClass, TEXT("UInteractionMenuItemWidget"), &Z_Registration_Info_UClass_UInteractionMenuItemWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UInteractionMenuItemWidget), 3344268378U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_UI_InteractionMenuItemWidget_h_2611069704(TEXT("/Script/TurnBasedPrototype"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_UI_InteractionMenuItemWidget_h_584091514(TEXT("/Script/TurnBasedPrototype"),
 	Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_UI_InteractionMenuItemWidget_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_UI_InteractionMenuItemWidget_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

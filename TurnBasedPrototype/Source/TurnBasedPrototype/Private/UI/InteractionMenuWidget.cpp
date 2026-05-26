@@ -17,35 +17,7 @@ void UInteractionMenuWidget::NativeConstruct()
 	RootVerticalBox = NewObject<UVerticalBox>(this);
 
 }
-/*
-void UInteractionMenuWidget::PopulateMenu(AActor* InTarget, const TArray<EInteractionType>& Interactions)
-{
 
-	
-
-
-	
-	CurrentTarget = InTarget;
-
-	for (UInteractionMenuItemWidget* item : MenuItems)
-	{
-		if (item) item->RemoveFromParent();
-	}
-	MenuItems.Empty();
-
-	for (EInteractionType type : Interactions)
-	{
-		UInteractionMenuItemWidget* menuItem = CreateWidget<UInteractionMenuItemWidget>(this,UInteractionMenuItemWidget::StaticClass());
-
-		if (menuItem)
-		{
-			menuItem->ConfigureInteraction(type, CurrentTarget);
-			menuItem->OnInteractionSelected.AddDynamic(this, &UInteractionMenuWidget::OnItemSelected);
-			MenuItems.Add(menuItem);
-		}
-	}
-	OnInteractionsReady();
-}*/
 
 void UInteractionMenuWidget::OnItemSelected(EInteractionType InteractionType, AActor* Target)
 {
