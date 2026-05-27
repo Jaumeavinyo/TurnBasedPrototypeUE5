@@ -69,7 +69,10 @@ void UUIManager::ShowAvailableInteractionsMenu(AActor* Target, const TArray<EInt
 				PC->CurrentInteractionMenuInstance->Interactions = Interactions_;
 				PC->CurrentInteractionMenuInstance->PopulateMenu(Target);
 				//MORE CODE HERE
+
+				
 				PC->CurrentInteractionMenuInstance->AddToViewport();
+				
 				GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("menú in viewport"));
 			}else
 			{
@@ -102,3 +105,5 @@ void UUIManager::HideAvailableInteractionsMenu(AActor* Target, const TArray<EInt
 {
 	
 }
+
+

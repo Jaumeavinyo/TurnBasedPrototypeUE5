@@ -50,7 +50,7 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "UI")
 	void HideAvailableInteractionsMenu(AActor* Target, const TArray<EInteractionType>& Interactions);
-	
+
 	
 private:
 	UPROPERTY(EditDefaultsOnly, Category = "UI Classes")

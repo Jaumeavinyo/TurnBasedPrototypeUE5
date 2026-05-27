@@ -15,7 +15,7 @@ void UInteractionMenuWidget::NativeConstruct()
 	Super::NativeConstruct();
 
 	RootVerticalBox = NewObject<UVerticalBox>(this);
-
+	
 }
 
 
