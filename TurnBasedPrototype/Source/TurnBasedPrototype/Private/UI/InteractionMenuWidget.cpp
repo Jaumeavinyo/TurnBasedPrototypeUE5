@@ -24,7 +24,8 @@ void UInteractionMenuWidget::OnItemSelected(EInteractionType InteractionType, AA
 	// Notify UI Manager
 	if (OnInteractionSelected.IsBound())
 	{
-		OnInteractionSelected.Broadcast(InteractionType, Target);
+		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Menu: Broadcast to OnInteractionSelected()"));
+		OnInteractionSelected.Broadcast(InteractionType, CurrentTarget);
 	}
     
 	// close menu automatically after use
@@ -33,5 +34,5 @@ void UInteractionMenuWidget::OnItemSelected(EInteractionType InteractionType, AA
 
 void UInteractionMenuWidget::CloseMenu()
 {
-	RemoveFromParent();
+	DestroyMenu();
 }

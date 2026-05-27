@@ -2,6 +2,7 @@
 
 
 #include "UI/InteractionMenuItemWidget.h"
+#include "UI/InteractionMenuWidget.h"
 #include "UInteractable.h"
 #include "Blueprint/WidgetTree.h"
 #include "Components/PanelWidget.h"
@@ -12,12 +13,29 @@
 void UInteractionMenuItemWidget::NativeConstruct()
 {
 	Super::NativeConstruct();
-    
-	if (InteractionButton)
+
+	UInteractionMenuWidget* Menu = GetTypedOuter<UInteractionMenuWidget>();
+	if (Menu)
 	{
-		InteractionButton->OnClicked.AddDynamic(this, &UInteractionMenuItemWidget::HandleButtonClicked);
-		
+		OnInteractionSelected.AddDynamic(Menu, &UInteractionMenuWidget::OnItemSelected);
+		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("Bound to menu via GetTypedOuter!"));
 	}
+	else
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("No menu found!"));
+	}
+	
+	if (LinkedButton)
+	{
+		LinkedButton->OnClicked.RemoveDynamic(this, &UInteractionMenuItemWidget::HandleButtonClicked);
+		LinkedButton->OnClicked.AddDynamic(this, &UInteractionMenuItemWidget::HandleButtonClicked);
+	}
+}
+
+void UInteractionMenuItemWidget::NativeOnInitialized()
+{
+	Super::NativeOnInitialized();
+   
 }
 
 void UInteractionMenuItemWidget::ConfigureInteraction(EInteractionType interactionType, AActor* InteractionTarget)
@@ -58,6 +76,7 @@ void UInteractionMenuItemWidget::HandleButtonClicked()
 	
 	if (OnInteractionSelected.IsBound())
 	{
+		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("ButtonItem: Broadcast to OnInteractionSelected()"));
 		OnInteractionSelected.Broadcast(CurrentInteractionType, TargetActor);
 	}
 }

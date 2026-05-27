@@ -38,8 +38,6 @@ void UUIManager::Deinitialize()
 
 void UUIManager::ShowAvailableInteractionsMenu(AActor* Target, const TArray<EInteractionType>& Interactions_)
 {
-	GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("want to see interaction options"));
-	
 	ATurnBasedPrototypePlayerController* PC = Cast<ATurnBasedPrototypePlayerController>(GetLocalPlayer()->GetPlayerController(GetWorld()));
 
 	if (!PC)
@@ -51,7 +49,6 @@ void UUIManager::ShowAvailableInteractionsMenu(AActor* Target, const TArray<EInt
 	// Close curr menu if exists
 	if (PC->CurrentInteractionMenuInstance)
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("already Valid Widget"));
 		PC->CurrentInteractionMenuInstance->CloseMenu();
 		PC->CurrentInteractionMenuInstance = nullptr;
 	}
@@ -59,7 +56,6 @@ void UUIManager::ShowAvailableInteractionsMenu(AActor* Target, const TArray<EInt
 	// Create new menu
 	if (PC && PC->CurrentInteractionMenuWidget)
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Crear nuevo menú"));
 		PC->CurrentInteractionMenuInstance = CreateWidget<UInteractionMenuWidget>(GetLocalPlayer()->GetGameInstance(), PC->CurrentInteractionMenuWidget);
 		if (PC->CurrentInteractionMenuInstance)
 		{
@@ -67,18 +63,15 @@ void UUIManager::ShowAvailableInteractionsMenu(AActor* Target, const TArray<EInt
 			if (!Interactions_.IsEmpty())
 			{
 				PC->CurrentInteractionMenuInstance->Interactions = Interactions_;
-				PC->CurrentInteractionMenuInstance->PopulateMenu(Target);
-				//MORE CODE HERE
-
-				
+				PC->CurrentInteractionMenuInstance->PopulateMenu(Target); //widget blueprint event, also sets the pos of the menu
+				PC->CurrentInteractionMenuInstance->CurrentTarget = Target;
 				PC->CurrentInteractionMenuInstance->AddToViewport();
 				
-				GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("menú in viewport"));
 			}else
 			{
-				GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Interactions for this interactable was empty"));
-			}
+				UE_LOG(LogTemp, Warning, TEXT("UUIManager Error: Interactions for this interactable was empty"));
 			
+			}
 		}
 	}
 }

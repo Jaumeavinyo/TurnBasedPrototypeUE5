@@ -112,6 +112,35 @@ DEFINE_FUNCTION(UInteractionMenuWidget::execCloseMenu)
 }
 // End Class UInteractionMenuWidget Function CloseMenu
 
+// Begin Class UInteractionMenuWidget Function DestroyMenu
+static const FName NAME_UInteractionMenuWidget_DestroyMenu = FName(TEXT("DestroyMenu"));
+void UInteractionMenuWidget::DestroyMenu()
+{
+	UFunction* Func = FindFunctionChecked(NAME_UInteractionMenuWidget_DestroyMenu);
+	ProcessEvent(Func,NULL);
+}
+struct Z_Construct_UFunction_UInteractionMenuWidget_DestroyMenu_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "Interaction" },
+		{ "ModuleRelativePath", "Public/UI/InteractionMenuWidget.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UInteractionMenuWidget_DestroyMenu_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UInteractionMenuWidget, nullptr, "DestroyMenu", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08020800, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UInteractionMenuWidget_DestroyMenu_Statics::Function_MetaDataParams), Z_Construct_UFunction_UInteractionMenuWidget_DestroyMenu_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_UInteractionMenuWidget_DestroyMenu()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UInteractionMenuWidget_DestroyMenu_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+// End Class UInteractionMenuWidget Function DestroyMenu
+
 // Begin Class UInteractionMenuWidget Function OnInteractionsReady
 static const FName NAME_UInteractionMenuWidget_OnInteractionsReady = FName(TEXT("OnInteractionsReady"));
 void UInteractionMenuWidget::OnInteractionsReady()
@@ -169,7 +198,7 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UInter
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UInteractionMenuWidget_OnItemSelected_Statics::NewProp_Target,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UInteractionMenuWidget_OnItemSelected_Statics::PropPointers) < 2048);
-const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UInteractionMenuWidget_OnItemSelected_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UInteractionMenuWidget, nullptr, "OnItemSelected", nullptr, nullptr, Z_Construct_UFunction_UInteractionMenuWidget_OnItemSelected_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UInteractionMenuWidget_OnItemSelected_Statics::PropPointers), sizeof(Z_Construct_UFunction_UInteractionMenuWidget_OnItemSelected_Statics::InteractionMenuWidget_eventOnItemSelected_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00040401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UInteractionMenuWidget_OnItemSelected_Statics::Function_MetaDataParams), Z_Construct_UFunction_UInteractionMenuWidget_OnItemSelected_Statics::Function_MetaDataParams) };
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UInteractionMenuWidget_OnItemSelected_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UInteractionMenuWidget, nullptr, "OnItemSelected", nullptr, nullptr, Z_Construct_UFunction_UInteractionMenuWidget_OnItemSelected_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UInteractionMenuWidget_OnItemSelected_Statics::PropPointers), sizeof(Z_Construct_UFunction_UInteractionMenuWidget_OnItemSelected_Statics::InteractionMenuWidget_eventOnItemSelected_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UInteractionMenuWidget_OnItemSelected_Statics::Function_MetaDataParams), Z_Construct_UFunction_UInteractionMenuWidget_OnItemSelected_Statics::Function_MetaDataParams) };
 static_assert(sizeof(Z_Construct_UFunction_UInteractionMenuWidget_OnItemSelected_Statics::InteractionMenuWidget_eventOnItemSelected_Parms) < MAX_uint16);
 UFunction* Z_Construct_UFunction_UInteractionMenuWidget_OnItemSelected()
 {
@@ -275,6 +304,9 @@ struct Z_Construct_UClass_UInteractionMenuWidget_Statics
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/UI/InteractionMenuWidget.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CurrentTarget_MetaData[] = {
+		{ "ModuleRelativePath", "Public/UI/InteractionMenuWidget.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FMulticastDelegatePropertyParams NewProp_OnInteractionSelected;
 	static const UECodeGen_Private::FBytePropertyParams NewProp_Interactions_Inner_Underlying;
@@ -282,12 +314,14 @@ struct Z_Construct_UClass_UInteractionMenuWidget_Statics
 	static const UECodeGen_Private::FArrayPropertyParams NewProp_Interactions;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_MenuItems_Inner;
 	static const UECodeGen_Private::FArrayPropertyParams NewProp_MenuItems;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_CurrentTarget;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
 		{ &Z_Construct_UFunction_UInteractionMenuWidget_CloseMenu, "CloseMenu" }, // 3462815147
+		{ &Z_Construct_UFunction_UInteractionMenuWidget_DestroyMenu, "DestroyMenu" }, // 335410750
 		{ &Z_Construct_UFunction_UInteractionMenuWidget_OnInteractionsReady, "OnInteractionsReady" }, // 2291398000
-		{ &Z_Construct_UFunction_UInteractionMenuWidget_OnItemSelected, "OnItemSelected" }, // 3508557120
+		{ &Z_Construct_UFunction_UInteractionMenuWidget_OnItemSelected, "OnItemSelected" }, // 426438992
 		{ &Z_Construct_UFunction_UInteractionMenuWidget_PopulateMenu, "PopulateMenu" }, // 379099629
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
@@ -302,6 +336,7 @@ const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_UInteractionMenu
 const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UInteractionMenuWidget_Statics::NewProp_Interactions = { "Interactions", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UInteractionMenuWidget, Interactions), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Interactions_MetaData), NewProp_Interactions_MetaData) }; // 1346780968
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UInteractionMenuWidget_Statics::NewProp_MenuItems_Inner = { "MenuItems", nullptr, (EPropertyFlags)0x0000000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UClass_UInteractionMenuItemWidget_NoRegister, METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UInteractionMenuWidget_Statics::NewProp_MenuItems = { "MenuItems", nullptr, (EPropertyFlags)0x001000800000000c, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UInteractionMenuWidget, MenuItems), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MenuItems_MetaData), NewProp_MenuItems_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UInteractionMenuWidget_Statics::NewProp_CurrentTarget = { "CurrentTarget", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UInteractionMenuWidget, CurrentTarget), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CurrentTarget_MetaData), NewProp_CurrentTarget_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UInteractionMenuWidget_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInteractionMenuWidget_Statics::NewProp_OnInteractionSelected,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInteractionMenuWidget_Statics::NewProp_Interactions_Inner_Underlying,
@@ -309,6 +344,7 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UInteract
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInteractionMenuWidget_Statics::NewProp_Interactions,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInteractionMenuWidget_Statics::NewProp_MenuItems_Inner,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInteractionMenuWidget_Statics::NewProp_MenuItems,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UInteractionMenuWidget_Statics::NewProp_CurrentTarget,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UInteractionMenuWidget_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_UInteractionMenuWidget_Statics::DependentSingletons[])() = {
@@ -352,10 +388,10 @@ UInteractionMenuWidget::~UInteractionMenuWidget() {}
 struct Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_UI_InteractionMenuWidget_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UInteractionMenuWidget, UInteractionMenuWidget::StaticClass, TEXT("UInteractionMenuWidget"), &Z_Registration_Info_UClass_UInteractionMenuWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UInteractionMenuWidget), 3767912419U) },
+		{ Z_Construct_UClass_UInteractionMenuWidget, UInteractionMenuWidget::StaticClass, TEXT("UInteractionMenuWidget"), &Z_Registration_Info_UClass_UInteractionMenuWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UInteractionMenuWidget), 2188245594U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_UI_InteractionMenuWidget_h_3196386922(TEXT("/Script/TurnBasedPrototype"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_UI_InteractionMenuWidget_h_1359935285(TEXT("/Script/TurnBasedPrototype"),
 	Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_UI_InteractionMenuWidget_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_UI_InteractionMenuWidget_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

@@ -20,6 +20,7 @@ class TURNBASEDPROTOTYPE_API UInteractionMenuItemWidget : public UUserWidget
 
 public:
 
+	UFUNCTION(BlueprintCallable)//hay q llamar a esta funcion en algun sitio
 	void ConfigureInteraction(EInteractionType interactionType, AActor* InteractionTarget);
 
 	UPROPERTY(BlueprintAssignable, Category = "Interaction")
@@ -28,20 +29,21 @@ public:
 
 
 	virtual void NativeConstruct() override;
-
-
+	virtual void NativeOnInitialized() override;
+	
+	
 	UFUNCTION()
 	void HandleButtonClicked();
 	
-	UPROPERTY(BlueprintReadWrite)
-	class UButton* InteractionButton;
+	UPROPERTY(BlueprintReadWrite,meta=(BindWidget))//old interactionButton
+	class UButton* LinkedButton;
 
 	UPROPERTY(BlueprintReadWrite)
 	FText InteractionText;
 
-	
-
-private:
+	UPROPERTY(BlueprintReadWrite)
 	EInteractionType CurrentInteractionType;
+private:
+	
 	AActor* TargetActor;
 };

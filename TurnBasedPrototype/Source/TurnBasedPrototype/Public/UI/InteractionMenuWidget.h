@@ -25,6 +25,9 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, Category = "Interaction")
 	void PopulateMenu(AActor* InTarget);
 
+	UFUNCTION(BlueprintImplementableEvent, Category = "Interaction")
+	void DestroyMenu();
+		
 	UFUNCTION(BlueprintCallable, Category = "Interaction")//called when click outside menu
 	void CloseMenu();
 	
@@ -40,20 +43,25 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent, Category = "Interaction")
 	void OnInteractionsReady();
-		
-protected:
+
+
+	UFUNCTION()
+	void OnItemSelected(EInteractionType InteractionType, AActor* Target);
+
+
+	
+
 
 	virtual void NativeConstruct() override;
 	
 
 
-private:
-	UFUNCTION()
-	void OnItemSelected(EInteractionType InteractionType, AActor* Target);
 
 	
 
-	
+	UPROPERTY()
 	AActor* CurrentTarget;
+	
+	
 	UVerticalBox* RootVerticalBox;
 };
