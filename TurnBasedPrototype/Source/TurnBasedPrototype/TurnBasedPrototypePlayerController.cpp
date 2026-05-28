@@ -27,7 +27,7 @@ ATurnBasedPrototypePlayerController::ATurnBasedPrototypePlayerController()
 	bWantToInteract = false;
 
 	bMousePressed = false;
-	currentMouseCursor = MouseSymbol::Hand;
+	currentMouseCursorSymbol = MouseSymbol::Hand;
 	currentMouseHover = MouseHoverType::None;
 }
 
@@ -53,7 +53,7 @@ void ATurnBasedPrototypePlayerController::OnLeftClickInputStarted()
 		bWantToMove = true;
 		
 	}
-	if (currentMouseHover == MouseHoverType::NPC_Pasive)
+	if (currentMouseHover == MouseHoverType::NPC_Passive)
 	{
 		// ASK FOR DIALOGUE START
 	}
@@ -245,11 +245,9 @@ void ATurnBasedPrototypePlayerController::UpdateMouseCursor()
 		IInteractable* Interactable = Cast<IInteractable>(HitActor);//this is bc if hitactor is a bp that implements interface but not a c++ that inherits from interface then could return nullptr
 		if (Interactable)
 		{
-			//TODO interactable can be an anything, create those cases here when developing doors chests enemies etc
-
-			//This only works for now, for pasive interactuable actors like npcs a chest will be a public intractable and a public chest?
-			currentMouseHover = MouseHoverType::NPC_Pasive;
-			currentMouseCursor = MouseSymbol::Dialogue;
+			EInteractionType InteractionType = Interactable->mainInteractionType;
+			currentMouseCursorSymbol = GetMouseSymbolForInteractionType(InteractionType);
+			currentMouseHover = GetMouseHoverForInteractionType(InteractionType);
 			
 			return;
 		}
@@ -257,11 +255,11 @@ void ATurnBasedPrototypePlayerController::UpdateMouseCursor()
 
 	if (bMousePressed)
 	{
-		currentMouseCursor = MouseSymbol::ClickHand;
+		currentMouseCursorSymbol = MouseSymbol::ClickHand;
 		
 	}else
 	{
-		currentMouseCursor = MouseSymbol::Hand;
+		currentMouseCursorSymbol = MouseSymbol::Hand;
 		currentMouseHover = MouseHoverType::None;
 	}
 	
@@ -277,13 +275,13 @@ void ATurnBasedPrototypePlayerController::HandleInteractionOrder(EInteractionTyp
 	case EInteractionType::Attack:
 		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Player wants to: Attack"));
 		break;
-	case EInteractionType::Grab:
+	case EInteractionType::GrabObject:
 		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Player wants to: Grab"));
 		break;
 	case EInteractionType::Inspect:
 		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Player wants to: Inspect"));
 		break;
-	case EInteractionType::Open:
+	case EInteractionType::UseDoor:
 		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Player wants to: Open"));
 		break;
 	case EInteractionType::Talk:
@@ -293,7 +291,65 @@ void ATurnBasedPrototypePlayerController::HandleInteractionOrder(EInteractionTyp
 	}
 }
 
+MouseSymbol ATurnBasedPrototypePlayerController::GetMouseSymbolForInteractionType(EInteractionType InteractionType)
+{
+	switch (InteractionType)
+	{
+	case EInteractionType::Talk:
+		return MouseSymbol::Dialogue;//simbolo de chat
+		
+	case EInteractionType::Attack:
+		return MouseSymbol::Attack;//simbolo espada
+		
+	case EInteractionType::OpenChest:
+		return MouseSymbol::OpenChest;//simbolo cofre abierto
+		
+	case EInteractionType::UseDoor:
+		return MouseSymbol::UseDoor;//simbolo puerta
+		
+	case EInteractionType::GrabObject:
+		return MouseSymbol::Grab;//simbolo mano coger
+		
+	case EInteractionType::Inspect:
+		return MouseSymbol::Inspect;//simbolo ojo
+		
+	case EInteractionType::Use:
+		return MouseSymbol::Interact;//simbolo tuerca factorio
+		
+	default:
+		return MouseSymbol::Hand;
+	}
+}
 
+MouseHoverType ATurnBasedPrototypePlayerController::GetMouseHoverForInteractionType(EInteractionType InteractionType)
+{
+	switch (InteractionType)
+	{
+	case EInteractionType::Talk:
+		return MouseHoverType::NPC_Passive;
+		
+	case EInteractionType::Attack:
+		return MouseHoverType::NPC_Aggressive;
+		
+	case EInteractionType::OpenChest:
+		return MouseHoverType::Chest;
+		
+	case EInteractionType::UseDoor:
+		return MouseHoverType::Door;
+		
+	case EInteractionType::GrabObject:
+		return MouseHoverType::Object;
+		
+	case EInteractionType::Inspect:
+		return MouseHoverType::None;
+		
+	case EInteractionType::Use:
+		return MouseHoverType::Object;
+		
+	default:
+		return MouseHoverType::None;
+	}
+}
 
 
 

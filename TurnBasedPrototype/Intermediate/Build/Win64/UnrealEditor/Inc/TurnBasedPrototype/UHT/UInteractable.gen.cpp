@@ -41,17 +41,21 @@ struct Z_Construct_UEnum_TurnBasedPrototype_EInteractionType_Statics
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "/**\n * \n */" },
 #endif
-		{ "Grab.Comment", "/**\n * \n */" },
-		{ "Grab.Name", "EInteractionType::Grab" },
+		{ "GrabObject.Comment", "/**\n * \n */" },
+		{ "GrabObject.Name", "EInteractionType::GrabObject" },
 		{ "Inspect.Comment", "/**\n * \n */" },
 		{ "Inspect.Name", "EInteractionType::Inspect" },
 		{ "ModuleRelativePath", "Public/UInteractable.h" },
 		{ "None.Comment", "/**\n * \n */" },
 		{ "None.Name", "EInteractionType::None" },
-		{ "Open.Comment", "/**\n * \n */" },
-		{ "Open.Name", "EInteractionType::Open" },
+		{ "OpenChest.Comment", "/**\n * \n */" },
+		{ "OpenChest.Name", "EInteractionType::OpenChest" },
 		{ "Talk.Comment", "/**\n * \n */" },
 		{ "Talk.Name", "EInteractionType::Talk" },
+		{ "Use.Comment", "/**\n * \n */" },
+		{ "Use.Name", "EInteractionType::Use" },
+		{ "UseDoor.Comment", "/**\n * \n */" },
+		{ "UseDoor.Name", "EInteractionType::UseDoor" },
 	};
 #endif // WITH_METADATA
 	static constexpr UECodeGen_Private::FEnumeratorParam Enumerators[] = {
@@ -59,8 +63,10 @@ struct Z_Construct_UEnum_TurnBasedPrototype_EInteractionType_Statics
 		{ "EInteractionType::Attack", (int64)EInteractionType::Attack },
 		{ "EInteractionType::Talk", (int64)EInteractionType::Talk },
 		{ "EInteractionType::Inspect", (int64)EInteractionType::Inspect },
-		{ "EInteractionType::Grab", (int64)EInteractionType::Grab },
-		{ "EInteractionType::Open", (int64)EInteractionType::Open },
+		{ "EInteractionType::GrabObject", (int64)EInteractionType::GrabObject },
+		{ "EInteractionType::UseDoor", (int64)EInteractionType::UseDoor },
+		{ "EInteractionType::OpenChest", (int64)EInteractionType::OpenChest },
+		{ "EInteractionType::Use", (int64)EInteractionType::Use },
 	};
 	static const UECodeGen_Private::FEnumParams EnumParams;
 };
@@ -151,13 +157,13 @@ UInteractable::~UInteractable() {}
 struct Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_UInteractable_h_Statics
 {
 	static constexpr FEnumRegisterCompiledInInfo EnumInfo[] = {
-		{ EInteractionType_StaticEnum, TEXT("EInteractionType"), &Z_Registration_Info_UEnum_EInteractionType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 1346780968U) },
+		{ EInteractionType_StaticEnum, TEXT("EInteractionType"), &Z_Registration_Info_UEnum_EInteractionType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 821326794U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
 		{ Z_Construct_UClass_UInteractable, UInteractable::StaticClass, TEXT("UInteractable"), &Z_Registration_Info_UClass_UInteractable, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UInteractable), 1148941949U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_UInteractable_h_2963029043(TEXT("/Script/TurnBasedPrototype"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_UInteractable_h_3205329654(TEXT("/Script/TurnBasedPrototype"),
 	Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_UInteractable_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_UInteractable_h_Statics::ClassInfo),
 	nullptr, 0,
 	Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_UInteractable_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_UInteractable_h_Statics::EnumInfo));

@@ -24,6 +24,10 @@ class TURNBASEDPROTOTYPE_API UNPCDataAsset : public UPrimaryDataAsset
 {
 	GENERATED_BODY()
 public:
+	//Defines the main interaction. Automatic Interaction when left clicking o
+	UPROPERTY(EditDefaultsOnly, Category = "Interactions")
+	EInteractionType mainInteraction;
+	
 	//List of interaction types
 	UPROPERTY(EditDefaultsOnly,BlueprintReadOnly,Category = "Interactions")
 	TArray<EInteractionType> interactions;
@@ -34,6 +38,8 @@ public:
 
 	UPROPERTY(EditDefaultsOnly,BlueprintReadOnly,Category = "Name")
 	FName NPCName;
-	
+
+	UPROPERTY(EditDefaultsOnly,BlueprintReadOnly,Category = "anim")
+	UAnimMontage* hitReactionAnimMontage;
 	
 };

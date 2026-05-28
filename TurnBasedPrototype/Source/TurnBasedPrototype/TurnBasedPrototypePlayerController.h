@@ -22,8 +22,10 @@ enum class MouseSymbol : uint8
 	Hand UMETA(DisplayName = "Hand"),
 	ClickHand UMETA(DisplayName = "ClickHand"),
 	Dialogue UMETA(DisplayName = "Dialogue"),
+	Grab UMETA(DisplayName = "Grab"),
+	Inspect UMETA(DisplayName = "Inspect"),
 	Interact UMETA(DisplayName = "Interact"),
-	OpenDoor UMETA(DisplayName = "OpenDoor"),
+	UseDoor UMETA(DisplayName = "UseDoor"),
 	OpenChest UMETA(DisplayName = "OpenChest"),
 	Attack UMETA(DisplayName = "Attack")
 };
@@ -31,8 +33,11 @@ enum class MouseSymbol : uint8
 enum class MouseHoverType : uint8
 {
 	None UMETA(DisplayName = "none"),//normal hand 
-	NPC_Pasive UMETA(DisplayName = "NPC_Pasive"),
-	NPC_Agressive UMETA(DisplayName = "NPC_Agressive")
+	NPC_Passive UMETA(DisplayName = "NPC_Passive"),
+	NPC_Aggressive UMETA(DisplayName = "NPC_Aggressive"),
+	Door UMETA(DisplayName = "Door"),
+	Chest UMETA(DisplayName = "Chest"),
+	Object UMETA(DisplayName = "Object")
 };
 
 DECLARE_LOG_CATEGORY_EXTERN(LogTemplateCharacter, Log, All);
@@ -75,6 +80,10 @@ public:
 
 	// UI 
 	
+	MouseSymbol GetMouseSymbolForInteractionType(EInteractionType InteractionType);
+	
+	MouseHoverType GetMouseHoverForInteractionType(EInteractionType InteractionType);
+	
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Interaction UI")
 	TSubclassOf<UInteractionMenuWidget> CurrentInteractionMenuWidget;
 
@@ -86,7 +95,7 @@ protected:
 	/** True if the controlled character should navigate to the mouse cursor. */
 	uint32 bMoveToMouseCursor : 1;
 
-	MouseSymbol currentMouseCursor;
+	MouseSymbol currentMouseCursorSymbol;
 	MouseHoverType currentMouseHover;
 	
 	bool bMousePressed;
@@ -123,7 +132,7 @@ protected:
 
 
 	UFUNCTION(BlueprintCallable, Category = "Getter")
-	MouseSymbol GetMouseSymbol(){return currentMouseCursor;};
+	MouseSymbol GetMouseSymbol(){return currentMouseCursorSymbol;};
 	
 private:
 	FVector CachedDestination;

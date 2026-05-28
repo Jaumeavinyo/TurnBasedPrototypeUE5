@@ -18,8 +18,9 @@ TArray<EInteractionType>*  ANPCharacter::GetSupportedInteractions() const
 	return Ainteractions;
 }
 
-void ANPCharacter::SetSupportedInteractions() const
+void ANPCharacter::SetSupportedInteractions() 
 {
+	mainInteractionType = NPC_Data->mainInteraction;
 	for (EInteractionType Interaction : NPC_Data->interactions)
 	{
 		Ainteractions->Add(Interaction);

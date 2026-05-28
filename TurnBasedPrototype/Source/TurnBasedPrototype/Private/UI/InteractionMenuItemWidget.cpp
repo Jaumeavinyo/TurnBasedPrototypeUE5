@@ -53,14 +53,17 @@ void UInteractionMenuItemWidget::ConfigureInteraction(EInteractionType interacti
 	case EInteractionType::Attack:
 		InteractionItemText = TEXT("Attack");
 		break;
-	case EInteractionType::Grab:
+	case EInteractionType::GrabObject:
 		InteractionItemText = TEXT("Grab");
 		break;
 	case EInteractionType::Inspect:
 		InteractionItemText = TEXT("Inspect");
 		break;
-	case EInteractionType::Open:
-		InteractionItemText = TEXT("Open");
+	case EInteractionType::OpenChest:
+		InteractionItemText = TEXT("OpenChest");
+		break;
+	case EInteractionType::UseDoor:
+		InteractionItemText = TEXT("UseDoor");
 		break;
 	case EInteractionType::Talk:
 		InteractionItemText = TEXT("Talk");

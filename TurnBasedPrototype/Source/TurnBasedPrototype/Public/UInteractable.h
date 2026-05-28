@@ -17,8 +17,10 @@ enum class EInteractionType : uint8
 	Attack,
 	Talk,
 	Inspect,
-	Grab,
-	Open
+	GrabObject,
+	UseDoor,
+	OpenChest,
+	Use
 };
 
 UINTERFACE(MinimalAPI, Blueprintable)
@@ -34,8 +36,13 @@ class TURNBASEDPROTOTYPE_API IInteractable
 public: 
 public:
 	virtual TArray<EInteractionType>* GetSupportedInteractions() const = 0;
-	virtual void SetSupportedInteractions() const = 0;
+	virtual void SetSupportedInteractions() = 0;
 	virtual void Interact(EInteractionType interactionType, AActor* instigator) = 0;
 
+
+	//Main interaction for this interactable, defines what player does when left clicking on this interactable and also defines mouse symbol when hovering
+	EInteractionType mainInteractionType;
+	
+	//all posible interactions for this interactable
 	TArray<EInteractionType>* Ainteractions;
 };

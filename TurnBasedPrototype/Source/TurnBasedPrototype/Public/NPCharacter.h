@@ -27,7 +27,7 @@ public:
 public:
 	
 	virtual TArray<EInteractionType>* GetSupportedInteractions() const override;
-	virtual void SetSupportedInteractions() const override;
+	virtual void SetSupportedInteractions()  override;
 	virtual void Interact(EInteractionType interactionType, AActor* instigator) override;
 
 	UFUNCTION(BlueprintCallable, Category = "interactions")

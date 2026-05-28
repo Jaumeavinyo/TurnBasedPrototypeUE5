@@ -47,8 +47,8 @@ struct Z_Construct_UFunction_UUIManager_HideAvailableInteractionsMenu_Statics
 };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UUIManager_HideAvailableInteractionsMenu_Statics::NewProp_Target = { "Target", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UIManager_eventHideAvailableInteractionsMenu_Parms, Target), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FBytePropertyParams Z_Construct_UFunction_UUIManager_HideAvailableInteractionsMenu_Statics::NewProp_Interactions_Inner_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FEnumPropertyParams Z_Construct_UFunction_UUIManager_HideAvailableInteractionsMenu_Statics::NewProp_Interactions_Inner = { "Interactions", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UEnum_TurnBasedPrototype_EInteractionType, METADATA_PARAMS(0, nullptr) }; // 1346780968
-const UECodeGen_Private::FArrayPropertyParams Z_Construct_UFunction_UUIManager_HideAvailableInteractionsMenu_Statics::NewProp_Interactions = { "Interactions", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UIManager_eventHideAvailableInteractionsMenu_Parms, Interactions), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Interactions_MetaData), NewProp_Interactions_MetaData) }; // 1346780968
+const UECodeGen_Private::FEnumPropertyParams Z_Construct_UFunction_UUIManager_HideAvailableInteractionsMenu_Statics::NewProp_Interactions_Inner = { "Interactions", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UEnum_TurnBasedPrototype_EInteractionType, METADATA_PARAMS(0, nullptr) }; // 821326794
+const UECodeGen_Private::FArrayPropertyParams Z_Construct_UFunction_UUIManager_HideAvailableInteractionsMenu_Statics::NewProp_Interactions = { "Interactions", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UIManager_eventHideAvailableInteractionsMenu_Parms, Interactions), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Interactions_MetaData), NewProp_Interactions_MetaData) }; // 821326794
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UUIManager_HideAvailableInteractionsMenu_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UUIManager_HideAvailableInteractionsMenu_Statics::NewProp_Target,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UUIManager_HideAvailableInteractionsMenu_Statics::NewProp_Interactions_Inner_Underlying,
@@ -98,7 +98,7 @@ struct Z_Construct_UFunction_UUIManager_OnInteractionSelected_Statics
 	static const UECodeGen_Private::FFunctionParams FuncParams;
 };
 const UECodeGen_Private::FBytePropertyParams Z_Construct_UFunction_UUIManager_OnInteractionSelected_Statics::NewProp_InteractionType_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FEnumPropertyParams Z_Construct_UFunction_UUIManager_OnInteractionSelected_Statics::NewProp_InteractionType = { "InteractionType", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UIManager_eventOnInteractionSelected_Parms, InteractionType), Z_Construct_UEnum_TurnBasedPrototype_EInteractionType, METADATA_PARAMS(0, nullptr) }; // 1346780968
+const UECodeGen_Private::FEnumPropertyParams Z_Construct_UFunction_UUIManager_OnInteractionSelected_Statics::NewProp_InteractionType = { "InteractionType", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UIManager_eventOnInteractionSelected_Parms, InteractionType), Z_Construct_UEnum_TurnBasedPrototype_EInteractionType, METADATA_PARAMS(0, nullptr) }; // 821326794
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UUIManager_OnInteractionSelected_Statics::NewProp_Target = { "Target", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UIManager_eventOnInteractionSelected_Parms, Target), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UUIManager_OnInteractionSelected_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UUIManager_OnInteractionSelected_Statics::NewProp_InteractionType_Underlying,
@@ -154,8 +154,8 @@ struct Z_Construct_UFunction_UUIManager_ShowAvailableInteractionsMenu_Statics
 };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UUIManager_ShowAvailableInteractionsMenu_Statics::NewProp_Target = { "Target", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UIManager_eventShowAvailableInteractionsMenu_Parms, Target), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FBytePropertyParams Z_Construct_UFunction_UUIManager_ShowAvailableInteractionsMenu_Statics::NewProp_Interactions_Inner_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FEnumPropertyParams Z_Construct_UFunction_UUIManager_ShowAvailableInteractionsMenu_Statics::NewProp_Interactions_Inner = { "Interactions", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UEnum_TurnBasedPrototype_EInteractionType, METADATA_PARAMS(0, nullptr) }; // 1346780968
-const UECodeGen_Private::FArrayPropertyParams Z_Construct_UFunction_UUIManager_ShowAvailableInteractionsMenu_Statics::NewProp_Interactions = { "Interactions", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UIManager_eventShowAvailableInteractionsMenu_Parms, Interactions), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Interactions_MetaData), NewProp_Interactions_MetaData) }; // 1346780968
+const UECodeGen_Private::FEnumPropertyParams Z_Construct_UFunction_UUIManager_ShowAvailableInteractionsMenu_Statics::NewProp_Interactions_Inner = { "Interactions", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UEnum_TurnBasedPrototype_EInteractionType, METADATA_PARAMS(0, nullptr) }; // 821326794
+const UECodeGen_Private::FArrayPropertyParams Z_Construct_UFunction_UUIManager_ShowAvailableInteractionsMenu_Statics::NewProp_Interactions = { "Interactions", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UIManager_eventShowAvailableInteractionsMenu_Parms, Interactions), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Interactions_MetaData), NewProp_Interactions_MetaData) }; // 821326794
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UUIManager_ShowAvailableInteractionsMenu_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UUIManager_ShowAvailableInteractionsMenu_Statics::NewProp_Target,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UUIManager_ShowAvailableInteractionsMenu_Statics::NewProp_Interactions_Inner_Underlying,
@@ -228,9 +228,9 @@ struct Z_Construct_UClass_UUIManager_Statics
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
-		{ &Z_Construct_UFunction_UUIManager_HideAvailableInteractionsMenu, "HideAvailableInteractionsMenu" }, // 652911638
-		{ &Z_Construct_UFunction_UUIManager_OnInteractionSelected, "OnInteractionSelected" }, // 18412905
-		{ &Z_Construct_UFunction_UUIManager_ShowAvailableInteractionsMenu, "ShowAvailableInteractionsMenu" }, // 3647185433
+		{ &Z_Construct_UFunction_UUIManager_HideAvailableInteractionsMenu, "HideAvailableInteractionsMenu" }, // 4169613862
+		{ &Z_Construct_UFunction_UUIManager_OnInteractionSelected, "OnInteractionSelected" }, // 2085487985
+		{ &Z_Construct_UFunction_UUIManager_ShowAvailableInteractionsMenu, "ShowAvailableInteractionsMenu" }, // 2841258135
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -285,10 +285,10 @@ UUIManager::~UUIManager() {}
 struct Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_UI_UIManager_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UUIManager, UUIManager::StaticClass, TEXT("UUIManager"), &Z_Registration_Info_UClass_UUIManager, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UUIManager), 2246376867U) },
+		{ Z_Construct_UClass_UUIManager, UUIManager::StaticClass, TEXT("UUIManager"), &Z_Registration_Info_UClass_UUIManager, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UUIManager), 3100048201U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_UI_UIManager_h_3785535470(TEXT("/Script/TurnBasedPrototype"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_UI_UIManager_h_1236069497(TEXT("/Script/TurnBasedPrototype"),
 	Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_UI_UIManager_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_UI_UIManager_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

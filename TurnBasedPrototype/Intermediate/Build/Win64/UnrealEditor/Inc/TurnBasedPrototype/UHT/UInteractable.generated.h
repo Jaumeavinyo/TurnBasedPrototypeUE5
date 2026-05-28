@@ -14,7 +14,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define TURNBASEDPROTOTYPE_UInteractable_generated_h
 
-#define FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_UInteractable_h_27_ENHANCED_CONSTRUCTORS \
+#define FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_UInteractable_h_29_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	TURNBASEDPROTOTYPE_API UInteractable(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 private: \
@@ -28,7 +28,7 @@ public: \
 	TURNBASEDPROTOTYPE_API virtual ~UInteractable();
 
 
-#define FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_UInteractable_h_27_GENERATED_UINTERFACE_BODY() \
+#define FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_UInteractable_h_29_GENERATED_UINTERFACE_BODY() \
 private: \
 	static void StaticRegisterNativesUInteractable(); \
 	friend struct Z_Construct_UClass_UInteractable_Statics; \
@@ -37,15 +37,15 @@ public: \
 	DECLARE_SERIALIZER(UInteractable)
 
 
-#define FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_UInteractable_h_27_GENERATED_BODY \
+#define FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_UInteractable_h_29_GENERATED_BODY \
 	PRAGMA_DISABLE_DEPRECATION_WARNINGS \
-	FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_UInteractable_h_27_GENERATED_UINTERFACE_BODY() \
-	FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_UInteractable_h_27_ENHANCED_CONSTRUCTORS \
+	FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_UInteractable_h_29_GENERATED_UINTERFACE_BODY() \
+	FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_UInteractable_h_29_ENHANCED_CONSTRUCTORS \
 private: \
 	PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_UInteractable_h_27_INCLASS_IINTERFACE_NO_PURE_DECLS \
+#define FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_UInteractable_h_29_INCLASS_IINTERFACE_NO_PURE_DECLS \
 protected: \
 	virtual ~IInteractable() {} \
 public: \
@@ -54,11 +54,11 @@ public: \
 	virtual UObject* _getUObject() const { return nullptr; }
 
 
-#define FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_UInteractable_h_24_PROLOG
-#define FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_UInteractable_h_33_GENERATED_BODY \
+#define FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_UInteractable_h_26_PROLOG
+#define FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_UInteractable_h_35_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_UInteractable_h_27_INCLASS_IINTERFACE_NO_PURE_DECLS \
+	FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_UInteractable_h_29_INCLASS_IINTERFACE_NO_PURE_DECLS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -74,8 +74,10 @@ template<> TURNBASEDPROTOTYPE_API UClass* StaticClass<class UInteractable>();
 	op(EInteractionType::Attack) \
 	op(EInteractionType::Talk) \
 	op(EInteractionType::Inspect) \
-	op(EInteractionType::Grab) \
-	op(EInteractionType::Open) 
+	op(EInteractionType::GrabObject) \
+	op(EInteractionType::UseDoor) \
+	op(EInteractionType::OpenChest) \
+	op(EInteractionType::Use) 
 
 enum class EInteractionType : uint8;
 template<> struct TIsUEnumClass<EInteractionType> { enum { Value = true }; };
