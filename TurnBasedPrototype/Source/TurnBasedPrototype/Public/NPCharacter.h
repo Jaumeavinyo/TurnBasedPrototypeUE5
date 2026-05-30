@@ -18,7 +18,7 @@ class TURNBASEDPROTOTYPE_API ANPCharacter : public ABaseCharacter, public IInter
 public:
 
 	ANPCharacter();
-	
+	void BeginPlay() override;
 public:
 	
 	UPROPERTY(EditDefaultsOnly , Category = "Data")
@@ -28,7 +28,7 @@ public:
 	
 	virtual TArray<EInteractionType>* GetSupportedInteractions() const override;
 	virtual void SetSupportedInteractions()  override;
-	virtual void Interact(EInteractionType interactionType, AActor* instigator) override;
+	
 
 	UFUNCTION(BlueprintCallable, Category = "interactions")
 	TArray<EInteractionType> GetSupportedInteractions();//This function is called by UI to show player interaction options when selecting an npc

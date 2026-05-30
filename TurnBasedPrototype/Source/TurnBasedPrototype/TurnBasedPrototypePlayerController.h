@@ -87,8 +87,7 @@ public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Interaction UI")
 	TSubclassOf<UInteractionMenuWidget> CurrentInteractionMenuWidget;
 
-	UPROPERTY()
-	UInteractionMenuWidget* CurrentInteractionMenuInstance;
+	
 
 	
 protected:

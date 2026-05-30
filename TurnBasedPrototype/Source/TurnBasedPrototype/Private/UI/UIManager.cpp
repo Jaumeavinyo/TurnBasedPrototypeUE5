@@ -6,16 +6,6 @@
 UUIManager::UUIManager()
 {
 	CurrentActiveWidget = nullptr;
-	/*static ConstructorHelpers::FClassFinder<UInteractionMenuWidget> MenuFinder(TEXT("/Game/BG3_Game/UI/WBP_InteractionsMenu.WBP_InteractionsMenu_C"));
-    
-	if (MenuFinder.Succeeded())
-	{
-		CurrentInteractionMenuWidget = MenuFinder.Class;
-	}else
-	{
-		UE_LOG(LogTemp, Error, TEXT("UUIManager constructor error: Widget class NOT loaded! Check path."));
-	}*/
-
 	
 }
 
@@ -47,25 +37,25 @@ void UUIManager::ShowAvailableInteractionsMenu(AActor* Target, const TArray<EInt
 	}
 
 	// Close curr menu if exists
-	if (PC->CurrentInteractionMenuInstance)
+	if (CurrentInteractionMenuInstance)
 	{
-		PC->CurrentInteractionMenuInstance->CloseMenu();
-		PC->CurrentInteractionMenuInstance = nullptr;
+		CurrentInteractionMenuInstance->CloseMenu();
+		CurrentInteractionMenuInstance = nullptr;
 	}
 
 	// Create new menu
 	if (PC && PC->CurrentInteractionMenuWidget)
 	{
-		PC->CurrentInteractionMenuInstance = CreateWidget<UInteractionMenuWidget>(GetLocalPlayer()->GetGameInstance(), PC->CurrentInteractionMenuWidget);
-		if (PC->CurrentInteractionMenuInstance)
+		CurrentInteractionMenuInstance = CreateWidget<UInteractionMenuWidget>(GetLocalPlayer()->GetGameInstance(), PC->CurrentInteractionMenuWidget);
+		if (CurrentInteractionMenuInstance)
 		{
-			PC->CurrentInteractionMenuInstance->OnInteractionSelected.AddDynamic(this, &UUIManager::OnInteractionSelected);
+			CurrentInteractionMenuInstance->OnInteractionSelected.AddDynamic(this, &UUIManager::OnInteractionSelected);
 			if (!Interactions_.IsEmpty())
 			{
-				PC->CurrentInteractionMenuInstance->Interactions = Interactions_;
-				PC->CurrentInteractionMenuInstance->PopulateMenu(Target); //widget blueprint event, also sets the pos of the menu
-				PC->CurrentInteractionMenuInstance->CurrentTarget = Target;
-				PC->CurrentInteractionMenuInstance->AddToViewport();
+				CurrentInteractionMenuInstance->Interactions = Interactions_;
+				CurrentInteractionMenuInstance->PopulateMenu(Target); //widget blueprint event, also sets the pos of the menu
+				CurrentInteractionMenuInstance->CurrentTarget = Target;
+				CurrentInteractionMenuInstance->AddToViewport();
 				
 			}else
 			{
@@ -82,14 +72,11 @@ void UUIManager::OnInteractionSelected(EInteractionType InteractionType, AActor*
 	ATurnBasedPrototypePlayerController* PC = Cast<ATurnBasedPrototypePlayerController>(GetLocalPlayer()->GetPlayerController(GetWorld()));
 	if (PC)
 	{
-	
-		
 		PC->HandleInteractionOrder(InteractionType, Target);
-		
 	}
     
 	// El menú ya se cerró solo (en OnItemSelected llamamos CloseMenu)
-	PC->CurrentInteractionMenuWidget = nullptr;
+	CurrentInteractionMenuInstance->RemoveFromParent();// = nullptr;
 }
 
 

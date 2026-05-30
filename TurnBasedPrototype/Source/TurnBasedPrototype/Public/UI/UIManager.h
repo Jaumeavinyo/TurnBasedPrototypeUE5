@@ -51,12 +51,16 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "UI")
 	void HideAvailableInteractionsMenu(AActor* Target, const TArray<EInteractionType>& Interactions);
 
+	UPROPERTY()
+	UInteractionMenuWidget* CurrentInteractionMenuInstance;
 	
 private:
 	UPROPERTY(EditDefaultsOnly, Category = "UI Classes")
 	TSubclassOf<UUserWidget> AvailableInteractionsMenuWidgetClass;
 
 
+
+	
 	UPROPERTY()
 	UUserWidget* CurrentActiveWidget;
 

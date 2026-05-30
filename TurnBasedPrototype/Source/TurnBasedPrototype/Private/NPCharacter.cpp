@@ -6,11 +6,18 @@
 ANPCharacter::ANPCharacter()
 {
 	Ainteractions = new TArray<EInteractionType>();//cant do this in interface bc interfaces dont have constructors, so must be initialized in all interactable objects
+	
+}
+
+void ANPCharacter::BeginPlay()
+{
+	Super::BeginPlay();
+	SetSupportedInteractions();  
 }
 
 TArray<EInteractionType>*  ANPCharacter::GetSupportedInteractions() const
 {
-
+	Ainteractions->Empty();//reset
 	for (EInteractionType Interaction : NPC_Data->interactions)
 	{
 		Ainteractions->Add(Interaction);
@@ -21,34 +28,13 @@ TArray<EInteractionType>*  ANPCharacter::GetSupportedInteractions() const
 void ANPCharacter::SetSupportedInteractions() 
 {
 	mainInteractionType = NPC_Data->mainInteraction;
+	Ainteractions->Empty();//reset
 	for (EInteractionType Interaction : NPC_Data->interactions)
 	{
 		Ainteractions->Add(Interaction);
 	}
 }
 
-void ANPCharacter::Interact(EInteractionType interactionType, AActor* instigator)
-{
-	if (!NPC_Data->interactions.Contains((interactionType)))
-	{
-			return;
-	}
-
-	switch (interactionType)
-	{
-	case EInteractionType::Talk:
-		// call GameManagerEvent startconversation(NPC_Data->dialogue tree)
-		break;
-	case EInteractionType::Attack:
-		// validate attack and call "Attack" function from instigator(playerr)
-		break;
-	case EInteractionType::Inspect:
-		// show info
-		break;
-	default:
-		break;
-	}
-}
 
 TArray<EInteractionType> ANPCharacter::GetSupportedInteractions()
 {

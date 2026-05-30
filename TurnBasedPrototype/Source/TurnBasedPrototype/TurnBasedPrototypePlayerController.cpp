@@ -10,6 +10,7 @@
 #include "Engine/World.h"
 #include "EnhancedInputComponent.h"
 #include "InputActionValue.h"
+#include "Chest.h"
 #include "EnhancedInputSubsystems.h"
 #include "UI/UIManager.h"
 #include "Engine/LocalPlayer.h"
@@ -53,10 +54,22 @@ void ATurnBasedPrototypePlayerController::OnLeftClickInputStarted()
 		bWantToMove = true;
 		
 	}
-	if (currentMouseHover == MouseHoverType::NPC_Passive)
+
+	FHitResult HitResult;
+	bool hit = GetHitResultUnderCursor(ECC_Visibility,false,HitResult);
+
+	AActor* HitActor = HitResult.GetActor();
+
+	if (HitActor && HitActor->Implements<UInteractable>())
 	{
-		// ASK FOR DIALOGUE START
+		IInteractable* Interactable = Cast<IInteractable>(HitActor);
+		if (Interactable)
+		{
+			
+			HandleInteractionOrder(Interactable->mainInteractionType,HitActor);
+		}
 	}
+	
 }
 
 void ATurnBasedPrototypePlayerController::OnLeftClickInputTriggered()
@@ -88,6 +101,7 @@ void ATurnBasedPrototypePlayerController::OnRightClickInputStarted()
 		IInteractable* Interactable = Cast<IInteractable>(HitActor);
 		if (Interactable)
 		{
+			
 			OnClickInteractuableStarted(HitActor);
 		}
 	}
@@ -210,8 +224,9 @@ void ATurnBasedPrototypePlayerController::OnClickInteractuableStarted(AActor* in
 		{
 			Interactable->SetSupportedInteractions();//gets interactions from data asset and stores them in the interactable list
 			UUIManager* UIManager = GetLocalPlayer()->GetSubsystem<UUIManager>();
-			if (UIManager)
+			if (UIManager )
 			{
+				//UIManager->CurrentInteractionMenuInstance->RemoveFromParent(); for some reason, menu does not disappear
 				UIManager->ShowAvailableInteractionsMenu(HitActor,*(Interactable->Ainteractions));
 			}
 			
@@ -239,6 +254,10 @@ void ATurnBasedPrototypePlayerController::UpdateMouseCursor()
 	bool hit = GetHitResultUnderCursor(ECC_Visibility,false,HitResult);
 
 	AActor* HitActor = HitResult.GetActor();
+	if (hit)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Hit Actor: %s"), HitActor ? *HitActor->GetName() : TEXT("None"));
+	}
 	if (HitActor && HitActor->Implements<UInteractable>())
 	{
 		
@@ -274,6 +293,7 @@ void ATurnBasedPrototypePlayerController::HandleInteractionOrder(EInteractionTyp
 		break;
 	case EInteractionType::Attack:
 		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Player wants to: Attack"));
+		UAIBlueprintHelperLibrary::SimpleMoveToLocation(this, FVector(target->GetActorLocation().X+30,target->GetActorLocation().Y,target->GetActorLocation().Z));
 		break;
 	case EInteractionType::GrabObject:
 		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Player wants to: Grab"));
@@ -282,12 +302,15 @@ void ATurnBasedPrototypePlayerController::HandleInteractionOrder(EInteractionTyp
 		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Player wants to: Inspect"));
 		break;
 	case EInteractionType::UseDoor:
-		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Player wants to: Open"));
+		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Player wants to: UseDoor"));
 		break;
 	case EInteractionType::Talk:
 		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Player wants to: Talk"));
 		break;
-	
+	case EInteractionType::OpenChest:
+		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Player wants to: OpenChest"));
+		Cast<AChest>(target)->OnChestOpenOrder();
+	default:;
 	}
 }
 

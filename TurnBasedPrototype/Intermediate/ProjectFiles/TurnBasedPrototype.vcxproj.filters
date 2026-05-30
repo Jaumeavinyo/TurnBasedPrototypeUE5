@@ -69,6 +69,12 @@
     <ClCompile Include="..\..\Source\TurnBasedPrototype\Private\BaseWeapon.cpp">
       <Filter>Source\TurnBasedPrototype\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\TurnBasedPrototype\Private\Chest.cpp">
+      <Filter>Source\TurnBasedPrototype\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TurnBasedPrototype\Private\ChestDataAsset.cpp">
+      <Filter>Source\TurnBasedPrototype\Private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\TurnBasedPrototype\Private\NPCDataAsset.cpp">
       <Filter>Source\TurnBasedPrototype\Private</Filter>
     </ClCompile>
@@ -106,6 +112,12 @@
       <Filter>Source\TurnBasedPrototype\Public</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\TurnBasedPrototype\Public\BaseWeapon.h">
+      <Filter>Source\TurnBasedPrototype\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TurnBasedPrototype\Public\Chest.h">
+      <Filter>Source\TurnBasedPrototype\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TurnBasedPrototype\Public\ChestDataAsset.h">
       <Filter>Source\TurnBasedPrototype\Public</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\TurnBasedPrototype\Public\NPCDataAsset.h">

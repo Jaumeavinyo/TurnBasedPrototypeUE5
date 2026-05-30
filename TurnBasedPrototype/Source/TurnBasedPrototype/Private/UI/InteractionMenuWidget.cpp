@@ -24,7 +24,7 @@ void UInteractionMenuWidget::OnItemSelected(EInteractionType InteractionType, AA
 	// Notify UI Manager
 	if (OnInteractionSelected.IsBound())
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Menu: Broadcast to OnInteractionSelected()"));
+		//GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Menu: Broadcast to OnInteractionSelected()"));
 		OnInteractionSelected.Broadcast(InteractionType, CurrentTarget);
 	}
     

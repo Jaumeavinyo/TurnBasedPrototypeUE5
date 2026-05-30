@@ -1,0 +1,42 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.TurnBasedPrototype.cpp.obj": [
+			"BaseCharacter.gen.cpp.obj",
+			"BaseWeapon.gen.cpp.obj",
+			"InteractionMenuItemWidget.gen.cpp.obj",
+			"InteractionMenuWidget.gen.cpp.obj",
+			"NPCDataAsset.gen.cpp.obj",
+			"NPCharacter.gen.cpp.obj",
+			"PlayerCharacter.gen.cpp.obj",
+			"TurnBasedPrototypeCharacter.gen.cpp.obj",
+			"TurnBasedPrototypeGameMode.gen.cpp.obj",
+			"TurnBasedPrototypePlayerController.gen.cpp.obj",
+			"UIManager.gen.cpp.obj",
+			"UInteractable.gen.cpp.obj",
+			"WeaponComponent.gen.cpp.obj",
+			"WeaponDataAsset.gen.cpp.obj",
+			"PerModuleInline.gen.cpp.obj",
+			"BaseCharacter.cpp.obj",
+			"BaseWeapon.cpp.obj",
+			"NPCDataAsset.cpp.obj",
+			"PlayerCharacter.cpp.obj",
+			"WeaponComponent.cpp.obj",
+			"WeaponDataAsset.cpp.obj",
+			"TurnBasedPrototype.cpp.obj",
+			"TurnBasedPrototypeCharacter.cpp.obj",
+			"TurnBasedPrototypeGameMode.cpp.obj",
+			"Chest.gen.cpp.obj",
+			"ChestDataAsset.gen.cpp.obj",
+			"TurnBasedPrototype.init.gen.cpp.obj",
+			"Chest.cpp.obj",
+			"ChestDataAsset.cpp.obj",
+			"NPCharacter.cpp.obj",
+			"UInteractable.cpp.obj",
+			"InteractionMenuItemWidget.cpp.obj",
+			"InteractionMenuWidget.cpp.obj",
+			"UIManager.cpp.obj",
+			"TurnBasedPrototypePlayerController.cpp.obj"
+		]
+	}
+}

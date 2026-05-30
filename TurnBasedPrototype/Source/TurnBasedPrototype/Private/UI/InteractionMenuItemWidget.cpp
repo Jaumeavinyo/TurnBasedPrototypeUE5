@@ -18,7 +18,6 @@ void UInteractionMenuItemWidget::NativeConstruct()
 	if (Menu)
 	{
 		OnInteractionSelected.AddDynamic(Menu, &UInteractionMenuWidget::OnItemSelected);
-		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("Bound to menu via GetTypedOuter!"));
 	}
 	else
 	{
@@ -79,7 +78,7 @@ void UInteractionMenuItemWidget::HandleButtonClicked()
 	
 	if (OnInteractionSelected.IsBound())
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("ButtonItem: Broadcast to OnInteractionSelected()"));
+		//GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("ButtonItem: Broadcast to OnInteractionSelected()"));
 		OnInteractionSelected.Broadcast(CurrentInteractionType, TargetActor);
 	}
 }
