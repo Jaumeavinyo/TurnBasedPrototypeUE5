@@ -304,7 +304,7 @@ void ATurnBasedPrototypePlayerController::HandleInteractionOrder(EInteractionTyp
 		break;
 	case EInteractionType::UseDoor:
 		{
-			GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Player wants to: UseDoor"));
+			
 			ADoor* Door = Cast<ADoor>(target);
 			if (Door)
 			{

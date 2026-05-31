@@ -16,14 +16,13 @@ enum class EInteractionType : uint8;
 #define TURNBASEDPROTOTYPE_Door_generated_h
 
 #define FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_Door_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
-	DECLARE_FUNCTION(execOnDoorRotateFinished); \
-	DECLARE_FUNCTION(execOnDoorRotateUpdate); \
 	DECLARE_FUNCTION(execToggleDoor); \
 	DECLARE_FUNCTION(execCloseDoor); \
 	DECLARE_FUNCTION(execOpenDoor); \
 	DECLARE_FUNCTION(execGetSupportedInteractionsBP);
 
 
+#define FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_Door_h_16_CALLBACK_WRAPPERS
 #define FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_Door_h_16_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesADoor(); \
@@ -51,6 +50,7 @@ public: \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
 	FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_Door_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_Door_h_16_CALLBACK_WRAPPERS \
 	FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_Door_h_16_INCLASS_NO_PURE_DECLS \
 	FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_Door_h_16_ENHANCED_CONSTRUCTORS \
 private: \

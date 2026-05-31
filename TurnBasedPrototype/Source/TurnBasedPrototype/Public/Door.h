@@ -37,14 +37,7 @@ public:
 	
 	UFUNCTION(BlueprintCallable, Category = "Door")
 	void ToggleDoor();
-
-	// Timeline callback functions
-	UFUNCTION()
-	void OnDoorRotateUpdate(float Value);
 	
-	UFUNCTION()
-	void OnDoorRotateFinished();
-
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Door")
 	bool bIsOpen;
 
@@ -54,7 +47,7 @@ public:
 	UPROPERTY(VisibleAnywhere)
 	class UBoxComponent* CollisionBox;
 	
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "DoorMesh")
+	UPROPERTY(BlueprintReadWrite, Category = "DoorMesh")
 	UStaticMeshComponent* DoorMeshComponent;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Door Data")
@@ -74,14 +67,18 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Door Rotation")
 	bool bOpenClockwise = true;
 
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void StartRotation(bool bToOpen);
+
+	
 protected:
 	FTimeline DoorTimeline;
 	
 	FRotator ClosedRotation;
 	FRotator OpenRotationTarget;
 	
-private:
-	void SetupRotationTargets();
-	void StartRotation(bool bToOpen);
+
+	
 
 };

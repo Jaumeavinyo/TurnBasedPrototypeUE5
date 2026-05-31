@@ -29,14 +29,7 @@ ADoor::ADoor()
 	bIsOpen = false;
 	bIsMoving = false;
 	
-	// Timeline delegate 
-	FOnTimelineFloat TimelineCallback;
-	TimelineCallback.BindUFunction(this, FName("OnDoorRotateUpdate"));
-	DoorTimeline.AddInterpFloat(RotationCurve, TimelineCallback);
 	
-	FOnTimelineEvent TimelineFinishedCallback;
-	TimelineFinishedCallback.BindUFunction(this, FName("OnDoorRotateFinished"));
-	DoorTimeline.SetTimelineFinishedFunc(TimelineFinishedCallback);
 }
 
 void ADoor::PostInitializeComponents()
@@ -45,7 +38,7 @@ void ADoor::PostInitializeComponents()
 	
 	if (DoorData && DoorData->DoorMesh)
 	{
-		DoorMeshComponent->SetStaticMesh(DoorData->DoorMesh);
+		SetSupportedInteractions();
 	}
 	
 	// Set default interaction type
@@ -56,111 +49,18 @@ void ADoor::BeginPlay()
 {
 	Super::BeginPlay();
 	
-	//initial rot
-	ClosedRotation = GetActorRotation();
-	SetupRotationTargets();
-	SetSupportedInteractions();
 	
-	//timeline with curve 
-	if (RotationCurve)
-	{
-		float MinTime, MaxTime;
-		RotationCurve->GetTimeRange(MinTime, MaxTime);
-		DoorTimeline.SetTimelineLength(MaxTime);
-	}
-	else
-	{
-		DoorTimeline.SetTimelineLength(1.0f);
-	}
-	DoorTimeline.SetPlayRate(RotationSpeed);
+
+	
+	
 }
 
 void ADoor::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	
-	if (DoorTimeline.IsPlaying())
-	{
-		DoorTimeline.TickTimeline(DeltaTime);
-	}
 }
 
-void ADoor::SetupRotationTargets()
-{
-	FRotator OpenRotation = ClosedRotation;
-	if (bOpenClockwise)
-	{
-		OpenRotation.Yaw += OpenAngle;
-	}
-	else
-	{
-		OpenRotation.Yaw -= OpenAngle;
-	}
-	
-	OpenRotationTarget = OpenRotation;
-}
-
-void ADoor::StartRotation(bool bToOpen)
-{
-	if (bIsMoving) return;
-	
-	bIsMoving = true;
-	
-	if (RotationCurve)
-	{
-		DoorTimeline.Play();
-	}
-	
-	if (bToOpen)
-	{
-		DoorTimeline.SetPlayRate(RotationSpeed);
-		DoorTimeline.Play();
-	}
-	else
-	{
-		DoorTimeline.SetPlayRate(RotationSpeed);
-		DoorTimeline.Reverse();
-	}
-}
-
-void ADoor::OnDoorRotateUpdate(float Value)
-{
-	// Interpolate
-	FRotator NewRotation;
-	
-	if (!bIsOpen)
-	{
-		//interpolate from Closed to Open
-		NewRotation = FMath::Lerp(ClosedRotation, OpenRotationTarget, Value);
-	}
-	else
-	{
-		//interpolate from Open to Closed
-		NewRotation = FMath::Lerp(OpenRotationTarget, ClosedRotation, Value);
-	}
-	
-	SetActorRotation(NewRotation);
-}
-
-void ADoor::OnDoorRotateFinished()
-{
-	bIsMoving = false;
-	
-	// Update state based on current rotation
-	float CurrentYaw = GetActorRotation().Yaw;
-	float ClosedYaw = ClosedRotation.Yaw;
-	float OpenYaw = OpenRotationTarget.Yaw;
-	
-	// Check if door is at open position (within tolerance)
-	if (FMath::IsNearlyEqual(CurrentYaw, OpenYaw, 1.0f))
-	{
-		bIsOpen = true;
-	}
-	else if (FMath::IsNearlyEqual(CurrentYaw, ClosedYaw, 1.0f))
-	{
-		bIsOpen = false;
-	}
-}
 
 void ADoor::OpenDoor()
 {
@@ -179,11 +79,14 @@ void ADoor::ToggleDoor()
 	if (bIsOpen)
 	{
 		CloseDoor();
+		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Player wants to: UseDoor"));
 	}
 	else
 	{
 		OpenDoor();
+		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Player wants to: UseDoor"));
 	}
+	bIsOpen =! bIsOpen;
 }
 
 TArray<EInteractionType>* ADoor::GetSupportedInteractions() const
