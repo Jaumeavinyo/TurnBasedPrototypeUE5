@@ -30,4 +30,7 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Animations")
 	UAnimMontage* OpenChestAnim;
+	
+	UPROPERTY(EditAnywhere , Category = "Animation")
+	UAnimMontage* CloseChestAnim;
 };

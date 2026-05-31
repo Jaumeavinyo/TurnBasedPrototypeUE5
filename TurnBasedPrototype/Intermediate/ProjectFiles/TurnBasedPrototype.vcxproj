@@ -253,6 +253,7 @@
     <None Include="..\..\Source\TurnBasedPrototype.Target.cs"/>
     <None Include="..\..\Source\TurnBasedPrototypeEditor.Target.cs"/>
     <None Include="..\..\.vsconfig"/>
+    <None Include="..\..\TurnBasedPrototype.sln.DotSettings.user"/>
     <None Include="..\..\Config\DefaultEditor.ini"/>
     <None Include="..\..\Config\DefaultEditorPerProjectUserSettings.ini"/>
     <None Include="..\..\Config\DefaultEngine.ini"/>
@@ -295,6 +296,12 @@
     <ClCompile Include="..\..\Source\TurnBasedPrototype\Private\ChestDataAsset.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
+    <ClCompile Include="..\..\Source\TurnBasedPrototype\Private\Door.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TurnBasedPrototype\Private\DoorDataAsset.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
     <ClCompile Include="..\..\Source\TurnBasedPrototype\Private\NPCDataAsset.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
@@ -332,6 +339,12 @@
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <ClCompile Include="..\..\Source\TurnBasedPrototype\Public\ChestDataAsset.h">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TurnBasedPrototype\Public\Door.h">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TurnBasedPrototype\Public\DoorDataAsset.h">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <ClCompile Include="..\..\Source\TurnBasedPrototype\Public\NPCDataAsset.h">

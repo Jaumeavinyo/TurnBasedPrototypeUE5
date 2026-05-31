@@ -20,23 +20,27 @@
 			"BaseCharacter.cpp.obj",
 			"BaseWeapon.cpp.obj",
 			"NPCDataAsset.cpp.obj",
+			"NPCharacter.cpp.obj",
 			"PlayerCharacter.cpp.obj",
+			"UInteractable.cpp.obj",
+			"InteractionMenuItemWidget.cpp.obj",
+			"InteractionMenuWidget.cpp.obj",
+			"UIManager.cpp.obj",
 			"WeaponComponent.cpp.obj",
 			"WeaponDataAsset.cpp.obj",
 			"TurnBasedPrototype.cpp.obj",
 			"TurnBasedPrototypeCharacter.cpp.obj",
 			"TurnBasedPrototypeGameMode.cpp.obj",
+			"TurnBasedPrototypePlayerController.cpp.obj",
 			"Chest.gen.cpp.obj",
 			"ChestDataAsset.gen.cpp.obj",
+			"Door.gen.cpp.obj",
+			"DoorDataAsset.gen.cpp.obj",
 			"TurnBasedPrototype.init.gen.cpp.obj",
 			"Chest.cpp.obj",
 			"ChestDataAsset.cpp.obj",
-			"NPCharacter.cpp.obj",
-			"UInteractable.cpp.obj",
-			"InteractionMenuItemWidget.cpp.obj",
-			"InteractionMenuWidget.cpp.obj",
-			"UIManager.cpp.obj",
-			"TurnBasedPrototypePlayerController.cpp.obj"
+			"Door.cpp.obj",
+			"DoorDataAsset.cpp.obj"
 		]
 	}
 }

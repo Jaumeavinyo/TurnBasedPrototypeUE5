@@ -10,7 +10,9 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeChest() {}
 
 // Begin Cross Module References
+COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 ENGINE_API UClass* Z_Construct_UClass_AActor();
+ENGINE_API UClass* Z_Construct_UClass_UAnimInstance_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_UAnimMontage_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_UBoxComponent_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_USkeletalMesh_NoRegister();
@@ -121,6 +123,10 @@ struct Z_Construct_UClass_AChest_Statics
 		{ "IncludePath", "Chest.h" },
 		{ "ModuleRelativePath", "Public/Chest.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bIsOpen_MetaData[] = {
+		{ "Category", "state" },
+		{ "ModuleRelativePath", "Public/Chest.h" },
+	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CollisionBox_MetaData[] = {
 		{ "Category", "Chest" },
 #if !UE_BUILD_SHIPPING
@@ -141,6 +147,10 @@ struct Z_Construct_UClass_AChest_Statics
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/Chest.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_AnimationBlueprintClass_MetaData[] = {
+		{ "Category", "Animation" },
+		{ "ModuleRelativePath", "Public/Chest.h" },
+	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ChestData_MetaData[] = {
 		{ "Category", "Chest Data" },
 		{ "ModuleRelativePath", "Public/Chest.h" },
@@ -149,12 +159,20 @@ struct Z_Construct_UClass_AChest_Statics
 		{ "Category", "Animation" },
 		{ "ModuleRelativePath", "Public/Chest.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_closeChestAnim_MetaData[] = {
+		{ "Category", "Animation" },
+		{ "ModuleRelativePath", "Public/Chest.h" },
+	};
 #endif // WITH_METADATA
+	static void NewProp_bIsOpen_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bIsOpen;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_CollisionBox;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_ChestMesh;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_ChestMeshComponent;
+	static const UECodeGen_Private::FClassPropertyParams NewProp_AnimationBlueprintClass;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_ChestData;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_openChestAnim;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_closeChestAnim;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
@@ -168,17 +186,27 @@ struct Z_Construct_UClass_AChest_Statics
 	};
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
+void Z_Construct_UClass_AChest_Statics::NewProp_bIsOpen_SetBit(void* Obj)
+{
+	((AChest*)Obj)->bIsOpen = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AChest_Statics::NewProp_bIsOpen = { "bIsOpen", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AChest), &Z_Construct_UClass_AChest_Statics::NewProp_bIsOpen_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bIsOpen_MetaData), NewProp_bIsOpen_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AChest_Statics::NewProp_CollisionBox = { "CollisionBox", nullptr, (EPropertyFlags)0x00100000000a0009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AChest, CollisionBox), Z_Construct_UClass_UBoxComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CollisionBox_MetaData), NewProp_CollisionBox_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AChest_Statics::NewProp_ChestMesh = { "ChestMesh", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AChest, ChestMesh), Z_Construct_UClass_USkeletalMesh_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ChestMesh_MetaData), NewProp_ChestMesh_MetaData) };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AChest_Statics::NewProp_ChestMeshComponent = { "ChestMeshComponent", nullptr, (EPropertyFlags)0x001000000008000c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AChest, ChestMeshComponent), Z_Construct_UClass_USkeletalMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ChestMeshComponent_MetaData), NewProp_ChestMeshComponent_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AChest_Statics::NewProp_ChestMeshComponent = { "ChestMeshComponent", nullptr, (EPropertyFlags)0x00100000000a000d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AChest, ChestMeshComponent), Z_Construct_UClass_USkeletalMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ChestMeshComponent_MetaData), NewProp_ChestMeshComponent_MetaData) };
+const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_AChest_Statics::NewProp_AnimationBlueprintClass = { "AnimationBlueprintClass", nullptr, (EPropertyFlags)0x0014000000010001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AChest, AnimationBlueprintClass), Z_Construct_UClass_UClass, Z_Construct_UClass_UAnimInstance_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_AnimationBlueprintClass_MetaData), NewProp_AnimationBlueprintClass_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AChest_Statics::NewProp_ChestData = { "ChestData", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AChest, ChestData), Z_Construct_UClass_UChestDataAsset_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ChestData_MetaData), NewProp_ChestData_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AChest_Statics::NewProp_openChestAnim = { "openChestAnim", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AChest, openChestAnim), Z_Construct_UClass_UAnimMontage_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_openChestAnim_MetaData), NewProp_openChestAnim_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AChest_Statics::NewProp_closeChestAnim = { "closeChestAnim", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AChest, closeChestAnim), Z_Construct_UClass_UAnimMontage_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_closeChestAnim_MetaData), NewProp_closeChestAnim_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AChest_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AChest_Statics::NewProp_bIsOpen,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AChest_Statics::NewProp_CollisionBox,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AChest_Statics::NewProp_ChestMesh,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AChest_Statics::NewProp_ChestMeshComponent,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AChest_Statics::NewProp_AnimationBlueprintClass,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AChest_Statics::NewProp_ChestData,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AChest_Statics::NewProp_openChestAnim,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AChest_Statics::NewProp_closeChestAnim,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AChest_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_AChest_Statics::DependentSingletons[])() = {
@@ -224,10 +252,10 @@ AChest::~AChest() {}
 struct Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_Chest_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AChest, AChest::StaticClass, TEXT("AChest"), &Z_Registration_Info_UClass_AChest, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AChest), 4129301567U) },
+		{ Z_Construct_UClass_AChest, AChest::StaticClass, TEXT("AChest"), &Z_Registration_Info_UClass_AChest, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AChest), 409932273U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_Chest_h_1860772005(TEXT("/Script/TurnBasedPrototype"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_Chest_h_3904851194(TEXT("/Script/TurnBasedPrototype"),
 	Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_Chest_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_Chest_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

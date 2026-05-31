@@ -65,6 +65,10 @@ struct Z_Construct_UClass_UChestDataAsset_Statics
 		{ "Category", "Animations" },
 		{ "ModuleRelativePath", "Public/ChestDataAsset.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CloseChestAnim_MetaData[] = {
+		{ "Category", "Animation" },
+		{ "ModuleRelativePath", "Public/ChestDataAsset.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_SkeletalMesh;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_MaterialOverride;
@@ -74,6 +78,7 @@ struct Z_Construct_UClass_UChestDataAsset_Statics
 	static const UECodeGen_Private::FEnumPropertyParams NewProp_interactions_Inner;
 	static const UECodeGen_Private::FArrayPropertyParams NewProp_interactions;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_OpenChestAnim;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_CloseChestAnim;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -89,6 +94,7 @@ const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_UChestDataAsset_
 const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_UChestDataAsset_Statics::NewProp_interactions_Inner = { "interactions", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UEnum_TurnBasedPrototype_EInteractionType, METADATA_PARAMS(0, nullptr) }; // 821326794
 const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UChestDataAsset_Statics::NewProp_interactions = { "interactions", nullptr, (EPropertyFlags)0x0010000000010015, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UChestDataAsset, interactions), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_interactions_MetaData), NewProp_interactions_MetaData) }; // 821326794
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UChestDataAsset_Statics::NewProp_OpenChestAnim = { "OpenChestAnim", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UChestDataAsset, OpenChestAnim), Z_Construct_UClass_UAnimMontage_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_OpenChestAnim_MetaData), NewProp_OpenChestAnim_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UChestDataAsset_Statics::NewProp_CloseChestAnim = { "CloseChestAnim", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UChestDataAsset, CloseChestAnim), Z_Construct_UClass_UAnimMontage_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CloseChestAnim_MetaData), NewProp_CloseChestAnim_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UChestDataAsset_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UChestDataAsset_Statics::NewProp_SkeletalMesh,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UChestDataAsset_Statics::NewProp_MaterialOverride,
@@ -98,6 +104,7 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UChestDat
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UChestDataAsset_Statics::NewProp_interactions_Inner,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UChestDataAsset_Statics::NewProp_interactions,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UChestDataAsset_Statics::NewProp_OpenChestAnim,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UChestDataAsset_Statics::NewProp_CloseChestAnim,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UChestDataAsset_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_UChestDataAsset_Statics::DependentSingletons[])() = {
@@ -141,10 +148,10 @@ UChestDataAsset::~UChestDataAsset() {}
 struct Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_ChestDataAsset_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UChestDataAsset, UChestDataAsset::StaticClass, TEXT("UChestDataAsset"), &Z_Registration_Info_UClass_UChestDataAsset, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UChestDataAsset), 1040760071U) },
+		{ Z_Construct_UClass_UChestDataAsset, UChestDataAsset::StaticClass, TEXT("UChestDataAsset"), &Z_Registration_Info_UClass_UChestDataAsset, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UChestDataAsset), 917470811U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_ChestDataAsset_h_3320077689(TEXT("/Script/TurnBasedPrototype"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_ChestDataAsset_h_2425629141(TEXT("/Script/TurnBasedPrototype"),
 	Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_ChestDataAsset_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_ChestDataAsset_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

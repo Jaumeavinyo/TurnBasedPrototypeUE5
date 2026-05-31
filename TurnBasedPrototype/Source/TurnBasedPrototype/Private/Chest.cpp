@@ -22,6 +22,7 @@ AChest::AChest()
 	CollisionBox->SetupAttachment(RootComponent);
 	
 	Ainteractions = new TArray<EInteractionType>();
+	bIsOpen = false;
 }
 
 void AChest::PostInitializeComponents()
@@ -32,9 +33,7 @@ void AChest::PostInitializeComponents()
 	{
 		ChestMeshComponent->SetSkeletalMesh(ChestData->SkeletalMesh);
 		openChestAnim = ChestData->OpenChestAnim;
-
-
-		
+		closeChestAnim = ChestData->CloseChestAnim;
 	}
 }
 

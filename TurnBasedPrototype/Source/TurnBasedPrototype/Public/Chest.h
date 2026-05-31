@@ -29,6 +29,9 @@ public:
 	virtual TArray<EInteractionType>* GetSupportedInteractions() const override;
 	virtual void SetSupportedInteractions()  override;
 
+	UPROPERTY(BlueprintReadWrite,Category = "state")
+	bool bIsOpen;
+	
 	UFUNCTION(BlueprintCallable, Category = "interactions")
 	TArray<EInteractionType> GetSupportedInteractions();//This function is called by UI to show player interaction options when selecting an npc
 
@@ -40,12 +43,18 @@ public:
 	
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "ChestMesh")
 	USkeletalMeshComponent* ChestMeshComponent;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Animation")
+	TSubclassOf<UAnimInstance> AnimationBlueprintClass;
 	
 	UPROPERTY(EditAnywhere, Category = "Chest Data")
 	UChestDataAsset* ChestData;
 
 	UPROPERTY(BlueprintReadWrite , Category = "Animation")
 	UAnimMontage* openChestAnim;
+
+	UPROPERTY(BlueprintReadWrite , Category = "Animation")
+	UAnimMontage* closeChestAnim;
 	
 	UFUNCTION(BlueprintImplementableEvent, Category = "Interaction")
 	void OnChestOpenOrder();

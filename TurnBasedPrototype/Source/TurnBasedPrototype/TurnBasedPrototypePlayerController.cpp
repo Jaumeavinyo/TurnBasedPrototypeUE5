@@ -7,6 +7,7 @@
 #include "NiagaraSystem.h"
 #include "NiagaraFunctionLibrary.h"
 #include "TurnBasedPrototypeCharacter.h"
+#include "Door.h"
 #include "Engine/World.h"
 #include "EnhancedInputComponent.h"
 #include "InputActionValue.h"
@@ -302,7 +303,15 @@ void ATurnBasedPrototypePlayerController::HandleInteractionOrder(EInteractionTyp
 		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Player wants to: Inspect"));
 		break;
 	case EInteractionType::UseDoor:
-		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Player wants to: UseDoor"));
+		{
+			GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Player wants to: UseDoor"));
+			ADoor* Door = Cast<ADoor>(target);
+			if (Door)
+			{
+				Door->ToggleDoor();  
+			}
+		}
+		
 		break;
 	case EInteractionType::Talk:
 		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Player wants to: Talk"));
