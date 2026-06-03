@@ -91,6 +91,9 @@
     <ClCompile Include="..\..\Source\TurnBasedPrototype\Private\PlayerCharacter.cpp">
       <Filter>Source\TurnBasedPrototype\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\TurnBasedPrototype\Private\PuppetComponent.cpp">
+      <Filter>Source\TurnBasedPrototype\Private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\TurnBasedPrototype\Private\UInteractable.cpp">
       <Filter>Source\TurnBasedPrototype\Private</Filter>
     </ClCompile>
@@ -99,6 +102,18 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\TurnBasedPrototype\Private\WeaponDataAsset.cpp">
       <Filter>Source\TurnBasedPrototype\Private</Filter>
+    </ClCompile>
+    <Filter Include="Source\TurnBasedPrototype\Private\GameManager">
+      <UniqueIdentifier>{711844A2-5AB3-3E90-9C4E-3509A6F7E9F2}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\TurnBasedPrototype\Private\GameManager\ActionOpenChest.cpp">
+      <Filter>Source\TurnBasedPrototype\Private\GameManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TurnBasedPrototype\Private\GameManager\BaseAction.cpp">
+      <Filter>Source\TurnBasedPrototype\Private\GameManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TurnBasedPrototype\Private\GameManager\GameManager.cpp">
+      <Filter>Source\TurnBasedPrototype\Private\GameManager</Filter>
     </ClCompile>
     <Filter Include="Source\TurnBasedPrototype\Private\UI">
       <UniqueIdentifier>{AA1E5CE0-2967-3CFD-B253-45648C82929A}</UniqueIdentifier>
@@ -142,6 +157,9 @@
     <ClCompile Include="..\..\Source\TurnBasedPrototype\Public\PlayerCharacter.h">
       <Filter>Source\TurnBasedPrototype\Public</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\TurnBasedPrototype\Public\PuppetComponent.h">
+      <Filter>Source\TurnBasedPrototype\Public</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\TurnBasedPrototype\Public\UInteractable.h">
       <Filter>Source\TurnBasedPrototype\Public</Filter>
     </ClCompile>
@@ -150,6 +168,18 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\TurnBasedPrototype\Public\WeaponDataAsset.h">
       <Filter>Source\TurnBasedPrototype\Public</Filter>
+    </ClCompile>
+    <Filter Include="Source\TurnBasedPrototype\Public\GameManager">
+      <UniqueIdentifier>{FC1C08BA-590B-3E8B-BB71-E230532B77C8}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\TurnBasedPrototype\Public\GameManager\ActionOpenChest.h">
+      <Filter>Source\TurnBasedPrototype\Public\GameManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TurnBasedPrototype\Public\GameManager\BaseAction.h">
+      <Filter>Source\TurnBasedPrototype\Public\GameManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TurnBasedPrototype\Public\GameManager\GameManager.h">
+      <Filter>Source\TurnBasedPrototype\Public\GameManager</Filter>
     </ClCompile>
     <Filter Include="Source\TurnBasedPrototype\Public\UI">
       <UniqueIdentifier>{96255AB2-385C-3318-AABB-49B53DC8440C}</UniqueIdentifier>

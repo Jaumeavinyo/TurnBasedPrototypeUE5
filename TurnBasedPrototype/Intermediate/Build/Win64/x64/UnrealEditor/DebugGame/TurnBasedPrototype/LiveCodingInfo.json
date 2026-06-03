@@ -6,6 +6,7 @@
 			"BaseWeapon.gen.cpp.obj",
 			"Chest.gen.cpp.obj",
 			"ChestDataAsset.gen.cpp.obj",
+			"Door.gen.cpp.obj",
 			"DoorDataAsset.gen.cpp.obj",
 			"InteractionMenuItemWidget.gen.cpp.obj",
 			"InteractionMenuWidget.gen.cpp.obj",
@@ -20,10 +21,10 @@
 			"WeaponComponent.gen.cpp.obj",
 			"WeaponDataAsset.gen.cpp.obj",
 			"PerModuleInline.gen.cpp.obj",
-			"BaseCharacter.cpp.obj",
 			"BaseWeapon.cpp.obj",
 			"Chest.cpp.obj",
 			"ChestDataAsset.cpp.obj",
+			"Door.cpp.obj",
 			"DoorDataAsset.cpp.obj",
 			"NPCDataAsset.cpp.obj",
 			"NPCharacter.cpp.obj",
@@ -37,10 +38,17 @@
 			"TurnBasedPrototype.cpp.obj",
 			"TurnBasedPrototypeCharacter.cpp.obj",
 			"TurnBasedPrototypeGameMode.cpp.obj",
-			"Door.gen.cpp.obj",
+			"TurnBasedPrototypePlayerController.cpp.obj",
+			"ActionOpenChest.gen.cpp.obj",
+			"BaseAction.gen.cpp.obj",
+			"GameManager.gen.cpp.obj",
+			"PuppetComponent.gen.cpp.obj",
 			"TurnBasedPrototype.init.gen.cpp.obj",
-			"Door.cpp.obj",
-			"TurnBasedPrototypePlayerController.cpp.obj"
+			"BaseCharacter.cpp.obj",
+			"ActionOpenChest.cpp.obj",
+			"BaseAction.cpp.obj",
+			"GameManager.cpp.obj",
+			"PuppetComponent.cpp.obj"
 		]
 	}
 }

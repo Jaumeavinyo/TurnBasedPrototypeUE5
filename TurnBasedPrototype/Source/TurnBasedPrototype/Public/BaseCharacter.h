@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "GameManager/PuppetComponent.h"
 #include "GameFramework/Character.h"
 #include "WeaponComponent.h"
 #include "BaseCharacter.generated.h"
@@ -30,7 +31,8 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 protected:
 
-
+	// WEAPON SYSTEM
+	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Combat")
 	UWeaponComponent* WeaponComponent;
 	
@@ -45,4 +47,8 @@ protected:
 	void SheatheWeapon(FName socket);
 	UPROPERTY(VisibleAnywhere,BlueprintReadWrite, Category = "weapon")
 	bool bWeaponSheathed;
+
+	// !WEAPON SYSTEM
+
+	UPuppetComponent* PuppetComponent;
 };

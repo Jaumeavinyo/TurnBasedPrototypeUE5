@@ -18,6 +18,8 @@ ABaseCharacter::ABaseCharacter(const FObjectInitializer& ObjectInitializer) : Su
 	bWeaponSheathed = false;
 	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+
+	PuppetComponent = CreateDefaultSubobject<UPuppetComponent>(TEXT("Puppet Component"));
 }
 
 // Called when the game starts or when spawned

@@ -143,8 +143,14 @@ struct Z_Construct_UClass_ABaseCharacter_Statics
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_WeaponComponent_MetaData[] = {
 		{ "Category", "Combat" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "// WEAPON SYSTEM\n" },
+#endif
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/BaseCharacter.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "WEAPON SYSTEM" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bWeaponDrawed_MetaData[] = {
 		{ "Category", "weapon" },
@@ -229,10 +235,10 @@ ABaseCharacter::~ABaseCharacter() {}
 struct Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_BaseCharacter_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ABaseCharacter, ABaseCharacter::StaticClass, TEXT("ABaseCharacter"), &Z_Registration_Info_UClass_ABaseCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABaseCharacter), 2460649863U) },
+		{ Z_Construct_UClass_ABaseCharacter, ABaseCharacter::StaticClass, TEXT("ABaseCharacter"), &Z_Registration_Info_UClass_ABaseCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABaseCharacter), 2972702627U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_BaseCharacter_h_1700412463(TEXT("/Script/TurnBasedPrototype"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_BaseCharacter_h_530914624(TEXT("/Script/TurnBasedPrototype"),
 	Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_BaseCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_BaseCharacter_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
