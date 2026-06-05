@@ -3,6 +3,9 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Chest.h"
+#include "NavigationSystem.h"
+#include "BaseCharacter.h"
 #include "BaseAction.h"
 #include "ActionOpenChest.generated.h"
 
@@ -23,4 +26,13 @@ public:
 
 	UFUNCTION()
 	bool FinishAction()override;//called from game manager
+
+	UFUNCTION()
+	FVector FindClosestPoint();
+	
+	UPROPERTY()
+	FVector OpenChestPathPoint;
+
+	UPROPERTY()
+	bool IsMoving;
 };

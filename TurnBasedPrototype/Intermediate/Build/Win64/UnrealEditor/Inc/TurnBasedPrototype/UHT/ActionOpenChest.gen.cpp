@@ -6,6 +6,7 @@
 
 #include "UObject/GeneratedCppIncludes.h"
 #include "TurnBasedPrototype/Public/GameManager/ActionOpenChest.h"
+#include "TurnBasedPrototype/Public/GameManager/BaseAction.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeActionOpenChest() {}
 
@@ -13,6 +14,7 @@ void EmptyLinkFunctionForGeneratedCodeActionOpenChest() {}
 TURNBASEDPROTOTYPE_API UClass* Z_Construct_UClass_UActionOpenChest();
 TURNBASEDPROTOTYPE_API UClass* Z_Construct_UClass_UActionOpenChest_NoRegister();
 TURNBASEDPROTOTYPE_API UClass* Z_Construct_UClass_UBaseAction();
+TURNBASEDPROTOTYPE_API UScriptStruct* Z_Construct_UScriptStruct_FActionContext();
 UPackage* Z_Construct_UPackage__Script_TurnBasedPrototype();
 // End Cross Module References
 
@@ -73,6 +75,7 @@ struct Z_Construct_UFunction_UActionOpenChest_OnInitialize_Statics
 {
 	struct ActionOpenChest_eventOnInitialize_Parms
 	{
+		FActionContext context;
 		bool ReturnValue;
 	};
 #if WITH_METADATA
@@ -80,21 +83,24 @@ struct Z_Construct_UFunction_UActionOpenChest_OnInitialize_Statics
 		{ "ModuleRelativePath", "Public/GameManager/ActionOpenChest.h" },
 	};
 #endif // WITH_METADATA
+	static const UECodeGen_Private::FStructPropertyParams NewProp_context;
 	static void NewProp_ReturnValue_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_ReturnValue;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static const UECodeGen_Private::FFunctionParams FuncParams;
 };
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UActionOpenChest_OnInitialize_Statics::NewProp_context = { "context", nullptr, (EPropertyFlags)0x0010000000000180, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ActionOpenChest_eventOnInitialize_Parms, context), Z_Construct_UScriptStruct_FActionContext, METADATA_PARAMS(0, nullptr) }; // 2387228641
 void Z_Construct_UFunction_UActionOpenChest_OnInitialize_Statics::NewProp_ReturnValue_SetBit(void* Obj)
 {
 	((ActionOpenChest_eventOnInitialize_Parms*)Obj)->ReturnValue = 1;
 }
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_UActionOpenChest_OnInitialize_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ActionOpenChest_eventOnInitialize_Parms), &Z_Construct_UFunction_UActionOpenChest_OnInitialize_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UActionOpenChest_OnInitialize_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UActionOpenChest_OnInitialize_Statics::NewProp_context,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UActionOpenChest_OnInitialize_Statics::NewProp_ReturnValue,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UActionOpenChest_OnInitialize_Statics::PropPointers) < 2048);
-const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UActionOpenChest_OnInitialize_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UActionOpenChest, nullptr, "OnInitialize", nullptr, nullptr, Z_Construct_UFunction_UActionOpenChest_OnInitialize_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UActionOpenChest_OnInitialize_Statics::PropPointers), sizeof(Z_Construct_UFunction_UActionOpenChest_OnInitialize_Statics::ActionOpenChest_eventOnInitialize_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UActionOpenChest_OnInitialize_Statics::Function_MetaDataParams), Z_Construct_UFunction_UActionOpenChest_OnInitialize_Statics::Function_MetaDataParams) };
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UActionOpenChest_OnInitialize_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UActionOpenChest, nullptr, "OnInitialize", nullptr, nullptr, Z_Construct_UFunction_UActionOpenChest_OnInitialize_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UActionOpenChest_OnInitialize_Statics::PropPointers), sizeof(Z_Construct_UFunction_UActionOpenChest_OnInitialize_Statics::ActionOpenChest_eventOnInitialize_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00420401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UActionOpenChest_OnInitialize_Statics::Function_MetaDataParams), Z_Construct_UFunction_UActionOpenChest_OnInitialize_Statics::Function_MetaDataParams) };
 static_assert(sizeof(Z_Construct_UFunction_UActionOpenChest_OnInitialize_Statics::ActionOpenChest_eventOnInitialize_Parms) < MAX_uint16);
 UFunction* Z_Construct_UFunction_UActionOpenChest_OnInitialize()
 {
@@ -107,9 +113,10 @@ UFunction* Z_Construct_UFunction_UActionOpenChest_OnInitialize()
 }
 DEFINE_FUNCTION(UActionOpenChest::execOnInitialize)
 {
+	P_GET_STRUCT_REF(FActionContext,Z_Param_Out_context);
 	P_FINISH;
 	P_NATIVE_BEGIN;
-	*(bool*)Z_Param__Result=P_THIS->OnInitialize();
+	*(bool*)Z_Param__Result=P_THIS->OnInitialize(Z_Param_Out_context);
 	P_NATIVE_END;
 }
 // End Class UActionOpenChest Function OnInitialize
@@ -196,7 +203,7 @@ struct Z_Construct_UClass_UActionOpenChest_Statics
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
 		{ &Z_Construct_UFunction_UActionOpenChest_FinishAction, "FinishAction" }, // 2208143234
-		{ &Z_Construct_UFunction_UActionOpenChest_OnInitialize, "OnInitialize" }, // 1786210696
+		{ &Z_Construct_UFunction_UActionOpenChest_OnInitialize, "OnInitialize" }, // 3069732734
 		{ &Z_Construct_UFunction_UActionOpenChest_PerformAction, "PerformAction" }, // 4107068457
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
@@ -246,10 +253,10 @@ UActionOpenChest::~UActionOpenChest() {}
 struct Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_GameManager_ActionOpenChest_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UActionOpenChest, UActionOpenChest::StaticClass, TEXT("UActionOpenChest"), &Z_Registration_Info_UClass_UActionOpenChest, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UActionOpenChest), 926297322U) },
+		{ Z_Construct_UClass_UActionOpenChest, UActionOpenChest::StaticClass, TEXT("UActionOpenChest"), &Z_Registration_Info_UClass_UActionOpenChest, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UActionOpenChest), 4020900913U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_GameManager_ActionOpenChest_h_3170804100(TEXT("/Script/TurnBasedPrototype"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_GameManager_ActionOpenChest_h_2115883647(TEXT("/Script/TurnBasedPrototype"),
 	Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_GameManager_ActionOpenChest_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_GameManager_ActionOpenChest_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

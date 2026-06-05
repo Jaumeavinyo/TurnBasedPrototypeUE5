@@ -9,6 +9,7 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+struct FActionContext;
 #ifdef TURNBASEDPROTOTYPE_ActionOpenChest_generated_h
 #error "ActionOpenChest.generated.h already included, missing '#pragma once' in ActionOpenChest.h"
 #endif

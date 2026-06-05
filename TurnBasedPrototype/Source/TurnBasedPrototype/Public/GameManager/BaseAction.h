@@ -6,6 +6,17 @@
 #include "UObject/NoExportTypes.h"
 #include "BaseAction.generated.h"
 
+USTRUCT()
+struct FActionContext
+{
+	GENERATED_BODY()
+	UPROPERTY()
+	AActor* Performer;  //Who does this action
+	
+	UPROPERTY()
+	AActor* TargetActor;  //Who or what receives this action
+};
+
 /**
  * 
  */
@@ -15,8 +26,8 @@ class TURNBASEDPROTOTYPE_API UBaseAction : public UObject
 	GENERATED_BODY()
 
 public:
-	
-	bool InitializeAction(AActor* performer); //called from game manager
+	UFUNCTION()
+	bool InitializeAction(FActionContext& context); //called from game manager
 
 	
 	virtual bool OnInitialize(); //overrided by programmer but called from InitializeAction
@@ -29,8 +40,6 @@ public:
 
 
 	UPROPERTY()
-	bool ActionFinished = false;
+	FActionContext ActionContext;
 	
-	UPROPERTY()
-	AActor* ActionPerformer;
 };

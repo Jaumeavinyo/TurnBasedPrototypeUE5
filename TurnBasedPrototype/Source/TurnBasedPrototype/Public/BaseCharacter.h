@@ -50,5 +50,10 @@ protected:
 
 	// !WEAPON SYSTEM
 
+public:
+	
 	UPuppetComponent* PuppetComponent;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Interaction System")
+	float maxInteractionDistance = 200;
 };

@@ -3,9 +3,9 @@
 
 #include "GameManager/BaseAction.h"
 
-bool UBaseAction::InitializeAction(AActor* performer)
+bool UBaseAction::InitializeAction(FActionContext& context_)
 {
-	ActionPerformer = performer;
+	ActionContext = context_;
 
 	return OnInitialize();
 }

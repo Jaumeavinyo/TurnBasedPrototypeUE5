@@ -40,7 +40,7 @@ public:
 	UFUNCTION(BlueprintCallable, Category="Camera Controll")
 	void RotateCamera(float axisValue);
 
-
+	
 	
 };
 
