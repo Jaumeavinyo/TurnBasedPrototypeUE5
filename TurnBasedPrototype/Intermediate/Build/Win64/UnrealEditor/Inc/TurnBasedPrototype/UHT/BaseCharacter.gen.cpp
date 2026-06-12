@@ -45,7 +45,7 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ABaseC
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ABaseCharacter_DrawWeapon_Statics::NewProp_socket,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ABaseCharacter_DrawWeapon_Statics::PropPointers) < 2048);
-const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ABaseCharacter_DrawWeapon_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ABaseCharacter, nullptr, "DrawWeapon", nullptr, nullptr, Z_Construct_UFunction_ABaseCharacter_DrawWeapon_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ABaseCharacter_DrawWeapon_Statics::PropPointers), sizeof(Z_Construct_UFunction_ABaseCharacter_DrawWeapon_Statics::BaseCharacter_eventDrawWeapon_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04080401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ABaseCharacter_DrawWeapon_Statics::Function_MetaDataParams), Z_Construct_UFunction_ABaseCharacter_DrawWeapon_Statics::Function_MetaDataParams) };
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ABaseCharacter_DrawWeapon_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ABaseCharacter, nullptr, "DrawWeapon", nullptr, nullptr, Z_Construct_UFunction_ABaseCharacter_DrawWeapon_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ABaseCharacter_DrawWeapon_Statics::PropPointers), sizeof(Z_Construct_UFunction_ABaseCharacter_DrawWeapon_Statics::BaseCharacter_eventDrawWeapon_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ABaseCharacter_DrawWeapon_Statics::Function_MetaDataParams), Z_Construct_UFunction_ABaseCharacter_DrawWeapon_Statics::Function_MetaDataParams) };
 static_assert(sizeof(Z_Construct_UFunction_ABaseCharacter_DrawWeapon_Statics::BaseCharacter_eventDrawWeapon_Parms) < MAX_uint16);
 UFunction* Z_Construct_UFunction_ABaseCharacter_DrawWeapon()
 {
@@ -94,7 +94,7 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ABaseC
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ABaseCharacter_SheatheWeapon_Statics::NewProp_socket,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ABaseCharacter_SheatheWeapon_Statics::PropPointers) < 2048);
-const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ABaseCharacter_SheatheWeapon_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ABaseCharacter, nullptr, "SheatheWeapon", nullptr, nullptr, Z_Construct_UFunction_ABaseCharacter_SheatheWeapon_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ABaseCharacter_SheatheWeapon_Statics::PropPointers), sizeof(Z_Construct_UFunction_ABaseCharacter_SheatheWeapon_Statics::BaseCharacter_eventSheatheWeapon_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04080401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ABaseCharacter_SheatheWeapon_Statics::Function_MetaDataParams), Z_Construct_UFunction_ABaseCharacter_SheatheWeapon_Statics::Function_MetaDataParams) };
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ABaseCharacter_SheatheWeapon_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ABaseCharacter, nullptr, "SheatheWeapon", nullptr, nullptr, Z_Construct_UFunction_ABaseCharacter_SheatheWeapon_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ABaseCharacter_SheatheWeapon_Statics::PropPointers), sizeof(Z_Construct_UFunction_ABaseCharacter_SheatheWeapon_Statics::BaseCharacter_eventSheatheWeapon_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ABaseCharacter_SheatheWeapon_Statics::Function_MetaDataParams), Z_Construct_UFunction_ABaseCharacter_SheatheWeapon_Statics::Function_MetaDataParams) };
 static_assert(sizeof(Z_Construct_UFunction_ABaseCharacter_SheatheWeapon_Statics::BaseCharacter_eventSheatheWeapon_Parms) < MAX_uint16);
 UFunction* Z_Construct_UFunction_ABaseCharacter_SheatheWeapon()
 {
@@ -174,8 +174,8 @@ struct Z_Construct_UClass_ABaseCharacter_Statics
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
-		{ &Z_Construct_UFunction_ABaseCharacter_DrawWeapon, "DrawWeapon" }, // 384039937
-		{ &Z_Construct_UFunction_ABaseCharacter_SheatheWeapon, "SheatheWeapon" }, // 2399462142
+		{ &Z_Construct_UFunction_ABaseCharacter_DrawWeapon, "DrawWeapon" }, // 515088492
+		{ &Z_Construct_UFunction_ABaseCharacter_SheatheWeapon, "SheatheWeapon" }, // 1912167137
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -183,17 +183,17 @@ struct Z_Construct_UClass_ABaseCharacter_Statics
 	};
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABaseCharacter_Statics::NewProp_WeaponComponent = { "WeaponComponent", nullptr, (EPropertyFlags)0x00200800000a001d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABaseCharacter, WeaponComponent), Z_Construct_UClass_UWeaponComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_WeaponComponent_MetaData), NewProp_WeaponComponent_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABaseCharacter_Statics::NewProp_WeaponComponent = { "WeaponComponent", nullptr, (EPropertyFlags)0x00100000000a001d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABaseCharacter, WeaponComponent), Z_Construct_UClass_UWeaponComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_WeaponComponent_MetaData), NewProp_WeaponComponent_MetaData) };
 void Z_Construct_UClass_ABaseCharacter_Statics::NewProp_bWeaponDrawed_SetBit(void* Obj)
 {
 	((ABaseCharacter*)Obj)->bWeaponDrawed = 1;
 }
-const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ABaseCharacter_Statics::NewProp_bWeaponDrawed = { "bWeaponDrawed", nullptr, (EPropertyFlags)0x0020080000020005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ABaseCharacter), &Z_Construct_UClass_ABaseCharacter_Statics::NewProp_bWeaponDrawed_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bWeaponDrawed_MetaData), NewProp_bWeaponDrawed_MetaData) };
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ABaseCharacter_Statics::NewProp_bWeaponDrawed = { "bWeaponDrawed", nullptr, (EPropertyFlags)0x0010000000020005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ABaseCharacter), &Z_Construct_UClass_ABaseCharacter_Statics::NewProp_bWeaponDrawed_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bWeaponDrawed_MetaData), NewProp_bWeaponDrawed_MetaData) };
 void Z_Construct_UClass_ABaseCharacter_Statics::NewProp_bWeaponSheathed_SetBit(void* Obj)
 {
 	((ABaseCharacter*)Obj)->bWeaponSheathed = 1;
 }
-const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ABaseCharacter_Statics::NewProp_bWeaponSheathed = { "bWeaponSheathed", nullptr, (EPropertyFlags)0x0020080000020005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ABaseCharacter), &Z_Construct_UClass_ABaseCharacter_Statics::NewProp_bWeaponSheathed_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bWeaponSheathed_MetaData), NewProp_bWeaponSheathed_MetaData) };
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ABaseCharacter_Statics::NewProp_bWeaponSheathed = { "bWeaponSheathed", nullptr, (EPropertyFlags)0x0010000000020005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ABaseCharacter), &Z_Construct_UClass_ABaseCharacter_Statics::NewProp_bWeaponSheathed_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bWeaponSheathed_MetaData), NewProp_bWeaponSheathed_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ABaseCharacter_Statics::NewProp_maxInteractionDistance = { "maxInteractionDistance", nullptr, (EPropertyFlags)0x0010000000010001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABaseCharacter, maxInteractionDistance), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_maxInteractionDistance_MetaData), NewProp_maxInteractionDistance_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ABaseCharacter_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABaseCharacter_Statics::NewProp_WeaponComponent,
@@ -242,10 +242,10 @@ ABaseCharacter::~ABaseCharacter() {}
 struct Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_BaseCharacter_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ABaseCharacter, ABaseCharacter::StaticClass, TEXT("ABaseCharacter"), &Z_Registration_Info_UClass_ABaseCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABaseCharacter), 751777866U) },
+		{ Z_Construct_UClass_ABaseCharacter, ABaseCharacter::StaticClass, TEXT("ABaseCharacter"), &Z_Registration_Info_UClass_ABaseCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABaseCharacter), 1049464387U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_BaseCharacter_h_3001178782(TEXT("/Script/TurnBasedPrototype"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_BaseCharacter_h_3443331204(TEXT("/Script/TurnBasedPrototype"),
 	Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_BaseCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_BaseCharacter_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

@@ -148,3 +148,12 @@ AController* UActionOpenChest::GetControllerFromPerformer()
 	return nullptr;
 }
 
+void UActionOpenChest::OpenChestWithDelay()
+{
+	AChest* Chest = Cast<AChest>(ActionContext.TargetActor);
+	if (Chest)
+	{
+		Chest->OnChestOpenOrder();
+	}
+}
+

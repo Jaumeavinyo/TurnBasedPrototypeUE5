@@ -29,13 +29,13 @@ public:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-protected:
+
 
 	// WEAPON SYSTEM
 	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Combat")
 	UWeaponComponent* WeaponComponent;
-	
+
 	//calls character to play the anim to hold saved weapon. after, an anim notify calls SetCurrentSocket(FName name) in the right moment
 	UFUNCTION(BlueprintCallable, Category = "weapon")
 	void DrawWeapon(FName socket);

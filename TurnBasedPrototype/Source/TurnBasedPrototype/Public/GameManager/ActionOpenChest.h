@@ -32,6 +32,8 @@ public:
 
 	UFUNCTION()
 	AController* GetControllerFromPerformer();
+
+	void OpenChestWithDelay();
 	
 	UPROPERTY()
 	FVector OpenChestPathPoint;
