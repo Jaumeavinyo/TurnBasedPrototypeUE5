@@ -4,44 +4,80 @@
 #include "GameManager/ActionOpenChest.h"
 #include "Blueprint/AIBlueprintHelperLibrary.h"
 #include "NavigationSystem.h"
+#include "TurnBasedPrototype/TurnBasedPrototypePlayerController.h"
 
-bool UActionOpenChest::OnInitialize()
+void UActionOpenChest::OnInitialize()
 {
 	Super::OnInitialize();
 
 	IsMoving = false;
-	OpenChestPathPoint = FindClosestPoint();
+	bHasReachedDestination = false;
+	OpenChestPathPoint = ActionContext.TargetActor->GetActorLocation();//FindClosestPoint();
 	
-	return true;
+	state = ActionState::Perform;
 	//GetChestLocation (has to be walkable)
 }
 
-bool UActionOpenChest::PerformAction()
+void UActionOpenChest::PerformAction()
 {
 	Super::PerformAction();
-	bool ret = false;
-
-	if (!IsMoving)
+	
+	//Start moving
+	if (!IsMoving && !bHasReachedDestination)
 	{
-		//Used only for controllers?
-		//UAIBlueprintHelperLibrary::SimpleMoveToLocation(C, OpenChestPathPoint);
+		AController* Controller = GetControllerFromPerformer();
+		if (!Controller)
+		{
+			UE_LOG(LogTemp, Log, TEXT("AI Controller nullptr"));
+		}
+        
+		UAIBlueprintHelperLibrary::SimpleMoveToLocation(Controller, OpenChestPathPoint);
+		IsMoving = true;
+		state = ActionState::Perform;
+		return;
 	}
-	
-	
-	return ret;
-	
+    
+	//Check if arrived
+	if (IsMoving && !bHasReachedDestination)
+	{
+		APawn* Pawn = Cast<APawn>(ActionContext.Performer);
+		if (Pawn)
+		{
+			float Distance = FVector::Dist(Pawn->GetActorLocation(), OpenChestPathPoint);
+            
+			if (Distance <= 170.0f) //near enought
+			{
+				IsMoving = false;
+				bHasReachedDestination = true;
+				AController* Controller = GetControllerFromPerformer();
+				UAIBlueprintHelperLibrary::SimpleMoveToLocation(Controller, Pawn->GetActorLocation());
+				
+				if (AChest* Chest = Cast<AChest>(ActionContext.TargetActor))
+				{
+					Chest->OnChestOpenOrder();
+				}
+				state = ActionState::Finish;
+				return;
+			}
+		}
+		state = ActionState::Perform;//not arrived
+		return;
+	}
+	state =ActionState::Perform;
+	return; 
 }
 
-bool UActionOpenChest::FinishAction()
+void UActionOpenChest::FinishAction()
 {
 	Super::FinishAction();
-	bool ret = false;
+	bool ret = true;
 
-	return ret;
+	state = ActionState::Close;
 }
 
 FVector UActionOpenChest::FindClosestPoint()
 {
+	
 	AChest* chest = Cast<AChest>(ActionContext.TargetActor);
 	ABaseCharacter* ActionPerformer = Cast<ABaseCharacter>(ActionContext.Performer);
 
@@ -50,15 +86,37 @@ FVector UActionOpenChest::FindClosestPoint()
 		UE_LOG(LogTemp, Error, TEXT("OpenChestAction: Invalid parameters - Chest=%s, Performer=%s"), chest ? TEXT("Valid") : TEXT("NULL"),ActionPerformer ? TEXT("Valid") : TEXT("NULL"));
 	}
 
-	//Find the point in the path where the performer will be in range to open chest
-	UNavigationSystemV1* NavSys = UNavigationSystemV1::GetCurrent(GetWorld());
+	
+	UNavigationSystemV1* NavSys = UNavigationSystemV1::GetCurrent(ActionPerformer->GetWorld());
+	const ANavigationData* NavData = NavSys->GetNavDataForProps(ActionPerformer->GetNavAgentPropertiesRef());
+	
 	FPathFindingQuery Query;
-	Query.StartLocation = ActionPerformer->GetActorLocation();
-	Query.EndLocation = chest->GetActorLocation();;
-	Query.NavAgentProperties = ActionPerformer->GetNavAgentPropertiesRef();
-	FPathFindingResult PathResult = NavSys->FindPathSync(Query.NavAgentProperties,Query,EPathFindingMode::Regular);
 
+	FVector StartLocation = ActionPerformer->GetActorLocation();
+	FVector EndLocation = chest->GetActorLocation();
+	
+	FNavLocation ProjectedStart;
+	if (NavSys->ProjectPointToNavigation(StartLocation, ProjectedStart, FVector(500.0f, 500.0f, 500.0f)))
+	{
+		StartLocation = ProjectedStart.Location;
+	}
+
+	FNavLocation ProjectedEnd;
+	if (NavSys->ProjectPointToNavigation(EndLocation, ProjectedEnd, FVector(500.0f, 500.0f, 500.0f)))
+	{
+		EndLocation = ProjectedEnd.Location;
+	}
+	Query.NavData = NavData;
+	Query.StartLocation = StartLocation;
+	Query.EndLocation = EndLocation;
+	
+	Query.NavAgentProperties = ActionPerformer->GetNavAgentPropertiesRef();
+	FPathFindingResult PathResult = NavSys->FindPathSync(Query);
+
+	
+	
 	FVector closestPoint;
+
 	
 	if (PathResult.IsSuccessful() && PathResult.Path.IsValid())
 	{
@@ -79,5 +137,14 @@ FVector UActionOpenChest::FindClosestPoint()
 	return closestPoint;
 }
 
-
+AController* UActionOpenChest::GetControllerFromPerformer()
+{
+	//Performer is a Pawn character or npc
+	if (APawn* Pawn = Cast<APawn>(ActionContext.Performer))
+	{
+		return Pawn->GetController();
+	}
+	
+	return nullptr;
+}
 

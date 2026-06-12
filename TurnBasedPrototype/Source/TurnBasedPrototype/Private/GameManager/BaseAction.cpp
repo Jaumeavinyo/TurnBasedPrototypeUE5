@@ -3,24 +3,24 @@
 
 #include "GameManager/BaseAction.h"
 
-bool UBaseAction::InitializeAction(FActionContext& context_)
+void UBaseAction::InitializeAction(FActionContext& context_)
 {
 	ActionContext = context_;
 
 	return OnInitialize();
 }
 
-bool UBaseAction::OnInitialize()
+void UBaseAction::OnInitialize()
 {
-	return true;
+	
 }
 
-bool UBaseAction::PerformAction()
+void UBaseAction::PerformAction()
 {
-	return true;
+	
 }
 
-bool UBaseAction::FinishAction()
+void UBaseAction::FinishAction()
 {
-	return true;
+	
 }

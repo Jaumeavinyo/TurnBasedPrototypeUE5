@@ -3,6 +3,8 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "GameManager/PuppetComponent.h"
+#include "BaseAction.h"
 #include "Subsystems/GameInstanceSubsystem.h"
 #include "GameManager.generated.h"
 
@@ -10,7 +12,7 @@
  * 
  */
 UCLASS()
-class TURNBASEDPROTOTYPE_API UGameManager : public UGameInstanceSubsystem, public FTickableGameObject
+class TURNBASEDPROTOTYPE_API UGameManager : public UGameInstanceSubsystem
 {
 	GENERATED_BODY()
 public:
@@ -19,9 +21,12 @@ public:
 	virtual void Deinitialize() override;
 
 	//FTickableGameObject Interface 
-	virtual void Tick(float DeltaTime) override;
-	virtual TStatId GetStatId() const override;
-	virtual bool IsTickable() const override;
+	virtual void ManagerTick(float DeltaTime);
+
+
+
+	void AddControlledActor(AActor* actor);//Called from puppetcomp.
+	void removeControlledActor(AActor* actor);//Called from puppetcomp.
 
 	//List of actors that are currently performing actions in OnInitialize() || PerformAction() || FinishAction() FinishAction should remove them from this list
 	UPROPERTY()

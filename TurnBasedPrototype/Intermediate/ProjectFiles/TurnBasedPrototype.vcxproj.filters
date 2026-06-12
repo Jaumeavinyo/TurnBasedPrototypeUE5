@@ -82,6 +82,9 @@
     <ClCompile Include="..\..\Source\TurnBasedPrototype\Private\DoorDataAsset.cpp">
       <Filter>Source\TurnBasedPrototype\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\TurnBasedPrototype\Private\MyAIController.cpp">
+      <Filter>Source\TurnBasedPrototype\Private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\TurnBasedPrototype\Private\NPCDataAsset.cpp">
       <Filter>Source\TurnBasedPrototype\Private</Filter>
     </ClCompile>
@@ -89,9 +92,6 @@
       <Filter>Source\TurnBasedPrototype\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\TurnBasedPrototype\Private\PlayerCharacter.cpp">
-      <Filter>Source\TurnBasedPrototype\Private</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\TurnBasedPrototype\Private\PuppetComponent.cpp">
       <Filter>Source\TurnBasedPrototype\Private</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\TurnBasedPrototype\Private\UInteractable.cpp">
@@ -113,6 +113,9 @@
       <Filter>Source\TurnBasedPrototype\Private\GameManager</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\TurnBasedPrototype\Private\GameManager\GameManager.cpp">
+      <Filter>Source\TurnBasedPrototype\Private\GameManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TurnBasedPrototype\Private\GameManager\PuppetComponent.cpp">
       <Filter>Source\TurnBasedPrototype\Private\GameManager</Filter>
     </ClCompile>
     <Filter Include="Source\TurnBasedPrototype\Private\UI">
@@ -148,6 +151,9 @@
     <ClCompile Include="..\..\Source\TurnBasedPrototype\Public\DoorDataAsset.h">
       <Filter>Source\TurnBasedPrototype\Public</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\TurnBasedPrototype\Public\MyAIController.h">
+      <Filter>Source\TurnBasedPrototype\Public</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\TurnBasedPrototype\Public\NPCDataAsset.h">
       <Filter>Source\TurnBasedPrototype\Public</Filter>
     </ClCompile>
@@ -155,9 +161,6 @@
       <Filter>Source\TurnBasedPrototype\Public</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\TurnBasedPrototype\Public\PlayerCharacter.h">
-      <Filter>Source\TurnBasedPrototype\Public</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\TurnBasedPrototype\Public\PuppetComponent.h">
       <Filter>Source\TurnBasedPrototype\Public</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\TurnBasedPrototype\Public\UInteractable.h">
@@ -179,6 +182,9 @@
       <Filter>Source\TurnBasedPrototype\Public\GameManager</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\TurnBasedPrototype\Public\GameManager\GameManager.h">
+      <Filter>Source\TurnBasedPrototype\Public\GameManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TurnBasedPrototype\Public\GameManager\PuppetComponent.h">
       <Filter>Source\TurnBasedPrototype\Public\GameManager</Filter>
     </ClCompile>
     <Filter Include="Source\TurnBasedPrototype\Public\UI">

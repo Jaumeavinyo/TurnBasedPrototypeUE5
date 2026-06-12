@@ -19,19 +19,24 @@ class TURNBASEDPROTOTYPE_API UActionOpenChest : public UBaseAction
 public:
 
 	UFUNCTION()
-	bool OnInitialize()override; //overrided by programmer but called from InitializeAction
+	void OnInitialize()override; //overrided by programmer but called from InitializeAction
 
 	UFUNCTION()
-	bool PerformAction()override;//called from game manager
+	void PerformAction()override;//called from game manager
 
 	UFUNCTION()
-	bool FinishAction()override;//called from game manager
+	void FinishAction()override;//called from game manager
 
 	UFUNCTION()
 	FVector FindClosestPoint();
+
+	UFUNCTION()
+	AController* GetControllerFromPerformer();
 	
 	UPROPERTY()
 	FVector OpenChestPathPoint;
+	UPROPERTY()
+	bool bHasReachedDestination;
 
 	UPROPERTY()
 	bool IsMoving;

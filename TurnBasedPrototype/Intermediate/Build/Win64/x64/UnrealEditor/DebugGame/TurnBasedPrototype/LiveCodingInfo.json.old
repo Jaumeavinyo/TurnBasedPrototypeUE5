@@ -2,17 +2,15 @@
 	"RemapUnityFiles": 
 	{
 		"Module.TurnBasedPrototype.cpp.obj": [
-			"BaseCharacter.gen.cpp.obj",
 			"BaseWeapon.gen.cpp.obj",
 			"Chest.gen.cpp.obj",
 			"ChestDataAsset.gen.cpp.obj",
 			"Door.gen.cpp.obj",
 			"DoorDataAsset.gen.cpp.obj",
+			"GameManager.gen.cpp.obj",
 			"InteractionMenuItemWidget.gen.cpp.obj",
 			"InteractionMenuWidget.gen.cpp.obj",
 			"NPCDataAsset.gen.cpp.obj",
-			"NPCharacter.gen.cpp.obj",
-			"PlayerCharacter.gen.cpp.obj",
 			"TurnBasedPrototypeCharacter.gen.cpp.obj",
 			"TurnBasedPrototypeGameMode.gen.cpp.obj",
 			"TurnBasedPrototypePlayerController.gen.cpp.obj",
@@ -27,7 +25,6 @@
 			"Door.cpp.obj",
 			"DoorDataAsset.cpp.obj",
 			"NPCDataAsset.cpp.obj",
-			"NPCharacter.cpp.obj",
 			"PlayerCharacter.cpp.obj",
 			"UInteractable.cpp.obj",
 			"InteractionMenuItemWidget.cpp.obj",
@@ -38,17 +35,22 @@
 			"TurnBasedPrototype.cpp.obj",
 			"TurnBasedPrototypeCharacter.cpp.obj",
 			"TurnBasedPrototypeGameMode.cpp.obj",
-			"TurnBasedPrototypePlayerController.cpp.obj",
 			"ActionOpenChest.gen.cpp.obj",
 			"BaseAction.gen.cpp.obj",
-			"GameManager.gen.cpp.obj",
+			"BaseCharacter.gen.cpp.obj",
+			"MyAIController.gen.cpp.obj",
+			"NPCharacter.gen.cpp.obj",
+			"PlayerCharacter.gen.cpp.obj",
 			"PuppetComponent.gen.cpp.obj",
 			"TurnBasedPrototype.init.gen.cpp.obj",
 			"BaseCharacter.cpp.obj",
 			"ActionOpenChest.cpp.obj",
 			"BaseAction.cpp.obj",
 			"GameManager.cpp.obj",
-			"PuppetComponent.cpp.obj"
+			"PuppetComponent.cpp.obj",
+			"MyAIController.cpp.obj",
+			"NPCharacter.cpp.obj",
+			"TurnBasedPrototypePlayerController.cpp.obj"
 		]
 	}
 }
