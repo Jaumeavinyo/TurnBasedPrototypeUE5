@@ -20,6 +20,8 @@ ABaseCharacter::ABaseCharacter(const FObjectInitializer& ObjectInitializer) : Su
 	PrimaryActorTick.bCanEverTick = true;
 
 	PuppetComponent = CreateDefaultSubobject<UPuppetComponent>(TEXT("Puppet Component"));
+
+	
 }
 
 // Called when the game starts or when spawned

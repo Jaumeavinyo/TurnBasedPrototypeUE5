@@ -20,22 +20,17 @@ void UGameManager::Deinitialize()
 	Super::Deinitialize();
 }
 
-void UGameManager::Tick(float DeltaTime)
+void UGameManager::ManagerTick(float DeltaTime)
 {
-	for (AActor* actor: ControlledActors)//loops throw the puppets and look for their puppet component
-	{
-		
-	}
 
 }
 
-TStatId UGameManager::GetStatId() const
+void UGameManager::AddControlledActor(AActor* actor)
 {
-	RETURN_QUICK_DECLARE_CYCLE_STAT(UMyGameManagerSubsystem, STATGROUP_Tickables);
+	ControlledActors.Add(actor);
 }
 
-bool UGameManager::IsTickable() const
+void UGameManager::removeControlledActor(AActor* actor)
 {
-	// Return false to pause ticking, true to resume.
-	return true;
+	ControlledActors.RemoveSingle(actor);
 }

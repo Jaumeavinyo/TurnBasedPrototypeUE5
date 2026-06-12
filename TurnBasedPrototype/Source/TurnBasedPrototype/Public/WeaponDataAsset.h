@@ -81,6 +81,12 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Animations")
 	UAnimMontage* SheathingWeaponAnim;
+
+	//this is to know the default positions for this weapon: for a greatsword could be rhand and onback
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Socket")
+	FName DefaultWeaponDrawedSocket;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Socket")
+	FName DefaultWeaponSheathedSocket;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Socket")
 	FName OnRHandAttachSocket;

@@ -399,6 +399,20 @@ struct Z_Construct_UClass_UWeaponDataAsset_Statics
 		{ "Category", "Animations" },
 		{ "ModuleRelativePath", "Public/WeaponDataAsset.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_DefaultWeaponDrawedSocket_MetaData[] = {
+		{ "Category", "Socket" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "//this is to know the default positions for this weapon: for a greatsword could be rhand and onback\n" },
+#endif
+		{ "ModuleRelativePath", "Public/WeaponDataAsset.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "this is to know the default positions for this weapon: for a greatsword could be rhand and onback" },
+#endif
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_DefaultWeaponSheathedSocket_MetaData[] = {
+		{ "Category", "Socket" },
+		{ "ModuleRelativePath", "Public/WeaponDataAsset.h" },
+	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_OnRHandAttachSocket_MetaData[] = {
 		{ "Category", "Socket" },
 		{ "ModuleRelativePath", "Public/WeaponDataAsset.h" },
@@ -463,6 +477,8 @@ struct Z_Construct_UClass_UWeaponDataAsset_Statics
 	static const UECodeGen_Private::FArrayPropertyParams NewProp_weaponAnims;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_DrawWeaponAnim;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_SheathingWeaponAnim;
+	static const UECodeGen_Private::FNamePropertyParams NewProp_DefaultWeaponDrawedSocket;
+	static const UECodeGen_Private::FNamePropertyParams NewProp_DefaultWeaponSheathedSocket;
 	static const UECodeGen_Private::FNamePropertyParams NewProp_OnRHandAttachSocket;
 	static const UECodeGen_Private::FNamePropertyParams NewProp_OnBackAttachSocket;
 	static const UECodeGen_Private::FIntPropertyParams NewProp_damageDice;
@@ -491,6 +507,8 @@ const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UWeaponDataAss
 const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_weaponAnims = { "weaponAnims", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UWeaponDataAsset, weaponAnims), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_weaponAnims_MetaData), NewProp_weaponAnims_MetaData) }; // 4110656983
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_DrawWeaponAnim = { "DrawWeaponAnim", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UWeaponDataAsset, DrawWeaponAnim), Z_Construct_UClass_UAnimMontage_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_DrawWeaponAnim_MetaData), NewProp_DrawWeaponAnim_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_SheathingWeaponAnim = { "SheathingWeaponAnim", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UWeaponDataAsset, SheathingWeaponAnim), Z_Construct_UClass_UAnimMontage_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SheathingWeaponAnim_MetaData), NewProp_SheathingWeaponAnim_MetaData) };
+const UECodeGen_Private::FNamePropertyParams Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_DefaultWeaponDrawedSocket = { "DefaultWeaponDrawedSocket", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UWeaponDataAsset, DefaultWeaponDrawedSocket), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_DefaultWeaponDrawedSocket_MetaData), NewProp_DefaultWeaponDrawedSocket_MetaData) };
+const UECodeGen_Private::FNamePropertyParams Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_DefaultWeaponSheathedSocket = { "DefaultWeaponSheathedSocket", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UWeaponDataAsset, DefaultWeaponSheathedSocket), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_DefaultWeaponSheathedSocket_MetaData), NewProp_DefaultWeaponSheathedSocket_MetaData) };
 const UECodeGen_Private::FNamePropertyParams Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_OnRHandAttachSocket = { "OnRHandAttachSocket", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UWeaponDataAsset, OnRHandAttachSocket), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_OnRHandAttachSocket_MetaData), NewProp_OnRHandAttachSocket_MetaData) };
 const UECodeGen_Private::FNamePropertyParams Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_OnBackAttachSocket = { "OnBackAttachSocket", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UWeaponDataAsset, OnBackAttachSocket), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_OnBackAttachSocket_MetaData), NewProp_OnBackAttachSocket_MetaData) };
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_damageDice = { "damageDice", nullptr, (EPropertyFlags)0x0010000000010015, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UWeaponDataAsset, damageDice), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_damageDice_MetaData), NewProp_damageDice_MetaData) };
@@ -513,6 +531,8 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UWeaponDa
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_weaponAnims,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_DrawWeaponAnim,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_SheathingWeaponAnim,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_DefaultWeaponDrawedSocket,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_DefaultWeaponSheathedSocket,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_OnRHandAttachSocket,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_OnBackAttachSocket,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UWeaponDataAsset_Statics::NewProp_damageDice,
@@ -579,10 +599,10 @@ struct Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototype
 		{ FWeaponAnim::StaticStruct, Z_Construct_UScriptStruct_FWeaponAnim_Statics::NewStructOps, TEXT("WeaponAnim"), &Z_Registration_Info_UScriptStruct_WeaponAnim, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FWeaponAnim), 4110656983U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UWeaponDataAsset, UWeaponDataAsset::StaticClass, TEXT("UWeaponDataAsset"), &Z_Registration_Info_UClass_UWeaponDataAsset, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UWeaponDataAsset), 860205363U) },
+		{ Z_Construct_UClass_UWeaponDataAsset, UWeaponDataAsset::StaticClass, TEXT("UWeaponDataAsset"), &Z_Registration_Info_UClass_UWeaponDataAsset, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UWeaponDataAsset), 432466131U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_WeaponDataAsset_h_1065606827(TEXT("/Script/TurnBasedPrototype"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_WeaponDataAsset_h_3868621688(TEXT("/Script/TurnBasedPrototype"),
 	Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_WeaponDataAsset_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_WeaponDataAsset_h_Statics::ClassInfo),
 	Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_WeaponDataAsset_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_WeaponDataAsset_h_Statics::ScriptStructInfo),
 	Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_WeaponDataAsset_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_WeaponDataAsset_h_Statics::EnumInfo));

@@ -1,6 +1,8 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "TurnBasedPrototypePlayerController.h"
+
+#include "ActionAttack.h"
 #include "GameFramework/Pawn.h"
 #include "GameFramework/PlayerController.h"
 #include "Blueprint/AIBlueprintHelperLibrary.h"
@@ -8,6 +10,7 @@
 #include "NiagaraFunctionLibrary.h"
 #include "TurnBasedPrototypeCharacter.h"
 #include "Door.h"
+#include "GameManager/GameManager.h"
 #include "Engine/World.h"
 #include "EnhancedInputComponent.h"
 #include "InputActionValue.h"
@@ -16,8 +19,10 @@
 #include "UI/UIManager.h"
 #include "Engine/LocalPlayer.h"
 #include "UInteractable.h"
+#include "GameManager/ActionOpenChest.h"
+#include "GameManager/PuppetComponent.h"
 
-DEFINE_LOG_CATEGORY(LogTemplateCharacter);
+
 
 ATurnBasedPrototypePlayerController::ATurnBasedPrototypePlayerController()
 {
@@ -66,7 +71,6 @@ void ATurnBasedPrototypePlayerController::OnLeftClickInputStarted()
 		IInteractable* Interactable = Cast<IInteractable>(HitActor);
 		if (Interactable)
 		{
-			
 			HandleInteractionOrder(Interactable->mainInteractionType,HitActor);
 		}
 	}
@@ -147,7 +151,7 @@ void ATurnBasedPrototypePlayerController::SetupInputComponent()
 	}
 	else
 	{
-		UE_LOG(LogTemplateCharacter, Error, TEXT("'%s' Failed to find an Enhanced Input Component! This template is built to use the Enhanced Input system. If you intend to use the legacy system, then you will need to update this C++ file."), *GetNameSafe(this));
+		UE_LOG(LogTemp, Error, TEXT("'%s' Failed to find an Enhanced Input Component! This template is built to use the Enhanced Input system. If you intend to use the legacy system, then you will need to update this C++ file."), *GetNameSafe(this));
 	}
 }
 
@@ -257,7 +261,7 @@ void ATurnBasedPrototypePlayerController::UpdateMouseCursor()
 	AActor* HitActor = HitResult.GetActor();
 	if (hit)
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Hit Actor: %s"), HitActor ? *HitActor->GetName() : TEXT("None"));
+		//UE_LOG(LogTemp, Warning, TEXT("Hit Actor: %s"), HitActor ? *HitActor->GetName() : TEXT("None"));
 	}
 	if (HitActor && HitActor->Implements<UInteractable>())
 	{
@@ -287,14 +291,41 @@ void ATurnBasedPrototypePlayerController::UpdateMouseCursor()
 
 void ATurnBasedPrototypePlayerController::HandleInteractionOrder(EInteractionType InteractionType, AActor* target)
 {
+
+	APawn* PlayerPawn = GetPawn();
+	if (!PlayerPawn)
+	{
+		UE_LOG(LogTemp, Error, TEXT("No pawn found!"));
+		return;
+	}
+	UPuppetComponent* PuppetComp = PlayerPawn->FindComponentByClass<UPuppetComponent>();
+	if (!PuppetComp)
+	{
+		UE_LOG(LogTemp, Error, TEXT("No PuppetComponent found on player pawn!"));
+		return;
+	}
+	
 	switch (InteractionType)
 	{
 	case EInteractionType::None:
 		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Player wants to: None"));
 		break;
 	case EInteractionType::Attack:
-		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Player wants to: Attack"));
-		UAIBlueprintHelperLibrary::SimpleMoveToLocation(this, FVector(target->GetActorLocation().X+30,target->GetActorLocation().Y,target->GetActorLocation().Z));
+		{
+			GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Player wants to: Attack"));
+		
+			UActionAttack* AttackAction = NewObject<UActionAttack>();
+			if (!AttackAction) break;
+		
+			AttackAction->ActionContext.Performer = PlayerPawn;
+			AttackAction->ActionContext.TargetActor = Cast<ABaseCharacter>(target); // The chest actor
+			AttackAction->WeaponData = Cast<ABaseCharacter>(PlayerPawn)->WeaponComponent->currentWeapon->weaponData;
+			AttackAction->AttackType = AttackType::Light; //TODO this should depend on player decision
+		
+			// Enqueue the action, this initializes it automatically
+			PuppetComp->EnqueueAction(AttackAction);
+		}
+		
 		break;
 	case EInteractionType::GrabObject:
 		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Player wants to: Grab"));
@@ -317,8 +348,22 @@ void ATurnBasedPrototypePlayerController::HandleInteractionOrder(EInteractionTyp
 		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Player wants to: Talk"));
 		break;
 	case EInteractionType::OpenChest:
-		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Player wants to: OpenChest"));
-		Cast<AChest>(target)->OnChestOpenOrder();
+		{
+			GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Player wants to: OpenChest"));
+			
+			UActionOpenChest* OpenChestAction = NewObject<UActionOpenChest>();
+			if (!OpenChestAction) break;
+		
+			OpenChestAction->ActionContext.Performer = PlayerPawn;
+			OpenChestAction->ActionContext.TargetActor = Cast<AChest>(target); // The chest actor
+    
+			// Enqueue the action, this initializes it automatically
+			PuppetComp->EnqueueAction(OpenChestAction);
+		
+		}
+		
+		
+		
 	default:;
 	}
 }

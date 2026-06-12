@@ -6,6 +6,16 @@
 #include "UObject/NoExportTypes.h"
 #include "BaseAction.generated.h"
 
+UENUM()
+enum ActionState
+{
+	None UMETA(DisplayName = "Initialize"),
+	Initialize UMETA(DisplayName = "Initialize"),
+	Perform UMETA(DisplayName = "perform"),
+	Finish UMETA(DisplayName = "Finish"),
+	Close UMETA(DisplayName = "Close"),
+};
+
 USTRUCT()
 struct FActionContext
 {
@@ -27,19 +37,20 @@ class TURNBASEDPROTOTYPE_API UBaseAction : public UObject
 
 public:
 	UFUNCTION()
-	bool InitializeAction(FActionContext& context); //called from game manager
+	void InitializeAction(FActionContext& context); //called from game manager
 
 	
-	virtual bool OnInitialize(); //overrided by programmer but called from InitializeAction
+	virtual void OnInitialize(); //overrided by programmer but called from InitializeAction
 
 	
-	virtual bool PerformAction();//called from game manager
+	virtual void PerformAction();//called from game manager
 
 	
-	virtual bool FinishAction();//called from game manager
+	virtual void FinishAction();//called from game manager
 
 
 	UPROPERTY()
 	FActionContext ActionContext;
 	
+	ActionState state;
 };

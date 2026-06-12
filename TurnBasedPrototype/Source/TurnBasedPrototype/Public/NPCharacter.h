@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "BaseCharacter.h"
 #include "UInteractable.h"
+#include "MyAIController.h"
 #include "NPCDataAsset.h"
 #include "NPCharacter.generated.h"
 
