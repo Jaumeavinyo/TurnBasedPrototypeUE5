@@ -28,13 +28,13 @@ void UActionAttack::PerformAction()
 		return;
 	}
 
-	// Step 2: Wait for draw animation to finish
+	// Wait draw animation 
 	if (isPlayingAnimMontage(WeaponData->DrawWeaponAnim))
 	{
 		return; 
 	}
 	
-	//check if the character is in range of the attack is doing
+	//Check if the character in range of the attack is doing
 	float Distance = FVector::Dist(ActionContext.Performer->GetActorLocation(), ActionContext.TargetActor->GetActorLocation());
 	
 	if (!IsMoving && Distance > 170)
@@ -45,7 +45,7 @@ void UActionAttack::PerformAction()
 		return;
 	}
 
-	//arrived to range, stop movement
+	//Arrived to range, stop movement
 	if (IsMoving && Distance <= 170)
 	{
 		AController* Controller = GetControllerFromPerformer();
@@ -53,8 +53,7 @@ void UActionAttack::PerformAction()
 		IsMoving = false;
 	}
 	
-	// Find the correct animation for this attack type
-	
+	//Find the correct animation for AttackType
 	if (!IsMoving && Distance <= 170 && !attackInProcess)
 	{
 		
@@ -71,7 +70,7 @@ void UActionAttack::PerformAction()
 		{
 			Cast<ABaseCharacter>(ActionContext.Performer)->PlayAnimMontage(AttackAnimMontage);
 			attackInProcess = true;
-			// Don't set to Finish yet - wait for animation to complete
+			// Don't set to Finish wait for animation to complete
 		}
 		else
 		{
@@ -80,7 +79,7 @@ void UActionAttack::PerformAction()
 		}
 	}
     
-	// Step 6: Wait for attack animation to finish
+	//Wait for attack animation to finish
 	if (attackInProcess && !isPlayingAnimMontage(AttackAnimMontage))
 	{
 		// TODO: Animation finished, apply damage

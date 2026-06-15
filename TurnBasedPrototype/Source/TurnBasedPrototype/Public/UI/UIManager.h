@@ -58,14 +58,10 @@ private:
 	UPROPERTY(EditDefaultsOnly, Category = "UI Classes")
 	TSubclassOf<UUserWidget> AvailableInteractionsMenuWidgetClass;
 
-
-
 	
 	UPROPERTY()
 	UUserWidget* CurrentActiveWidget;
-
-private:
-	// assign the windget BP in UI manager in editor
+	
 	
 	
 	

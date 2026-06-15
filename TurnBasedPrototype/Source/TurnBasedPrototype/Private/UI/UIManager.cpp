@@ -74,8 +74,7 @@ void UUIManager::OnInteractionSelected(EInteractionType InteractionType, AActor*
 	{
 		PC->HandleInteractionOrder(InteractionType, Target);
 	}
-    
-	// El menú ya se cerró solo (en OnItemSelected llamamos CloseMenu)
+	
 	CurrentInteractionMenuInstance->RemoveFromParent();// = nullptr;
 }
 

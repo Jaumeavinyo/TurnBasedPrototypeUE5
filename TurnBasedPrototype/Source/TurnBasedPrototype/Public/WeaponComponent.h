@@ -21,8 +21,6 @@ public:
 	UWeaponComponent();
 
 	
-	
-	
 	//should be called from from abp animNotify. changes weapon position between body sockets
 	UFUNCTION(BlueprintCallable, Category = "weapon")
 	void SetCurrentSocket(FName name);

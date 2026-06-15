@@ -37,7 +37,7 @@ class TURNBASEDPROTOTYPE_API UBaseAction : public UObject
 
 public:
 	UFUNCTION()
-	void InitializeAction(FActionContext& context); //called from game manager
+	void InitializeAction(FActionContext& context); //called from puppetcomp
 
 	
 	virtual void OnInitialize(); //overrided by programmer but called from InitializeAction
