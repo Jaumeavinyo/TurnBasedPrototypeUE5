@@ -7,6 +7,8 @@
         "Includes": [
             "c:\\users\\jauma\\documents\\github\\turnbasedprototypeue5\\turnbasedprototype\\intermediate\\build\\win64\\x64\\unrealeditor\\debuggame\\turnbasedprototype\\definitions.turnbasedprototype.h",
             "c:\\users\\jauma\\documents\\github\\turnbasedprototypeue5\\turnbasedprototype\\source\\turnbasedprototype\\public\\weapondataasset.h",
+            "c:\\users\\jauma\\documents\\github\\turnbasedprototypeue5\\turnbasedprototype\\source\\turnbasedprototype\\public\\attackdataasset.h",
+            "c:\\users\\jauma\\documents\\github\\turnbasedprototypeue5\\turnbasedprototype\\intermediate\\build\\win64\\unrealeditor\\inc\\turnbasedprototype\\uht\\attackdataasset.generated.h",
             "c:\\users\\jauma\\documents\\github\\turnbasedprototypeue5\\turnbasedprototype\\intermediate\\build\\win64\\unrealeditor\\inc\\turnbasedprototype\\uht\\weapondataasset.generated.h"
         ],
         "ImportedModules": [],

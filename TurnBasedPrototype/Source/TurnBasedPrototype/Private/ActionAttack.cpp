@@ -57,14 +57,7 @@ void UActionAttack::PerformAction()
 	if (!IsMoving && Distance <= 170 && !attackInProcess)
 	{
 		
-		for (const FWeaponAnim& WeaponAnim : WeaponData->weaponAnims)
-		{
-			if (WeaponAnim.attackType == AttackType)
-			{
-				AttackAnimMontage = WeaponAnim.animMontage;
-				break;
-			}
-		}
+		AttackAnimMontage = AttackData->AttackAnim;
         
 		if (AttackAnimMontage)
 		{
@@ -74,7 +67,7 @@ void UActionAttack::PerformAction()
 		}
 		else
 		{
-			UE_LOG(LogTemp, Warning, TEXT("No animation found for AttackType: %d"), (int32)AttackType);
+			
 			state = ActionState::Finish; // Fail, close action
 		}
 	}

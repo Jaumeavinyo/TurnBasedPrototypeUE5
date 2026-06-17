@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "AttackDataAsset.h"
 #include "Templates/SubclassOf.h"
 #include "GameFramework/PlayerController.h"
 #include "InputMappingContext.h"
@@ -133,6 +134,8 @@ protected:
 	
 private:
 	FVector CachedDestination;
+
+	UAttackDataAsset* CachedAttack;
 	
 
 	bool bIsTouch; // Is it a touch device

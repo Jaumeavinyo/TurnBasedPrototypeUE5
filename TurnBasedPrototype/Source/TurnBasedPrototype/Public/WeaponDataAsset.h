@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Engine/DataAsset.h"
+#include "AttackDataAsset.h"
 #include "Materials/MaterialInterface.h"
 #include "WeaponDataAsset.generated.h"
 
@@ -16,12 +17,6 @@ enum class WeaponAttackType : uint8
 	Ranged UMETA(DisplayName = "Ranged")
 };
 
-UENUM(BlueprintType)
-enum class WeaponDamageType : uint8
-{
-	Physical UMETA(DisplayName = "Physical"),
-	Magical UMETA(DisplayName = "Magic")
-}; 
 
 UENUM(BlueprintType)
 enum class WeaponType : uint8
@@ -33,21 +28,13 @@ enum class WeaponType : uint8
 };
 
 
-//WEAPON ANIMS
-UENUM(BlueprintType)
-enum class AttackType : uint8
-{
-	Light UMETA(DisplayName = "Light"),
-	Heavy UMETA(DisplayName = "Heavy"),
-	Special UMETA(DisplayName = "Special")
-};
 
 USTRUCT(BlueprintType)
 struct FWeaponAnim
 {
 	GENERATED_BODY()
 	UPROPERTY(EditDefaultsOnly,BlueprintReadOnly,Category = "type")
-	AttackType attackType;
+	AttackType Type;
 	
 	UPROPERTY(EditDefaultsOnly,BlueprintReadOnly,Category = "anim")
 	UAnimMontage* animMontage;
@@ -76,6 +63,10 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Animations")
 	TArray<FWeaponAnim> weaponAnims;
 
+	//Weapon attacks
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Attacks")
+	TArray<UAttackDataAsset*> WeaponAttacks;
+	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Animations")
 	UAnimMontage* DrawWeaponAnim;
 
@@ -94,19 +85,8 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Socket")
 	FName OnBackAttachSocket;
 
-	
-	//COMBAT STATS
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Combat")
-	int32 damageDice;
-
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Combat")
-	int32 numberOfDices;
-
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Combat")
 	WeaponAttackType weaponAttackType;
-
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Combat")
-	WeaponDamageType damageType;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Combat")
 	WeaponType weaponType;

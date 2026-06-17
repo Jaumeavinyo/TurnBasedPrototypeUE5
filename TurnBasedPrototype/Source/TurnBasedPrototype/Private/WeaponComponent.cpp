@@ -67,12 +67,15 @@ void UWeaponComponent::EquipWeapon(TSubclassOf<ABaseWeapon> newWeapon, FName soc
 		SetCurrentSocket(socket);
 		//currentWeapon->AttachToComponent(CharacterMesh,FAttachmentTransformRules::SnapToTargetIncludingScale,socket );
 	}
+
+	//Remove previous weapon attached attacks and add new weapon attacks to the character holding this component
+	ABaseCharacter* Holder = Cast<ABaseCharacter>(GetOwner());
+	Holder->RemoveWeaponAttachedAttacks();
+	Holder->AddWeaponAttachedAttacks(currentWeapon->weaponData->WeaponAttacks);
+	
 }
 
 
-//Dice should be already rolled by combat director, combat director asks this component which dices has to throw for the specific weapon, compares them to the minimun to success
-// and then moves the character if necessary and only when position of the character is in range (weapon) to attack we call this function giving it the anim to perform.
-//then the combat director waits a specific animNotify to take the enemy life and tell him to hit react
 void UWeaponComponent::performAttack(AttackType attackType)
 {
 	if (!currentWeapon)
@@ -81,21 +84,7 @@ void UWeaponComponent::performAttack(AttackType attackType)
 		return;
 	}
 	
-	/*for (FWeaponAnim anim : currentWeapon->GetWeaponData()->weaponAnims)
-	{
-		if (anim.attackType == AttackType::Light)
-		{
-			//attack(anim, damage) function 
-		}
-		if (anim.attackType == AttackType::Heavy)
-		{
-			//attack(anim, damage) function 
-		}
-		if (anim.attackType == AttackType::Special)
-		{
-			//attack(anim, damage) function 
-		}
-	}*/
+
 }
 
 // Called when the game starts

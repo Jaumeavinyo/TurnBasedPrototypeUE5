@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "AttackDataAsset.h"
 #include "GameManager/PuppetComponent.h"
 #include "GameFramework/Character.h"
 #include "WeaponComponent.h"
@@ -30,7 +31,10 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-
+	void AddAvailableAttack(UAttackDataAsset* attack);
+	void AddWeaponAttachedAttacks(TArray<UAttackDataAsset*> attacks);
+	UAttackDataAsset* GetbasicAttack();//returns the current weapon basic attack
+	void RemoveWeaponAttachedAttacks();
 	// WEAPON SYSTEM
 	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Combat")
@@ -56,4 +60,7 @@ public:
 
 	UPROPERTY(EditDefaultsOnly, Category = "Interaction System")
 	float maxInteractionDistance = 200;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Interaction System")
+	TArray<UAttackDataAsset*> AvailableAttacks;
 };

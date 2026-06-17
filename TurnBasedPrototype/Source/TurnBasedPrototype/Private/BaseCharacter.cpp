@@ -3,6 +3,7 @@
 
 #include "BaseCharacter.h"
 
+
 // Sets default values
 
 ABaseCharacter::ABaseCharacter()
@@ -43,6 +44,46 @@ void ABaseCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
+}
+
+void ABaseCharacter::AddAvailableAttack(UAttackDataAsset* attack)//calll everytime a weapon is set as current, need to remove attacks that come from weapons
+{
+	AvailableAttacks.Add(attack);
+}
+
+void ABaseCharacter::AddWeaponAttachedAttacks(TArray<UAttackDataAsset*> attacks)
+{
+	for (UAttackDataAsset* Attack : attacks)
+	{
+		if (Attack && Attack->bIsAttatchToWeapon)
+		{
+			AvailableAttacks.AddUnique(Attack);
+		}
+	}
+}
+
+UAttackDataAsset* ABaseCharacter::GetbasicAttack()
+{
+	for (UAttackDataAsset* Attack : AvailableAttacks)
+	{
+		if (Attack->bIsAttatchToWeapon && Attack->Type == AttackType::WeaponLight)
+		{
+			return Attack;
+		}
+	}
+	UE_LOG(LogTemp, Error, TEXT(" ABaseCharacter::GetbasicAttack(): Failed to find a weapon Light attack"));
+	return NULL;
+}
+
+void ABaseCharacter::RemoveWeaponAttachedAttacks()
+{
+	for (int i = AvailableAttacks.Num() - 1; i >= 0; i--)
+	{
+		if (AvailableAttacks[i] && AvailableAttacks[i]->bIsAttatchToWeapon)
+		{
+			AvailableAttacks.RemoveAt(i);
+		}
+	}
 }
 
 void ABaseCharacter::DrawWeapon(FName socket)

@@ -183,7 +183,7 @@ struct Z_Construct_UFunction_UWeaponComponent_performAttack_Statics
 	static const UECodeGen_Private::FFunctionParams FuncParams;
 };
 const UECodeGen_Private::FBytePropertyParams Z_Construct_UFunction_UWeaponComponent_performAttack_Statics::NewProp_attackType_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FEnumPropertyParams Z_Construct_UFunction_UWeaponComponent_performAttack_Statics::NewProp_attackType = { "attackType", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(WeaponComponent_eventperformAttack_Parms, attackType), Z_Construct_UEnum_TurnBasedPrototype_AttackType, METADATA_PARAMS(0, nullptr) }; // 456875713
+const UECodeGen_Private::FEnumPropertyParams Z_Construct_UFunction_UWeaponComponent_performAttack_Statics::NewProp_attackType = { "attackType", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(WeaponComponent_eventperformAttack_Parms, attackType), Z_Construct_UEnum_TurnBasedPrototype_AttackType, METADATA_PARAMS(0, nullptr) }; // 4006511375
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UWeaponComponent_performAttack_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UWeaponComponent_performAttack_Statics::NewProp_attackType_Underlying,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UWeaponComponent_performAttack_Statics::NewProp_attackType,
@@ -303,7 +303,7 @@ struct Z_Construct_UClass_UWeaponComponent_Statics
 		{ &Z_Construct_UFunction_UWeaponComponent_EquipWeapon, "EquipWeapon" }, // 527390298
 		{ &Z_Construct_UFunction_UWeaponComponent_GetCurrentWeapon, "GetCurrentWeapon" }, // 1523892033
 		{ &Z_Construct_UFunction_UWeaponComponent_GetCurrentWeaponData, "GetCurrentWeaponData" }, // 415896152
-		{ &Z_Construct_UFunction_UWeaponComponent_performAttack, "performAttack" }, // 1103851661
+		{ &Z_Construct_UFunction_UWeaponComponent_performAttack, "performAttack" }, // 535370212
 		{ &Z_Construct_UFunction_UWeaponComponent_SetCurrentSocket, "SetCurrentSocket" }, // 2234705983
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
@@ -359,10 +359,10 @@ UWeaponComponent::~UWeaponComponent() {}
 struct Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_WeaponComponent_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UWeaponComponent, UWeaponComponent::StaticClass, TEXT("UWeaponComponent"), &Z_Registration_Info_UClass_UWeaponComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UWeaponComponent), 2903444247U) },
+		{ Z_Construct_UClass_UWeaponComponent, UWeaponComponent::StaticClass, TEXT("UWeaponComponent"), &Z_Registration_Info_UClass_UWeaponComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UWeaponComponent), 3863643824U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_WeaponComponent_h_2548918418(TEXT("/Script/TurnBasedPrototype"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_WeaponComponent_h_1827970482(TEXT("/Script/TurnBasedPrototype"),
 	Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_WeaponComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_WeaponComponent_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

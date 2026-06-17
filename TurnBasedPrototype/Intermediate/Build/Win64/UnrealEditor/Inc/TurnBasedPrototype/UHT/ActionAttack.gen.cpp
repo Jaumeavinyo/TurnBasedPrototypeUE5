@@ -15,9 +15,9 @@ ENGINE_API UClass* Z_Construct_UClass_UAnimMontage_NoRegister();
 TURNBASEDPROTOTYPE_API UClass* Z_Construct_UClass_ABaseCharacter_NoRegister();
 TURNBASEDPROTOTYPE_API UClass* Z_Construct_UClass_UActionAttack();
 TURNBASEDPROTOTYPE_API UClass* Z_Construct_UClass_UActionAttack_NoRegister();
+TURNBASEDPROTOTYPE_API UClass* Z_Construct_UClass_UAttackDataAsset_NoRegister();
 TURNBASEDPROTOTYPE_API UClass* Z_Construct_UClass_UBaseAction();
 TURNBASEDPROTOTYPE_API UClass* Z_Construct_UClass_UWeaponDataAsset_NoRegister();
-TURNBASEDPROTOTYPE_API UEnum* Z_Construct_UEnum_TurnBasedPrototype_AttackType();
 UPackage* Z_Construct_UPackage__Script_TurnBasedPrototype();
 // End Cross Module References
 
@@ -249,13 +249,13 @@ struct Z_Construct_UClass_UActionAttack_Statics
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_WeaponData_MetaData[] = {
 		{ "ModuleRelativePath", "Public/ActionAttack.h" },
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_AttackType_MetaData[] = {
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_AttackData_MetaData[] = {
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "// The weapon being used\n" },
+		{ "Comment", "// The weapon being used\n//old\n" },
 #endif
 		{ "ModuleRelativePath", "Public/ActionAttack.h" },
 #if !UE_BUILD_SHIPPING
-		{ "ToolTip", "The weapon being used" },
+		{ "ToolTip", "The weapon being used\nold" },
 #endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_AttackAnimMontage_MetaData[] = {
@@ -275,8 +275,7 @@ struct Z_Construct_UClass_UActionAttack_Statics
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_WeaponData;
-	static const UECodeGen_Private::FBytePropertyParams NewProp_AttackType_Underlying;
-	static const UECodeGen_Private::FEnumPropertyParams NewProp_AttackType;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_AttackData;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_AttackAnimMontage;
 	static void NewProp_IsMoving_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_IsMoving;
@@ -301,8 +300,7 @@ struct Z_Construct_UClass_UActionAttack_Statics
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UActionAttack_Statics::NewProp_WeaponData = { "WeaponData", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UActionAttack, WeaponData), Z_Construct_UClass_UWeaponDataAsset_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_WeaponData_MetaData), NewProp_WeaponData_MetaData) };
-const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_UActionAttack_Statics::NewProp_AttackType_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_UActionAttack_Statics::NewProp_AttackType = { "AttackType", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UActionAttack, AttackType), Z_Construct_UEnum_TurnBasedPrototype_AttackType, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_AttackType_MetaData), NewProp_AttackType_MetaData) }; // 456875713
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UActionAttack_Statics::NewProp_AttackData = { "AttackData", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UActionAttack, AttackData), Z_Construct_UClass_UAttackDataAsset_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_AttackData_MetaData), NewProp_AttackData_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UActionAttack_Statics::NewProp_AttackAnimMontage = { "AttackAnimMontage", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UActionAttack, AttackAnimMontage), Z_Construct_UClass_UAnimMontage_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_AttackAnimMontage_MetaData), NewProp_AttackAnimMontage_MetaData) };
 void Z_Construct_UClass_UActionAttack_Statics::NewProp_IsMoving_SetBit(void* Obj)
 {
@@ -322,8 +320,7 @@ const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UActionAttack_St
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UActionAttack_Statics::NewProp_actionPerformer = { "actionPerformer", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UActionAttack, actionPerformer), Z_Construct_UClass_ABaseCharacter_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_actionPerformer_MetaData), NewProp_actionPerformer_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UActionAttack_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UActionAttack_Statics::NewProp_WeaponData,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UActionAttack_Statics::NewProp_AttackType_Underlying,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UActionAttack_Statics::NewProp_AttackType,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UActionAttack_Statics::NewProp_AttackData,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UActionAttack_Statics::NewProp_AttackAnimMontage,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UActionAttack_Statics::NewProp_IsMoving,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UActionAttack_Statics::NewProp_attackInProcess,
@@ -372,10 +369,10 @@ UActionAttack::~UActionAttack() {}
 struct Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_ActionAttack_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UActionAttack, UActionAttack::StaticClass, TEXT("UActionAttack"), &Z_Registration_Info_UClass_UActionAttack, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UActionAttack), 2295332432U) },
+		{ Z_Construct_UClass_UActionAttack, UActionAttack::StaticClass, TEXT("UActionAttack"), &Z_Registration_Info_UClass_UActionAttack, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UActionAttack), 3056984480U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_ActionAttack_h_1696614610(TEXT("/Script/TurnBasedPrototype"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_ActionAttack_h_1277929113(TEXT("/Script/TurnBasedPrototype"),
 	Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_ActionAttack_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_ActionAttack_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

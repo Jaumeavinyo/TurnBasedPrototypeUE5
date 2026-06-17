@@ -35,8 +35,8 @@ public:
 	UPROPERTY()
 	UWeaponDataAsset* WeaponData;  // The weapon being used
 	
-	UPROPERTY()
-	AttackType AttackType;
+	UPROPERTY()//old
+	UAttackDataAsset* AttackData;
 
 	UPROPERTY()
 	UAnimMontage* AttackAnimMontage; 

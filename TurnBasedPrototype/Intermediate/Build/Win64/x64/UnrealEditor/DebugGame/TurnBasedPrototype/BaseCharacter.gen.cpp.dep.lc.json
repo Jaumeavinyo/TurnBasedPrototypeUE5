@@ -7,6 +7,8 @@
         "Includes": [
             "c:\\users\\jauma\\documents\\github\\turnbasedprototypeue5\\turnbasedprototype\\intermediate\\build\\win64\\x64\\unrealeditor\\debuggame\\turnbasedprototype\\definitions.turnbasedprototype.h",
             "c:\\users\\jauma\\documents\\github\\turnbasedprototypeue5\\turnbasedprototype\\source\\turnbasedprototype\\public\\basecharacter.h",
+            "c:\\users\\jauma\\documents\\github\\turnbasedprototypeue5\\turnbasedprototype\\source\\turnbasedprototype\\public\\attackdataasset.h",
+            "c:\\users\\jauma\\documents\\github\\turnbasedprototypeue5\\turnbasedprototype\\intermediate\\build\\win64\\unrealeditor\\inc\\turnbasedprototype\\uht\\attackdataasset.generated.h",
             "c:\\users\\jauma\\documents\\github\\turnbasedprototypeue5\\turnbasedprototype\\source\\turnbasedprototype\\public\\gamemanager\\puppetcomponent.h",
             "c:\\users\\jauma\\documents\\github\\turnbasedprototypeue5\\turnbasedprototype\\source\\turnbasedprototype\\public\\gamemanager\\baseaction.h",
             "c:\\program files\\epic games\\ue_5.5\\engine\\source\\runtime\\coreuobject\\public\\uobject\\noexporttypes.h",

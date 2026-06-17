@@ -46,19 +46,19 @@ void ATurnBasedPrototypePlayerController::Tick(float DeltaTime)
 
 void ATurnBasedPrototypePlayerController::BeginPlay()
 {
-	// Call the base class  
+	// Call the base class
 	Super::BeginPlay();
+	
 }
 
 void ATurnBasedPrototypePlayerController::OnLeftClickInputStarted()
 {
-	
+	CachedAttack = Cast<ABaseCharacter>(GetPawn())->GetbasicAttack();//TODO: put this where it should be
 	//Can be for movement purposes or for interact purposes
 	if (currentMouseHover == MouseHoverType::None)//left click means I want to move
 	{
 		OnMovementInputStarted();
 		bWantToMove = true;
-		
 	}
 
 	FHitResult HitResult;
@@ -320,7 +320,7 @@ void ATurnBasedPrototypePlayerController::HandleInteractionOrder(EInteractionTyp
 			AttackAction->ActionContext.Performer = PlayerPawn;
 			AttackAction->ActionContext.TargetActor = Cast<ABaseCharacter>(target); // The chest actor
 			AttackAction->WeaponData = Cast<ABaseCharacter>(PlayerPawn)->WeaponComponent->currentWeapon->weaponData;
-			AttackAction->AttackType = AttackType::Light; //TODO this should depend on player decision
+			AttackAction->AttackData = CachedAttack;//needs to be always valid
 		
 			// Enqueue the action, this initializes it automatically
 			PuppetComp->EnqueueAction(AttackAction);

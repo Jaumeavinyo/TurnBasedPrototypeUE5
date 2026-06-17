@@ -67,6 +67,9 @@
     <ClCompile Include="..\..\Source\TurnBasedPrototype\Private\ActionAttack.cpp">
       <Filter>Source\TurnBasedPrototype\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\TurnBasedPrototype\Private\AttackDataAsset.cpp">
+      <Filter>Source\TurnBasedPrototype\Private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\TurnBasedPrototype\Private\BaseCharacter.cpp">
       <Filter>Source\TurnBasedPrototype\Private</Filter>
     </ClCompile>
@@ -137,6 +140,9 @@
       <UniqueIdentifier>{8660F87A-E485-320D-B7E4-0122CE589DCB}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\TurnBasedPrototype\Public\ActionAttack.h">
+      <Filter>Source\TurnBasedPrototype\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TurnBasedPrototype\Public\AttackDataAsset.h">
       <Filter>Source\TurnBasedPrototype\Public</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\TurnBasedPrototype\Public\BaseCharacter.h">
