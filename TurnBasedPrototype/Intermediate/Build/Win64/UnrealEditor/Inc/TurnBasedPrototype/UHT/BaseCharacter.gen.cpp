@@ -14,6 +14,7 @@ ENGINE_API UClass* Z_Construct_UClass_ACharacter();
 TURNBASEDPROTOTYPE_API UClass* Z_Construct_UClass_ABaseCharacter();
 TURNBASEDPROTOTYPE_API UClass* Z_Construct_UClass_ABaseCharacter_NoRegister();
 TURNBASEDPROTOTYPE_API UClass* Z_Construct_UClass_UAttackDataAsset_NoRegister();
+TURNBASEDPROTOTYPE_API UClass* Z_Construct_UClass_UPuppetComponent_NoRegister();
 TURNBASEDPROTOTYPE_API UClass* Z_Construct_UClass_UWeaponComponent_NoRegister();
 UPackage* Z_Construct_UPackage__Script_TurnBasedPrototype();
 // End Cross Module References
@@ -161,6 +162,10 @@ struct Z_Construct_UClass_ABaseCharacter_Statics
 		{ "Category", "weapon" },
 		{ "ModuleRelativePath", "Public/BaseCharacter.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_PuppetComponent_MetaData[] = {
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Public/BaseCharacter.h" },
+	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_maxInteractionDistance_MetaData[] = {
 		{ "Category", "Interaction System" },
 		{ "ModuleRelativePath", "Public/BaseCharacter.h" },
@@ -175,6 +180,7 @@ struct Z_Construct_UClass_ABaseCharacter_Statics
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_bWeaponDrawed;
 	static void NewProp_bWeaponSheathed_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_bWeaponSheathed;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_PuppetComponent;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_maxInteractionDistance;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_AvailableAttacks_Inner;
 	static const UECodeGen_Private::FArrayPropertyParams NewProp_AvailableAttacks;
@@ -201,6 +207,7 @@ void Z_Construct_UClass_ABaseCharacter_Statics::NewProp_bWeaponSheathed_SetBit(v
 	((ABaseCharacter*)Obj)->bWeaponSheathed = 1;
 }
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ABaseCharacter_Statics::NewProp_bWeaponSheathed = { "bWeaponSheathed", nullptr, (EPropertyFlags)0x0010000000020005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ABaseCharacter), &Z_Construct_UClass_ABaseCharacter_Statics::NewProp_bWeaponSheathed_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bWeaponSheathed_MetaData), NewProp_bWeaponSheathed_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABaseCharacter_Statics::NewProp_PuppetComponent = { "PuppetComponent", nullptr, (EPropertyFlags)0x0010000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABaseCharacter, PuppetComponent), Z_Construct_UClass_UPuppetComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_PuppetComponent_MetaData), NewProp_PuppetComponent_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ABaseCharacter_Statics::NewProp_maxInteractionDistance = { "maxInteractionDistance", nullptr, (EPropertyFlags)0x0010000000010001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABaseCharacter, maxInteractionDistance), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_maxInteractionDistance_MetaData), NewProp_maxInteractionDistance_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABaseCharacter_Statics::NewProp_AvailableAttacks_Inner = { "AvailableAttacks", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UClass_UAttackDataAsset_NoRegister, METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_ABaseCharacter_Statics::NewProp_AvailableAttacks = { "AvailableAttacks", nullptr, (EPropertyFlags)0x0010000000010001, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABaseCharacter, AvailableAttacks), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_AvailableAttacks_MetaData), NewProp_AvailableAttacks_MetaData) };
@@ -208,6 +215,7 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ABaseChar
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABaseCharacter_Statics::NewProp_WeaponComponent,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABaseCharacter_Statics::NewProp_bWeaponDrawed,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABaseCharacter_Statics::NewProp_bWeaponSheathed,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABaseCharacter_Statics::NewProp_PuppetComponent,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABaseCharacter_Statics::NewProp_maxInteractionDistance,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABaseCharacter_Statics::NewProp_AvailableAttacks_Inner,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABaseCharacter_Statics::NewProp_AvailableAttacks,
@@ -253,10 +261,10 @@ ABaseCharacter::~ABaseCharacter() {}
 struct Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_BaseCharacter_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ABaseCharacter, ABaseCharacter::StaticClass, TEXT("ABaseCharacter"), &Z_Registration_Info_UClass_ABaseCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABaseCharacter), 2958645712U) },
+		{ Z_Construct_UClass_ABaseCharacter, ABaseCharacter::StaticClass, TEXT("ABaseCharacter"), &Z_Registration_Info_UClass_ABaseCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABaseCharacter), 3064539659U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_BaseCharacter_h_570121448(TEXT("/Script/TurnBasedPrototype"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_BaseCharacter_h_2754413410(TEXT("/Script/TurnBasedPrototype"),
 	Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_BaseCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_BaseCharacter_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

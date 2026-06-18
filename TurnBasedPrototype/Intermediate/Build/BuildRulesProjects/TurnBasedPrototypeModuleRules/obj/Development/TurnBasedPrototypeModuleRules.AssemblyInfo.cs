@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TurnBasedPrototypeModuleRules")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Development")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1e8939a3a31d8366b9cb70984af75e0483863cac")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a8e60a9e45d8a48392f79a0cbac16bc28d726e45")]
 [assembly: System.Reflection.AssemblyProductAttribute("TurnBasedPrototypeModuleRules")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TurnBasedPrototypeModuleRules")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

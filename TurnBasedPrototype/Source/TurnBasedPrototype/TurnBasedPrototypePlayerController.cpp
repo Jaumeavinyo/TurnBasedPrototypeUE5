@@ -312,20 +312,16 @@ void ATurnBasedPrototypePlayerController::HandleInteractionOrder(EInteractionTyp
 		break;
 	case EInteractionType::Attack:
 		{
-			GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Player wants to: Attack"));
-		
-			UActionAttack* AttackAction = NewObject<UActionAttack>();
-			if (!AttackAction) break;
-		
-			AttackAction->ActionContext.Performer = PlayerPawn;
-			AttackAction->ActionContext.TargetActor = Cast<ABaseCharacter>(target); // The chest actor
-			AttackAction->WeaponData = Cast<ABaseCharacter>(PlayerPawn)->WeaponComponent->currentWeapon->weaponData;
-			AttackAction->AttackData = CachedAttack;//needs to be always valid
-		
-			// Enqueue the action, this initializes it automatically
-			PuppetComp->EnqueueAction(AttackAction);
+			UGameManager* GM = GetGameInstance()->GetSubsystem<UGameManager>();
+			if (GM->RequestAuthorizationToAct(Cast<ABaseCharacter>(PlayerPawn)))
+			{
+				GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Green, TEXT("GM Authorization garanted"));
+				DoAttackAction(Cast<ABaseCharacter>(PlayerPawn),Cast<ABaseCharacter>(target));
+			}else
+			{
+				GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("GM Authorization denied"));
+			}
 		}
-		
 		break;
 	case EInteractionType::GrabObject:
 		GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Red, TEXT("Player wants to: Grab"));
@@ -428,6 +424,20 @@ MouseHoverType ATurnBasedPrototypePlayerController::GetMouseHoverForInteractionT
 	}
 }
 
+
+void ATurnBasedPrototypePlayerController::DoAttackAction(ABaseCharacter* player, ABaseCharacter* target)
+{
+	UActionAttack* AttackAction = NewObject<UActionAttack>();
+		
+	AttackAction->ActionContext.Performer = player;
+	AttackAction->ActionContext.TargetActor = Cast<ABaseCharacter>(target); // The chest actor
+	AttackAction->WeaponData = player->WeaponComponent->currentWeapon->weaponData;
+	AttackAction->AttackData = CachedAttack;//needs to be always valid
+	
+	UPuppetComponent* PuppetComp = player->FindComponentByClass<UPuppetComponent>();
+	// Enqueue the action, this initializes it automatically
+	PuppetComp->EnqueueAction(AttackAction);
+}
 
 
 

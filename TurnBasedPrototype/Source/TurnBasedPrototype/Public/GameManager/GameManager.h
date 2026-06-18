@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameManager/PuppetComponent.h"
 #include "BaseAction.h"
+#include "BaseCharacter.h"
 #include "Subsystems/GameInstanceSubsystem.h"
 #include "GameManager.generated.h"
 
@@ -24,12 +25,22 @@ public:
 	virtual void ManagerTick(float DeltaTime);
 
 
+	UFUNCTION()
+	void AddControlledCharacter(ABaseCharacter* actor);//Called from puppetcomp.
+	UFUNCTION()
+	void removeControlledCharacter(ABaseCharacter* actor);//Called from puppetcomp.
 
-	void AddControlledActor(AActor* actor);//Called from puppetcomp.
-	void removeControlledActor(AActor* actor);//Called from puppetcomp.
+	UFUNCTION()
+	bool RequestAuthorizationToAct(ABaseCharacter* performer);
+	
 
+
+	
 	//List of actors that are currently performing actions in OnInitialize() || PerformAction() || FinishAction() FinishAction should remove them from this list
 	UPROPERTY()
-	TArray<AActor*> ControlledActors;
+	TArray<ABaseCharacter*> ControlledCharacters;
+
+	UPROPERTY()
+	int32 currentTurnIndex;
 
 };

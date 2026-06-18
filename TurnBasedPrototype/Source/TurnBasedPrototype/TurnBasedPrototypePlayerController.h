@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "AttackDataAsset.h"
+#include "BaseCharacter.h"
 #include "Templates/SubclassOf.h"
 #include "GameFramework/PlayerController.h"
 #include "InputMappingContext.h"
@@ -126,7 +127,7 @@ protected:
 
 	void UpdateMouseCursor();
 
-	
+	void DoAttackAction(ABaseCharacter* player, ABaseCharacter* target);
 
 
 	UFUNCTION(BlueprintCallable, Category = "Getter")

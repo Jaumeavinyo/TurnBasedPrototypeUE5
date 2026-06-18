@@ -55,7 +55,7 @@ public:
 	// !WEAPON SYSTEM
 
 public:
-	
+	UPROPERTY()
 	UPuppetComponent* PuppetComponent;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Interaction System")
