@@ -16,6 +16,7 @@ class ABaseCharacter;
 #define TURNBASEDPROTOTYPE_GameManager_generated_h
 
 #define FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_GameManager_GameManager_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execStartCombat); \
 	DECLARE_FUNCTION(execRequestAuthorizationToAct); \
 	DECLARE_FUNCTION(execremoveControlledCharacter); \
 	DECLARE_FUNCTION(execAddControlledCharacter);

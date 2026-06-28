@@ -32,13 +32,13 @@ public:
 	UFUNCTION()
 	bool isPlayingAnimMontage(UAnimMontage* montage);
 
-	UPROPERTY()
+	UPROPERTY(BlueprintReadWrite)
 	UWeaponDataAsset* WeaponData;  // The weapon being used
 	
-	UPROPERTY()//old
+	UPROPERTY(BlueprintReadWrite)//old
 	UAttackDataAsset* AttackData;
 
-	UPROPERTY()
+	UPROPERTY(BlueprintReadWrite)
 	UAnimMontage* AttackAnimMontage; 
 
 	UPROPERTY()
@@ -47,6 +47,9 @@ public:
 	UPROPERTY()
 	bool attackInProcess;
 
+	UFUNCTION(BlueprintCallable)
+	void SetAttackActionValues(UWeaponDataAsset* weaponDataAsset,UAttackDataAsset* attackDataAsset);
+	
 protected:
 	UPROPERTY()
 	bool bIsWeaponDrawed;

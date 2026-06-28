@@ -3,7 +3,7 @@
 
 #include "NPCharacter.h"
 
-ANPCharacter::ANPCharacter()
+ANPCharacter::ANPCharacter(const FObjectInitializer& ObjectInitializer): Super(ObjectInitializer)
 {
 	Ainteractions = new TArray<EInteractionType>();//cant do this in interface bc interfaces dont have constructors, so must be initialized in all interactable objects
 	

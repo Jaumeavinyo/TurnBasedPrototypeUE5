@@ -165,6 +165,35 @@ DEFINE_FUNCTION(UGameManager::execRequestAuthorizationToAct)
 }
 // End Class UGameManager Function RequestAuthorizationToAct
 
+// Begin Class UGameManager Function StartCombat
+struct Z_Construct_UFunction_UGameManager_StartCombat_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/GameManager/GameManager.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UGameManager_StartCombat_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UGameManager, nullptr, "StartCombat", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UGameManager_StartCombat_Statics::Function_MetaDataParams), Z_Construct_UFunction_UGameManager_StartCombat_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_UGameManager_StartCombat()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UGameManager_StartCombat_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UGameManager::execStartCombat)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->StartCombat();
+	P_NATIVE_END;
+}
+// End Class UGameManager Function StartCombat
+
 // Begin Class UGameManager
 void UGameManager::StaticRegisterNativesUGameManager()
 {
@@ -173,6 +202,7 @@ void UGameManager::StaticRegisterNativesUGameManager()
 		{ "AddControlledCharacter", &UGameManager::execAddControlledCharacter },
 		{ "removeControlledCharacter", &UGameManager::execremoveControlledCharacter },
 		{ "RequestAuthorizationToAct", &UGameManager::execRequestAuthorizationToAct },
+		{ "StartCombat", &UGameManager::execStartCombat },
 	};
 	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 }
@@ -213,6 +243,7 @@ struct Z_Construct_UClass_UGameManager_Statics
 		{ &Z_Construct_UFunction_UGameManager_AddControlledCharacter, "AddControlledCharacter" }, // 1275082846
 		{ &Z_Construct_UFunction_UGameManager_removeControlledCharacter, "removeControlledCharacter" }, // 4240863313
 		{ &Z_Construct_UFunction_UGameManager_RequestAuthorizationToAct, "RequestAuthorizationToAct" }, // 3008735216
+		{ &Z_Construct_UFunction_UGameManager_StartCombat, "StartCombat" }, // 2737850484
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -270,10 +301,10 @@ UGameManager::~UGameManager() {}
 struct Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_GameManager_GameManager_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UGameManager, UGameManager::StaticClass, TEXT("UGameManager"), &Z_Registration_Info_UClass_UGameManager, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UGameManager), 3032805855U) },
+		{ Z_Construct_UClass_UGameManager, UGameManager::StaticClass, TEXT("UGameManager"), &Z_Registration_Info_UClass_UGameManager, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UGameManager), 2928429894U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_GameManager_GameManager_h_1747569152(TEXT("/Script/TurnBasedPrototype"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_GameManager_GameManager_h_3859679277(TEXT("/Script/TurnBasedPrototype"),
 	Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_GameManager_GameManager_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_GameManager_GameManager_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

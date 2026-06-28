@@ -11,12 +11,15 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 class AController;
 class UAnimMontage;
+class UAttackDataAsset;
+class UWeaponDataAsset;
 #ifdef TURNBASEDPROTOTYPE_ActionAttack_generated_h
 #error "ActionAttack.generated.h already included, missing '#pragma once' in ActionAttack.h"
 #endif
 #define TURNBASEDPROTOTYPE_ActionAttack_generated_h
 
 #define FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_ActionAttack_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execSetAttackActionValues); \
 	DECLARE_FUNCTION(execisPlayingAnimMontage); \
 	DECLARE_FUNCTION(execGetControllerFromPerformer); \
 	DECLARE_FUNCTION(execFinishAction); \

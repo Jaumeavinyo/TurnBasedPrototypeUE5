@@ -33,7 +33,8 @@ public:
 	UFUNCTION()
 	bool RequestAuthorizationToAct(ABaseCharacter* performer);
 	
-
+    UFUNCTION()
+    void StartCombat();
 
 	
 	//List of actors that are currently performing actions in OnInitialize() || PerformAction() || FinishAction() FinishAction should remove them from this list

@@ -9,6 +9,7 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class AActor;
 struct FActionContext;
 #ifdef TURNBASEDPROTOTYPE_BaseAction_generated_h
 #error "BaseAction.generated.h already included, missing '#pragma once' in BaseAction.h"
@@ -23,6 +24,7 @@ struct FActionContext;
 template<> TURNBASEDPROTOTYPE_API UScriptStruct* StaticStruct<struct FActionContext>();
 
 #define FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_GameManager_BaseAction_h_36_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execSetActionContext); \
 	DECLARE_FUNCTION(execInitializeAction);
 
 

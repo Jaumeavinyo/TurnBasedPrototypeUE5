@@ -10,6 +10,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeNPCharacter() {}
 
 // Begin Cross Module References
+AIMODULE_API UClass* Z_Construct_UClass_UBehaviorTree_NoRegister();
 TURNBASEDPROTOTYPE_API UClass* Z_Construct_UClass_ABaseCharacter();
 TURNBASEDPROTOTYPE_API UClass* Z_Construct_UClass_ANPCharacter();
 TURNBASEDPROTOTYPE_API UClass* Z_Construct_UClass_ANPCharacter_NoRegister();
@@ -91,13 +92,19 @@ struct Z_Construct_UClass_ANPCharacter_Statics
 		{ "HideCategories", "Navigation" },
 		{ "IncludePath", "NPCharacter.h" },
 		{ "ModuleRelativePath", "Public/NPCharacter.h" },
+		{ "ObjectInitializerConstructorDeclared", "" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_NPC_Data_MetaData[] = {
 		{ "Category", "Data" },
 		{ "ModuleRelativePath", "Public/NPCharacter.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_BTAsset_MetaData[] = {
+		{ "Category", "AI" },
+		{ "ModuleRelativePath", "Public/NPCharacter.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_NPC_Data;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_BTAsset;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
@@ -111,8 +118,10 @@ struct Z_Construct_UClass_ANPCharacter_Statics
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ANPCharacter_Statics::NewProp_NPC_Data = { "NPC_Data", nullptr, (EPropertyFlags)0x0010000000010001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ANPCharacter, NPC_Data), Z_Construct_UClass_UNPCDataAsset_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_NPC_Data_MetaData), NewProp_NPC_Data_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ANPCharacter_Statics::NewProp_BTAsset = { "BTAsset", nullptr, (EPropertyFlags)0x0010000000010001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ANPCharacter, BTAsset), Z_Construct_UClass_UBehaviorTree_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_BTAsset_MetaData), NewProp_BTAsset_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ANPCharacter_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANPCharacter_Statics::NewProp_NPC_Data,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANPCharacter_Statics::NewProp_BTAsset,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ANPCharacter_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_ANPCharacter_Statics::DependentSingletons[])() = {
@@ -158,10 +167,10 @@ ANPCharacter::~ANPCharacter() {}
 struct Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_NPCharacter_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ANPCharacter, ANPCharacter::StaticClass, TEXT("ANPCharacter"), &Z_Registration_Info_UClass_ANPCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ANPCharacter), 1324768872U) },
+		{ Z_Construct_UClass_ANPCharacter, ANPCharacter::StaticClass, TEXT("ANPCharacter"), &Z_Registration_Info_UClass_ANPCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ANPCharacter), 3277016283U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_NPCharacter_h_234921605(TEXT("/Script/TurnBasedPrototype"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_NPCharacter_h_1847245004(TEXT("/Script/TurnBasedPrototype"),
 	Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_NPCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_NPCharacter_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

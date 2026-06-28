@@ -116,3 +116,9 @@ bool UActionAttack::isPlayingAnimMontage(UAnimMontage* montage)
 	}
 	return false;
 }
+
+void UActionAttack::SetAttackActionValues(UWeaponDataAsset* WeaponDataAsset, UAttackDataAsset* attackDataAsset)
+{
+	AttackData = attackDataAsset;
+	WeaponData = WeaponDataAsset;
+}

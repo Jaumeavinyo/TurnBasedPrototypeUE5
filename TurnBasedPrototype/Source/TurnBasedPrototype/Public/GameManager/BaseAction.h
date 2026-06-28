@@ -16,21 +16,21 @@ enum ActionState
 	Close UMETA(DisplayName = "Close"),
 };
 
-USTRUCT()
+USTRUCT(BlueprintType)
 struct FActionContext
 {
 	GENERATED_BODY()
-	UPROPERTY()
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Action Context")
 	AActor* Performer;  //Who does this action
 	
-	UPROPERTY()
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Action Context")
 	AActor* TargetActor;  //Who or what receives this action
 };
 
 /**
  * 
  */
-UCLASS()
+UCLASS(BlueprintType, Blueprintable)
 class TURNBASEDPROTOTYPE_API UBaseAction : public UObject
 {
 	GENERATED_BODY()
@@ -48,8 +48,10 @@ public:
 	
 	virtual void FinishAction();//called from game manager
 
-
-	UPROPERTY()
+	UFUNCTION(BlueprintCallable)
+	void SetActionContext(AActor* targetActor, AActor* performer);
+	
+	UPROPERTY(BlueprintReadWrite)
 	FActionContext ActionContext;
 	
 	ActionState state;

@@ -99,12 +99,15 @@ struct Z_Construct_UScriptStruct_FActionContext_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Struct_MetaDataParams[] = {
+		{ "BlueprintType", "true" },
 		{ "ModuleRelativePath", "Public/GameManager/BaseAction.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Performer_MetaData[] = {
+		{ "Category", "Action Context" },
 		{ "ModuleRelativePath", "Public/GameManager/BaseAction.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_TargetActor_MetaData[] = {
+		{ "Category", "Action Context" },
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "//Who does this action\n" },
 #endif
@@ -123,8 +126,8 @@ struct Z_Construct_UScriptStruct_FActionContext_Statics
 	}
 	static const UECodeGen_Private::FStructParams StructParams;
 };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UScriptStruct_FActionContext_Statics::NewProp_Performer = { "Performer", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FActionContext, Performer), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Performer_MetaData), NewProp_Performer_MetaData) };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UScriptStruct_FActionContext_Statics::NewProp_TargetActor = { "TargetActor", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FActionContext, TargetActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_TargetActor_MetaData), NewProp_TargetActor_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UScriptStruct_FActionContext_Statics::NewProp_Performer = { "Performer", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FActionContext, Performer), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Performer_MetaData), NewProp_Performer_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UScriptStruct_FActionContext_Statics::NewProp_TargetActor = { "TargetActor", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FActionContext, TargetActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_TargetActor_MetaData), NewProp_TargetActor_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FActionContext_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FActionContext_Statics::NewProp_Performer,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FActionContext_Statics::NewProp_TargetActor,
@@ -169,7 +172,7 @@ struct Z_Construct_UFunction_UBaseAction_InitializeAction_Statics
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static const UECodeGen_Private::FFunctionParams FuncParams;
 };
-const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UBaseAction_InitializeAction_Statics::NewProp_context = { "context", nullptr, (EPropertyFlags)0x0010000000000180, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(BaseAction_eventInitializeAction_Parms, context), Z_Construct_UScriptStruct_FActionContext, METADATA_PARAMS(0, nullptr) }; // 2387228641
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UBaseAction_InitializeAction_Statics::NewProp_context = { "context", nullptr, (EPropertyFlags)0x0010000000000180, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(BaseAction_eventInitializeAction_Parms, context), Z_Construct_UScriptStruct_FActionContext, METADATA_PARAMS(0, nullptr) }; // 1237543545
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UBaseAction_InitializeAction_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UBaseAction_InitializeAction_Statics::NewProp_context,
 };
@@ -195,12 +198,66 @@ DEFINE_FUNCTION(UBaseAction::execInitializeAction)
 }
 // End Class UBaseAction Function InitializeAction
 
+// Begin Class UBaseAction Function SetActionContext
+struct Z_Construct_UFunction_UBaseAction_SetActionContext_Statics
+{
+	struct BaseAction_eventSetActionContext_Parms
+	{
+		AActor* targetActor;
+		AActor* performer;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "//called from game manager\n" },
+#endif
+		{ "ModuleRelativePath", "Public/GameManager/BaseAction.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "called from game manager" },
+#endif
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_targetActor;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_performer;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UBaseAction_SetActionContext_Statics::NewProp_targetActor = { "targetActor", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(BaseAction_eventSetActionContext_Parms, targetActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UBaseAction_SetActionContext_Statics::NewProp_performer = { "performer", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(BaseAction_eventSetActionContext_Parms, performer), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UBaseAction_SetActionContext_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UBaseAction_SetActionContext_Statics::NewProp_targetActor,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UBaseAction_SetActionContext_Statics::NewProp_performer,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UBaseAction_SetActionContext_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UBaseAction_SetActionContext_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UBaseAction, nullptr, "SetActionContext", nullptr, nullptr, Z_Construct_UFunction_UBaseAction_SetActionContext_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UBaseAction_SetActionContext_Statics::PropPointers), sizeof(Z_Construct_UFunction_UBaseAction_SetActionContext_Statics::BaseAction_eventSetActionContext_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UBaseAction_SetActionContext_Statics::Function_MetaDataParams), Z_Construct_UFunction_UBaseAction_SetActionContext_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_UBaseAction_SetActionContext_Statics::BaseAction_eventSetActionContext_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_UBaseAction_SetActionContext()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UBaseAction_SetActionContext_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UBaseAction::execSetActionContext)
+{
+	P_GET_OBJECT(AActor,Z_Param_targetActor);
+	P_GET_OBJECT(AActor,Z_Param_performer);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->SetActionContext(Z_Param_targetActor,Z_Param_performer);
+	P_NATIVE_END;
+}
+// End Class UBaseAction Function SetActionContext
+
 // Begin Class UBaseAction
 void UBaseAction::StaticRegisterNativesUBaseAction()
 {
 	UClass* Class = UBaseAction::StaticClass();
 	static const FNameNativePtrPair Funcs[] = {
 		{ "InitializeAction", &UBaseAction::execInitializeAction },
+		{ "SetActionContext", &UBaseAction::execSetActionContext },
 	};
 	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 }
@@ -213,27 +270,25 @@ struct Z_Construct_UClass_UBaseAction_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[] = {
+		{ "BlueprintType", "true" },
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "/**\n * \n */" },
 #endif
 		{ "IncludePath", "GameManager/BaseAction.h" },
+		{ "IsBlueprintBase", "true" },
 		{ "ModuleRelativePath", "Public/GameManager/BaseAction.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ActionContext_MetaData[] = {
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "//called from game manager\n" },
-#endif
+		{ "Category", "BaseAction" },
 		{ "ModuleRelativePath", "Public/GameManager/BaseAction.h" },
-#if !UE_BUILD_SHIPPING
-		{ "ToolTip", "called from game manager" },
-#endif
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FStructPropertyParams NewProp_ActionContext;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
-		{ &Z_Construct_UFunction_UBaseAction_InitializeAction, "InitializeAction" }, // 825614788
+		{ &Z_Construct_UFunction_UBaseAction_InitializeAction, "InitializeAction" }, // 2153270671
+		{ &Z_Construct_UFunction_UBaseAction_SetActionContext, "SetActionContext" }, // 402565302
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -241,7 +296,7 @@ struct Z_Construct_UClass_UBaseAction_Statics
 	};
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
-const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UBaseAction_Statics::NewProp_ActionContext = { "ActionContext", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UBaseAction, ActionContext), Z_Construct_UScriptStruct_FActionContext, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ActionContext_MetaData), NewProp_ActionContext_MetaData) }; // 2387228641
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UBaseAction_Statics::NewProp_ActionContext = { "ActionContext", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UBaseAction, ActionContext), Z_Construct_UScriptStruct_FActionContext, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ActionContext_MetaData), NewProp_ActionContext_MetaData) }; // 1237543545
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UBaseAction_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UBaseAction_Statics::NewProp_ActionContext,
 };
@@ -290,13 +345,13 @@ struct Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototype
 		{ ActionState_StaticEnum, TEXT("ActionState"), &Z_Registration_Info_UEnum_ActionState, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 1207246001U) },
 	};
 	static constexpr FStructRegisterCompiledInInfo ScriptStructInfo[] = {
-		{ FActionContext::StaticStruct, Z_Construct_UScriptStruct_FActionContext_Statics::NewStructOps, TEXT("ActionContext"), &Z_Registration_Info_UScriptStruct_ActionContext, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FActionContext), 2387228641U) },
+		{ FActionContext::StaticStruct, Z_Construct_UScriptStruct_FActionContext_Statics::NewStructOps, TEXT("ActionContext"), &Z_Registration_Info_UScriptStruct_ActionContext, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FActionContext), 1237543545U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UBaseAction, UBaseAction::StaticClass, TEXT("UBaseAction"), &Z_Registration_Info_UClass_UBaseAction, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UBaseAction), 2179504138U) },
+		{ Z_Construct_UClass_UBaseAction, UBaseAction::StaticClass, TEXT("UBaseAction"), &Z_Registration_Info_UClass_UBaseAction, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UBaseAction), 1562821738U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_GameManager_BaseAction_h_3965216588(TEXT("/Script/TurnBasedPrototype"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_GameManager_BaseAction_h_4240924638(TEXT("/Script/TurnBasedPrototype"),
 	Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_GameManager_BaseAction_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_GameManager_BaseAction_h_Statics::ClassInfo),
 	Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_GameManager_BaseAction_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_GameManager_BaseAction_h_Statics::ScriptStructInfo),
 	Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_GameManager_BaseAction_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_jauma_Documents_GitHub_TurnBasedPrototypeUE5_TurnBasedPrototype_Source_TurnBasedPrototype_Public_GameManager_BaseAction_h_Statics::EnumInfo));

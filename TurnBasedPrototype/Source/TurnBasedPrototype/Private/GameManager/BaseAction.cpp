@@ -24,3 +24,9 @@ void UBaseAction::FinishAction()
 {
 	
 }
+
+void UBaseAction::SetActionContext(AActor* targetActor, AActor* performer)
+{
+	ActionContext.Performer = performer;
+	ActionContext.TargetActor = targetActor;
+}

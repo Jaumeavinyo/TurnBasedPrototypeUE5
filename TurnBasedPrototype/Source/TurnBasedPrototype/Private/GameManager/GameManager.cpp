@@ -50,3 +50,14 @@ bool UGameManager::RequestAuthorizationToAct(ABaseCharacter* performer)
 	}
 	return true;
 }
+
+void UGameManager::StartCombat()
+{
+	/* called from attacked Character or the one enemy that wants to start it
+	 * when first attack action if finished -> next line
+	 * calls nearby characters that should enter the combat on each side
+	 * calls the dice function to order every character in the array
+	 * calls UI to place them in the top part of the screen
+	 * 
+	 */
+}

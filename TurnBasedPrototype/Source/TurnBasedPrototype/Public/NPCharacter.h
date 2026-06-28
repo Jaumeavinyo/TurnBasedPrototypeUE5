@@ -18,13 +18,15 @@ class TURNBASEDPROTOTYPE_API ANPCharacter : public ABaseCharacter, public IInter
 	GENERATED_BODY()
 public:
 
-	ANPCharacter();
+	ANPCharacter(const FObjectInitializer& ObjectInitializer);
 	void BeginPlay() override;
 public:
 	
 	UPROPERTY(EditDefaultsOnly , Category = "Data")
 	UNPCDataAsset* NPC_Data;
 
+	UPROPERTY(EditDefaultsOnly,Category = "AI")
+	UBehaviorTree* BTAsset;
 public:
 	
 	virtual TArray<EInteractionType>* GetSupportedInteractions() const override;

@@ -428,11 +428,12 @@ MouseHoverType ATurnBasedPrototypePlayerController::GetMouseHoverForInteractionT
 void ATurnBasedPrototypePlayerController::DoAttackAction(ABaseCharacter* player, ABaseCharacter* target)
 {
 	UActionAttack* AttackAction = NewObject<UActionAttack>();
-		
-	AttackAction->ActionContext.Performer = player;
-	AttackAction->ActionContext.TargetActor = Cast<ABaseCharacter>(target); // The chest actor
-	AttackAction->WeaponData = player->WeaponComponent->currentWeapon->weaponData;
-	AttackAction->AttackData = CachedAttack;//needs to be always valid
+	AttackAction->SetActionContext(player,target);	
+	//AttackAction->ActionContext.Performer = player;
+	//AttackAction->ActionContext.TargetActor = Cast<ABaseCharacter>(target); // The chest actor
+	AttackAction->SetAttackActionValues(player->WeaponComponent->currentWeapon->weaponData,CachedAttack);
+	//AttackAction->WeaponData = player->WeaponComponent->currentWeapon->weaponData;
+	//AttackAction->AttackData = CachedAttack;//needs to be always valid
 	
 	UPuppetComponent* PuppetComp = player->FindComponentByClass<UPuppetComponent>();
 	// Enqueue the action, this initializes it automatically

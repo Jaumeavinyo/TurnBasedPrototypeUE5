@@ -73,6 +73,9 @@
     <ClCompile Include="..\..\Source\TurnBasedPrototype\Private\BaseCharacter.cpp">
       <Filter>Source\TurnBasedPrototype\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\TurnBasedPrototype\Private\BaseNPCharacterController.cpp">
+      <Filter>Source\TurnBasedPrototype\Private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\TurnBasedPrototype\Private\BaseWeapon.cpp">
       <Filter>Source\TurnBasedPrototype\Private</Filter>
     </ClCompile>
@@ -146,6 +149,9 @@
       <Filter>Source\TurnBasedPrototype\Public</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\TurnBasedPrototype\Public\BaseCharacter.h">
+      <Filter>Source\TurnBasedPrototype\Public</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TurnBasedPrototype\Public\BaseNPCharacterController.h">
       <Filter>Source\TurnBasedPrototype\Public</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\TurnBasedPrototype\Public\BaseWeapon.h">
