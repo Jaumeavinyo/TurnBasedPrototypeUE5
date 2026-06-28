@@ -64,14 +64,12 @@ void UPuppetComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActo
 				bIsProcessingAction = false;
 			}
 		}
-		
 	}
 }
 
 void UPuppetComponent::EnqueueAction(UBaseAction* Action)
 {
 	if (!Action) return;
-    
 	ActionsArray.Add(Action);
 }
 

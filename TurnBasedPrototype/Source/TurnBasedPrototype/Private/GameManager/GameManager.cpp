@@ -22,12 +22,6 @@ void UGameManager::ManagerTick(float DeltaTime)
 
 }
 
-
-
-
-
-
-
 void UGameManager::AddControlledCharacter(ABaseCharacter* character)
 {
 	ControlledCharacters.Add(character);
